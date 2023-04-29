@@ -120,6 +120,26 @@ export const GlobalStyle = createGlobalStyle`
         url(${GmarketSanstWoff2}) format('woff2');
     }
 
+    :root {
+        /* style | variant | weight | size/line-height | family */
+        --t1 : 500 50px "Pretendard";
+        --t2 : 500 34px "Pretendard";
+        --t3 : 500 32px "Pretendard";
+        --t4 : 500 30px "Pretendard";
+        --st1 : 400 28px "Pretendard";
+        --st2 : 400 26px "Pretendard";
+        --st3 : 400 22px "Pretendard";
+        --st4 : 400 20px "Pretendard";
+        --btn1 : 400 24px "Pretendard";
+        --btn2 : 400 20px "Pretendard";
+        --btn3 : 400 14px "Pretendard";
+        --btn4 : 400 12px "Pretendard";
+        --b1 : 400 18px "Pretendard";
+        --b2 : 400 16px "Pretendard";
+        --b3 : 400 14px "Pretendard";
+        --b4 : 400 12px "Pretendard";
+        --col_acc : #FF4D15 !important;
+    }
 
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -170,4 +190,15 @@ export const GlobalStyle = createGlobalStyle`
     *, *:before, *:after{box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box}
     body{margin:0 auto;font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     font-size:1rem;line-height:1.5;color:#000;letter-spacing:-0.002em; -webkit-text-size-adjust:none; position: relative;}
+    
+    /*== 접근성 부분 ==*/
+    .ir_pm {display:block; overflow:hidden; font-size:0; line-height:0; text-indent:-9999px;} /* 의미있는 이미지의 대체 텍스트를 제공하는 경우(Phark Method) */
+    .ir_wa {display:block; overflow:hidden; position:relative; z-index:-1; width:100%; height: 100%;} /* 의미있는 이미지의 대체 텍스트로 이미지가 없어도 대체 텍스트를 보여주고자 할 때(WA IR) */
+    .ir_so {overflow: hidden; position:absolute; width:0; height:0; line-height:0; text-indent:-9999px; visibility: hidden;} /* 대체 텍스트가 아닌 접근성을 위한 숨김 텍스트를 제공할 때 */
+
+    /*== 말줄임 ==*/
+    .ellipsis{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .ellipsis2{overflow:hidden;text-overflow:ellipsis;word-wrap:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+
+
 `
