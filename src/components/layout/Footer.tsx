@@ -50,7 +50,7 @@ const Footer = () => {
                             <p>
                                 <span>Byul's Web Sample</span>
                                 <VerticalLine/>
-                                <span>사업자등록번호 : 000-00-0000 (대표이사 : 홍길동)</span>
+                                <span>사업자등록번호 : 000-00-0000 (대표이사 : 김 별)</span>
                             </p>
                             <AddressCsWrap>
                                 <AddressBox>
@@ -62,12 +62,17 @@ const Footer = () => {
                                     <span>010-3092-1356</span>
                                 </CsBox>
                             </AddressCsWrap>
-                            <p>
-                                <b>
-                                    Copyright © 2023 ByulKim. All rights reserved.
-                                </b>
-                            </p>
+                            <h5>
+                                Copyright © 2023 ByulKim. All rights reserved.
+                            </h5>
                         </InfoLeftBox>
+                        <InfoRightBox>
+                            <p>Membership &  Network</p>
+                            <MemberBox>
+                                <a href="https://www.naver.com" target="_blank" rel="noopener noreferrer">Sample</a>
+                                <a href="https://www.naver.com" target="_blank" rel="noopener noreferrer">Sample</a>
+                            </MemberBox>
+                        </InfoRightBox>
                     </InfoWrap>
                 </Row>
             </BottomArea>
@@ -90,7 +95,6 @@ const TopArea = styled.div`
     height: 70px;
 `
     
-
 const TermsWrap = styled.div`
     display: flex; 
     justify-content: space-between; 
@@ -169,9 +173,10 @@ const InfoWrap = styled.div`
 const InfoLeftBox = styled.div`
     p{
         color: #fff; font: var(--b2); margin-top: 20px;
-        b{
-            color: #828282;
-        }
+    }
+    h5{
+        margin-top: 20px;
+        color: #828282;
     }
 
 `
@@ -192,16 +197,19 @@ const InfoRightBox = styled.div`
         color: #fff; font: var(--b2); margin-top: 20px;
     }
 `
+const MemberBox = styled.div`
+    display: flex; 
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
+    a{
+        display: block; width: 49%; height: 47px; line-height: 47px; border: 1px solid #fff; color: #fff; text-align: center;
+    }
+    a:hover{
+        color: var(--col_acc); border: 1px solid var(--col_acc); transition: all .2s ease;
+    }
+
+`
 
 
 
-
-
-// .footer .address_cs{}
-// .footer .address_box{display: block;}
-// .footer .cs_box{margin-left: 20px; display: block;}
-
-// .copy_wrap .left_box p{}
-// .copy_wrap .left_box p.copy_right{color: #828282;}
-// .copy_wrap .right_box{}
-// .copy_wrap .right_box p{}
