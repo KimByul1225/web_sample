@@ -49,7 +49,7 @@ const Footer = () => {
                         <InfoLeftBox>
                             <p>
                                 <span>Byul's Web Sample</span>
-                                <VerticalLine/>
+                                <VerticalLine className="mb_none"/>
                                 <span>사업자등록번호 : 000-00-0000 (대표이사 : 김 별)</span>
                             </p>
                             <AddressCsWrap>
@@ -89,10 +89,16 @@ const FooterWrap = styled.footer`
 `
 const Row = styled.div`
     max-width: 1200px; margin: 0 auto; height: 100%;
+    @media screen and (max-width: 1200px) {
+        padding: 0;
+    }
 `
 
 const TopArea = styled.div`
     height: 70px;
+    @media screen and (max-width: 768px) {
+        height: auto;
+    }
 `
     
 const TermsWrap = styled.div`
@@ -101,6 +107,13 @@ const TermsWrap = styled.div`
     align-items: center; 
     height: 100%; 
     border-bottom: 1px solid #222;
+    @media screen and (max-width: 1200px) {
+        padding: 0 20px;
+    }
+    @media screen and (max-width: 768px) {
+        display: block; padding: 0; border: none;
+    }
+
 `
 const LeftBox = styled.div`
     a{
@@ -111,7 +124,20 @@ const LeftBox = styled.div`
         color: var(--col_acc); 
         transition: color .2s ease;
     }
-    
+    @media screen and (max-width: 1200px) {
+        a{
+            font-size: 16px;
+        }
+        a:hover{
+            color: #fff;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        padding: 0 20px; border-bottom: 1px solid #676767; height: 90px; display: flex; align-items: center; justify-content: space-between;
+        a{
+            font-size: 12px;letter-spacing: -0.03em;
+        }
+    }
 `
 const VerticalLine = styled.span`
     width: 1px; 
@@ -119,7 +145,11 @@ const VerticalLine = styled.span`
     background-color: #fff; 
     display: inline-block; 
     margin: 0 12px;
+    @media screen and (max-width: 768px) {
+        height: 10px; margin: 0 10px;
+    }
 `
+	// .top .terms_wrap .right_box{ }
 
 const RightBox = styled.div`
     a{
@@ -149,11 +179,20 @@ const RightBox = styled.div`
             background: #000 url(${IconHover4}) center no-repeat; background-size: 40px;
         }
     }
+    @media screen and (max-width: 768px) {
+        padding: 0 20px; border-bottom: 1px solid #676767; width: 100%; height: 80px; line-height: 80px; display: flex; align-items: center;
+    }
 
 `
 
+
+
+
 const BottomArea = styled.div`
     height: 230px; padding-top: 20px;
+    @media screen and (max-width: 1200px) {
+        height: auto; padding: 20px 20px;
+    }
 
 `
 
@@ -166,8 +205,14 @@ const FooterLogo = styled.h2`
     a{position: absolute; top: 0; bottom: 0; left: 0; right: 0;}
 `
 
+
+	
+
 const InfoWrap = styled.div`
     display: flex; justify-content: space-between;
+    @media screen and (max-width: 1200px) {
+        flex-direction: column-reverse;
+    }
 `
 
 const InfoLeftBox = styled.div`
@@ -177,6 +222,22 @@ const InfoLeftBox = styled.div`
     h5{
         margin-top: 20px;
         color: #828282;
+    }
+    @media screen and (max-width: 1200px){
+        margin-top: 15px;
+    }
+    @media screen and (max-width: 768px) {
+        margin-top: 20px;
+        p{
+            font-size: 14px; margin-top: 10px;
+        }
+        h5{
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        span{
+            display: block; line-height: 25px;
+        }
     }
 
 `
@@ -196,7 +257,23 @@ const InfoRightBox = styled.div`
     p{
         color: #fff; font: var(--b2); margin-top: 20px;
     }
+    @media screen and (max-width: 1200px) {
+        margin-top: 15px;
+        p{
+            margin-top: 0;
+        }
+    }
+    @media screen and (max-width: 768px){
+        width: 100%;
+        p{
+            font-size: 14px; margin-top: 10px;
+        }
+    }
 `
+
+	
+
+
 const MemberBox = styled.div`
     display: flex; 
     justify-content: space-between;
@@ -213,3 +290,32 @@ const MemberBox = styled.div`
 
 
 
+
+
+/* footer */
+
+
+
+
+
+
+
+
+    	/* footer */
+
+
+
+
+
+
+
+
+
+	// .footer .address_cs{display: block;}
+	// .footer .cs_box{margin-left: 0; margin-top: 10px;}
+	// .footer .copy_wrap .left_box .cs_box span{display: inline-block;}
+	// .copy_wrap .left_box .mb_none{display: none;}
+	// .copy_wrap .left_box p.copy_right{margin-top: 20px;}
+	// .member_box{width: 100%; margin-top: 10px; flex-direction: column;}
+	// .member_box a{font-size: 14px; width: 100%;}
+	// .member_box a:first-child, .member_box a:nth-child(2){margin-bottom: 10px;}

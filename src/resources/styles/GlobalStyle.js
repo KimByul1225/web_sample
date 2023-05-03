@@ -200,5 +200,8 @@ export const GlobalStyle = createGlobalStyle`
     .ellipsis{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .ellipsis2{overflow:hidden;text-overflow:ellipsis;word-wrap:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 
+    @media screen and (max-width:768px) {
+        .mb_none{display: none !important;}
+    }
 
 `
