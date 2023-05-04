@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Icon1 from "@/resources/icons/commons/icon_youtube.png"
-import IconHover1 from "@/resources/icons/commons/icon_youtube_hover.png"
-import Icon2 from "@/resources/icons/commons/icon_sns.png"
-import IconHover2 from "@/resources/icons/commons/icon_sns_hover.png"
-import Icon3 from "@/resources/icons/commons/icon_sns2.png"
-import IconHover3 from "@/resources/icons/commons/icon_sns2_hover.png"
-import Icon4 from "@/resources/icons/commons/icon_mail.png"
-import IconHover4 from "@/resources/icons/commons/icon_mail_hover.png"
-
-import Logo from "@/resources/images/commons/logo_black.png"
+import Icon1 from "@/resources/icons/commons/icon_youtube.png";
+import IconHover1 from "@/resources/icons/commons/icon_youtube_hover.png";
+import Icon2 from "@/resources/icons/commons/icon_sns.png";
+import IconHover2 from "@/resources/icons/commons/icon_sns_hover.png";
+import Icon3 from "@/resources/icons/commons/icon_sns2.png";
+import IconHover3 from "@/resources/icons/commons/icon_sns2_hover.png";
+import Icon4 from "@/resources/icons/commons/icon_mail.png";
+import IconHover4 from "@/resources/icons/commons/icon_mail_hover.png";
+import Logo from "@/resources/images/commons/logo_black.png";
 
 const Footer = () => {
     return (
@@ -149,8 +148,6 @@ const VerticalLine = styled.span`
         height: 10px; margin: 0 10px;
     }
 `
-	// .top .terms_wrap .right_box{ }
-
 const RightBox = styled.div`
     a{
         width: 40px; height: 40px; border-radius: 10px; display: inline-block; border: 1px solid #fff; transition: all .2s ease; margin-right: 15px;
@@ -185,9 +182,6 @@ const RightBox = styled.div`
 
 `
 
-
-
-
 const BottomArea = styled.div`
     height: 230px; padding-top: 20px;
     @media screen and (max-width: 1200px) {
@@ -195,7 +189,6 @@ const BottomArea = styled.div`
     }
 
 `
-
 const FooterLogo = styled.h2`
     width: 130px; 
     height: 35px; 
@@ -204,10 +197,7 @@ const FooterLogo = styled.h2`
     position: relative;
     a{position: absolute; top: 0; bottom: 0; left: 0; right: 0;}
 `
-
-
 	
-
 const InfoWrap = styled.div`
     display: flex; justify-content: space-between;
     @media screen and (max-width: 1200px) {
@@ -233,23 +223,31 @@ const InfoLeftBox = styled.div`
         }
         h5{
             font-size: 14px;
-            margin-top: 10px;
+            margin-top: 20px;
         }
         span{
             display: block; line-height: 25px;
         }
     }
-
 `
 
 const AddressCsWrap = styled.p`
     display: flex;
+    @media screen and (max-width: 768px){
+        display: block;
+    }
 `
 const AddressBox = styled.span`
     display: block;
 `
 const CsBox = styled.span`
     margin-left: 20px; display: block;
+    @media screen and (max-width: 768px){
+        margin-left: 0; margin-top: 10px;
+        span{
+            display: inline-block;
+        }
+    }
 `
 
 const InfoRightBox = styled.div`
@@ -271,9 +269,6 @@ const InfoRightBox = styled.div`
     }
 `
 
-	
-
-
 const MemberBox = styled.div`
     display: flex; 
     justify-content: space-between;
@@ -287,35 +282,3 @@ const MemberBox = styled.div`
     }
 
 `
-
-
-
-
-
-/* footer */
-
-
-
-
-
-
-
-
-    	/* footer */
-
-
-
-
-
-
-
-
-
-	// .footer .address_cs{display: block;}
-	// .footer .cs_box{margin-left: 0; margin-top: 10px;}
-	// .footer .copy_wrap .left_box .cs_box span{display: inline-block;}
-	// .copy_wrap .left_box .mb_none{display: none;}
-	// .copy_wrap .left_box p.copy_right{margin-top: 20px;}
-	// .member_box{width: 100%; margin-top: 10px; flex-direction: column;}
-	// .member_box a{font-size: 14px; width: 100%;}
-	// .member_box a:first-child, .member_box a:nth-child(2){margin-bottom: 10px;}
