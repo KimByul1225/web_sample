@@ -1,3 +1,4 @@
+import SliderType01 from '@/components/Home/SliderType01';
 import React from 'react';
 
 const Home = () => {
@@ -10,7 +11,7 @@ const Home = () => {
             <br />
             <br />
             <br />
-            Home
+            <SliderType01/>
         </div>
     );
 };

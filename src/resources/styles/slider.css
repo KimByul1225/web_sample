@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+.solution_box{margin-top: 50px;}
+.solution_box .swiper-wrapper{display: flex; justify-content: space-between;}
+.solution_box .swiper-slide{width: 24%;}
+.solution_box a{display: block; width: 100%; border: 1px solid #B7B7B7; position: relative;  padding: 90px 0 205px 0; background-color: #fff; transition: all .3s ease; background: url(../icons/home/icon_mainsolutin01.png) bottom 90px center no-repeat; background-size: 100px;}
+.solution_box .swiper-slide:nth-child(2) a{background: url(../icons/home/icon_mainsolutin02.png) bottom 90px center no-repeat; background-size: 100px;}
+.solution_box .swiper-slide:nth-child(3) a{background: url(../icons/home/icon_mainsolutin03.png) bottom 90px center no-repeat; background-size: 100px;}
+.solution_box .swiper-slide:nth-child(4) a{background: url(../icons/home/icon_mainsolutin04.png) bottom 90px center no-repeat; background-size: 100px;}
+.solution_box a h4{font-size: 22px; font-weight: 700; letter-spacing: -0.03em; text-align: center; color: #333; margin-bottom: 10px; transition: all .3s ease;}
+.solution_box a p{font:var(--b1); color: #717171; text-align: center; transition: all .3s ease;}
+.solution_box a:hover{border: 1px solid var(--col_acc); transition: all .3s ease; background: var(--col_acc) url(../icons/home/icon_mainsolutin01_hover.png) bottom 90px center no-repeat; background-size: 100px;}
+.solution_box .swiper-slide:nth-child(2) a:hover{background: var(--col_acc) url(../icons/home/icon_mainsolutin02_hover.png) bottom 90px center no-repeat; background-size: 100px;}
+.solution_box .swiper-slide:nth-child(3) a:hover{background: var(--col_acc) url(../icons/home/icon_mainsolutin03_hover.png) bottom 90px center no-repeat; background-size: 100px;}
+.solution_box .swiper-slide:nth-child(4) a:hover{background: var(--col_acc) url(../icons/home/icon_mainsolutin04_hover.png) bottom 90px center no-repeat; background-size: 100px;}
+.solution_box a:hover h4{color: #fff; transition: all .3s ease;}
+.solution_box a:hover p{color: #fff; transition: all .3s ease;}
+
