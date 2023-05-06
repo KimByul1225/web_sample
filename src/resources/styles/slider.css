@@ -16,3 +16,35 @@
 .solution_box a:hover h4{color: #fff; transition: all .3s ease;}
 .solution_box a:hover p{color: #fff; transition: all .3s ease;}
 
+
+@media screen and (max-width: 1200px) {
+    .solution_box{padding: 0 20px; margin-top: 40px;}
+	.solution_box .swiper-slide{width: 48%; margin-right: 2%;}
+	.solution_box .swiper-slide:last-child{margin-right: 0;}
+	.solution_box a h4{font-size: 22px;}
+	.solution_box a p{font-size: 18px;}
+	.solution_box a{padding: 90px 0 205px 0; background-color: #fff; background: url(../icons/home/icon_mainsolutin01.png) bottom 90px center no-repeat; background-size: 100px;}
+	.solution_box .swiper-slide:nth-child(2) a{background: url(../icons/home/icon_mainsolutin02.png) bottom 90px center no-repeat; background-size: 100px;}
+	.solution_box .swiper-slide:nth-child(3) a{background: url(../icons/home/icon_mainsolutin03.png) bottom 90px center no-repeat; background-size: 100px;}
+	.solution_box .swiper-slide:nth-child(4) a{background: url(../icons/home/icon_mainsolutin04.png) bottom 90px center no-repeat; background-size: 100px;}
+	.solution_box a:hover{border: 1px solid #B7B7B7; background-color: #fff; background: url(../icons/home/icon_mainsolutin01.png) bottom 90px center no-repeat; background-size: 100px;}
+	.solution_box .swiper-slide:nth-child(2) a:hover{background: url(../icons/home/icon_mainsolutin02.png) bottom 90px center no-repeat; background-size: 100px;}
+	.solution_box .swiper-slide:nth-child(3) a:hover{background: url(../icons/home/icon_mainsolutin03.png) bottom 90px center no-repeat; background-size: 100px;}
+	.solution_box .swiper-slide:nth-child(4) a:hover{background: url(../icons/home/icon_mainsolutin04.png) bottom 90px center no-repeat; background-size: 100px;}
+	.solution_box a:hover h4{color: #333;}
+	.solution_box a:hover p{color: #717171;}
+}
+@media screen and (max-width: 768px) {
+    .solution_box{padding: 0 20px; margin-top: 30px;}
+	.solution_box .swiper-slide{width: 100%; margin-right: 10px;}
+	.solution_box a{padding: 50px 0 150px 0; background-color: #fff; background: url(../icons/home/icon_mainsolutin01.png) bottom 40px center no-repeat; background-size: 100px;}
+	.solution_box .swiper-slide:nth-child(2) a{background: url(../icons/home/icon_mainsolutin02.png) bottom 40px center no-repeat; background-size: 100px;}
+	.solution_box .swiper-slide:nth-child(3) a{background: url(../icons/home/icon_mainsolutin03.png) bottom 40px center no-repeat; background-size: 100px;}
+	.solution_box .swiper-slide:nth-child(4) a{background: url(../icons/home/icon_mainsolutin04.png) bottom 40px center no-repeat; background-size: 100px;}
+	.solution_box a:hover{border: 1px solid #B7B7B7; background-color: #fff; background: url(../icons/home/icon_mainsolutin01.png) bottom 40px center no-repeat; background-size: 100px;}
+	.solution_box .swiper-slide:nth-child(2) a:hover{background: url(../icons/home/icon_mainsolutin02.png) bottom 40px center no-repeat; background-size: 100px;}
+	.solution_box .swiper-slide:nth-child(3) a:hover{background: url(../icons/home/icon_mainsolutin03.png) bottom 40px center no-repeat; background-size: 100px;}
+	.solution_box .swiper-slide:nth-child(4) a:hover{background: url(../icons/home/icon_mainsolutin04.png) bottom 40px center no-repeat; background-size: 100px;}
+	.solution_box a h4{font-size: 22px;}
+	.solution_box a p{font-size: 18px;}
+}
