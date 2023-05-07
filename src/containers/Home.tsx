@@ -1,4 +1,4 @@
-import SliderType01 from '@/components/Home/SliderType01';
+import SliderType01 from '@/components/home/SliderType01';
 import React from 'react';
 
 const Home = () => {

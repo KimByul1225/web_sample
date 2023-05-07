@@ -6,11 +6,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 
 import "@/resources/styles/slider.css";
+import SectionTitle from '../commons/SectionTitle';
 
 const SliderType01 = () => {
     return (
         <SliderWrap>
             <Row>
+                <SectionTitle
+                    title="슬라이더 예시"
+                />
                 <Swiper 
                     className="solution_box"
                     breakpoints={{
