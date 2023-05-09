@@ -10,8 +10,27 @@ export function BannerFaker () {
                 {
                     mainText: faker.lorem.lines({ min: 1, max: 1 }),
                     subText: faker.lorem.lines({ min: 1, max: 1 }),
-                    imgPath: faker.image.urlPicsumPhotos({ width: 1920 }) 
+                    imgPath: faker.image.urlPicsumPhotos({ width: 1920 }),
+                    linkUrl: "https://github.com/KimByul1225"
                 },
+                {
+                    mainText: faker.lorem.lines({ min: 1, max: 1 }),
+                    subText: faker.lorem.lines({ min: 1, max: 1 }),
+                    imgPath: faker.image.urlPicsumPhotos({ width: 1920 }),
+                    linkUrl: "https://github.com/KimByul1225"
+                },
+                {
+                    mainText: faker.lorem.lines({ min: 1, max: 1 }),
+                    subText: faker.lorem.lines({ min: 1, max: 1 }),
+                    imgPath: faker.image.urlPicsumPhotos({ width: 1920 }),
+                    linkUrl: "https://github.com/KimByul1225"
+                },
+                {
+                    mainText: faker.lorem.lines({ min: 1, max: 1 }),
+                    subText: faker.lorem.lines({ min: 1, max: 1 }),
+                    imgPath: faker.image.urlPicsumPhotos({ width: 1920 }),
+                    linkUrl: "https://github.com/KimByul1225"
+                }
             ],
         }
     }

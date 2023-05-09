@@ -1,4 +1,18 @@
 @charset "utf-8";
+/* banner */
+.main_swiper{width: 100%; height: 690px;}
+.main_swiper .swiper-slide{width: 100%; height: 100%; background-color: #000; display: flex; align-items: center; justify-content: center; position: relative;}
+.main_swiper .swiper-slide a{position: absolute; top: 0; bottom: 0; left: 0; right: 0;}
+.main_swiper .text_wrap {color: #fff; word-break: keep-all; max-width: 1200px;}
+.main_swiper .text_wrap h4{font-size: 72px; font-weight: 600; text-align: center; margin-bottom: 15px; text-shadow: 3px 3px 3px black;}
+.main_swiper .text_wrap p{font-size: 32px; font-weight: 400; text-align: center; white-space: pre-wrap; text-shadow: 3px 3px 3px black;}
+.main_swiper .pagination_box{position: absolute; bottom: 50px; z-index: 1; width: 100%; display: flex; align-items: center; justify-content: center;}
+.main_swiper .swiper-pagination-bullets{position: absolute; left: 50%; bottom: 80px; font-size: 0; transform: translateX(-50%); width: auto; display: inline-block;}
+.main_swiper .swiper-pagination-bullets .swiper-pagination-bullet {width: 10px; height: 10px; border-radius: 5px; font-size: 0; text-align: center; color: rgba(255, 255, 255, 0); border: 1px solid #fff; opacity: 1; margin: 0 7.5px; background-color: transparent;}
+.main_swiper .swiper-pagination-bullets .swiper-pagination-bullet-active {color: rgba(255, 255, 255, 0); background: #fff; width: 22px; height: 10px;}
+.main_swiper .stop_btn{display: inline-block; width: 24px; height: 24px;  vertical-align: bottom; background: url(../icons/home/icon_pause.png) center no-repeat; background-size: contain; margin: 0 9px; font-size: 0;}
+.main_swiper .stop_btn.stop{background: url(../icons/home/icon_play.png) center no-repeat; background-size: contain;}
+
 
 .solution_box{margin-top: 50px;}
 .solution_box .swiper-wrapper{display: flex; justify-content: space-between;}
@@ -18,6 +32,13 @@
 
 
 @media screen and (max-width: 1200px) {
+	/* banner */
+	.main_swiper .swiper-slide{padding: 0 115px;}
+	.main_swiper .text_wrap {margin-bottom: 80px; width: 90%;}
+	.main_swiper .text_wrap h4{font-size: 40px; font-weight: 400; margin-bottom: 20px;}
+	.main_swiper .text_wrap p{font-size: 22px; font-weight: 400;}
+
+
     .solution_box{padding: 0 20px; margin-top: 40px;}
 	.solution_box .swiper-slide{width: 48%; margin-right: 2%;}
 	.solution_box .swiper-slide:last-child{margin-right: 0;}
@@ -35,6 +56,13 @@
 	.solution_box a:hover p{color: #717171;}
 }
 @media screen and (max-width: 768px) {
+	/* banner */
+	.main_swiper{height: 480px;}
+	.main_swiper .swiper-slide{padding: 0 20px; align-items: center;}
+	.main_swiper .text_wrap {margin-bottom: 80px;}
+	.main_swiper .text_wrap h4{font-size:24px; margin-bottom: 20px;}
+	.main_swiper .text_wrap p{font-size: 12px;}
+
     .solution_box{padding: 0 20px; margin-top: 30px;}
 	.solution_box .swiper-slide{width: 100%; margin-right: 10px;}
 	.solution_box a{padding: 50px 0 150px 0; background-color: #fff; background: url(../icons/home/icon_mainsolutin01.png) bottom 40px center no-repeat; background-size: 100px;}
