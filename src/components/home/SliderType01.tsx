@@ -13,7 +13,7 @@ const SliderType01 = () => {
         <SliderWrap>
             <Row>
                 <SectionTitle
-                    title="슬라이더 예시"
+                    title="모바일일때 슬라이더 예시"
                 />
                 <Swiper 
                     className="solution_box"
@@ -36,27 +36,27 @@ const SliderType01 = () => {
                     observeParents={true}
                 >   
                     <SwiperSlide>
-                        <Link to="/solutions/view/1">
-                            <h4>[ESG 평가 및 데이터 분석]</h4>
-                            <p>ESG Analytics</p>
+                        <Link to="/">
+                            <h4>[Lorem ipsum dolor]</h4>
+                            <p>Lorem ipsum</p>
                         </Link>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <Link to="/solutions/view/2">
-                            <h4>[ESG/책임투자 맞춤형 리서치]</h4>
-                            <p>ESG Research</p>
+                        <Link to="/">
+                            <h4>[Lorem ipsum dolor]</h4>
+                            <p>Lorem ipsum</p>
                         </Link>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <Link to="/solutions/view/5">
-                            <h4>[ESG 투자상품 개발 및 운용 전략]</h4>
-                            <p>ESG Investing Strategy</p>
+                        <Link to="/">
+                            <h4>[Lorem ipsum dolor]</h4>
+                            <p>Lorem ipsum</p>
                         </Link>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <Link to="/solutions/view/9">
-                            <h4>[책임투자 & 인게이지먼트 자문]</h4>
-                            <p>RI Active Ownership</p>
+                        <Link to="/">
+                            <h4>[Lorem ipsum dolor]</h4>
+                            <p>Lorem ipsum</p>
                         </Link>
                     </SwiperSlide>
                 </Swiper>

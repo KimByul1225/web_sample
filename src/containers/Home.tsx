@@ -1,5 +1,5 @@
-import Banner from '@/components/main/Banner';
-import SliderType01 from '@/components/main/SliderType01';
+import Banner from '@/components/home/Banner';
+import SliderType01 from '@/components/home/SliderType01';
 import React from 'react';
 
 const Home = () => {
