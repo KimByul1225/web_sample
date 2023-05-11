@@ -69,7 +69,7 @@ const SliderType01 = () => {
 export default SliderType01;
 
 
-const SliderWrap = styled.div`
+const SliderWrap = styled.section`
     padding: 100px 0;  background-color: #fff;
 
     @media screen and (max-width:1200px){
