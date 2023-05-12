@@ -13,7 +13,7 @@
 .main_swiper .stop_btn{display: inline-block; width: 24px; height: 24px;  vertical-align: bottom; background: url(../icons/home/icon_pause.png) center no-repeat; background-size: contain; margin: 0 9px; font-size: 0;}
 .main_swiper .stop_btn.stop{background: url(../icons/home/icon_play.png) center no-repeat; background-size: contain;}
 
-
+/* type01 */
 .solution_box{margin-top: 50px;}
 .solution_box .swiper-wrapper{display: flex; justify-content: space-between;}
 .solution_box .swiper-slide{width: 24%;}
@@ -31,6 +31,17 @@
 .solution_box a:hover p{color: #fff; transition: all .3s ease;}
 
 
+/* type03 */
+.type03_swiper{margin-top: 50px;}
+.type03_swiper .swiper-wrapper{display: flex; justify-content: space-between; flex-wrap: wrap;}
+
+.type03_box{background: #fff; border: 1px solid #EAEAEA; width: 47.5%; padding: 55px 40px 105px 60px; position: relative; border-radius: 0px 0px 0px 20px; overflow: hidden;}
+.type03_box:nth-child(3), .type03_box:nth-child(4){margin-top: 60px;}
+
+	
+
+
+
 @media screen and (max-width: 1200px) {
 	/* banner */
 	.main_swiper .swiper-slide{padding: 0 115px;}
@@ -38,7 +49,7 @@
 	.main_swiper .text_wrap h4{font-size: 40px; font-weight: 400; margin-bottom: 20px;}
 	.main_swiper .text_wrap p{font-size: 22px; font-weight: 400;}
 
-
+	/* type01 */
     .solution_box{padding: 0 20px; margin-top: 40px;}
 	.solution_box .swiper-slide{width: 48%; margin-right: 2%;}
 	.solution_box .swiper-slide:last-child{margin-right: 0;}
@@ -54,6 +65,12 @@
 	.solution_box .swiper-slide:nth-child(4) a:hover{background: url(../icons/home/icon_mainsolutin04.png) bottom 90px center no-repeat; background-size: 100px;}
 	.solution_box a:hover h4{color: #333;}
 	.solution_box a:hover p{color: #717171;}
+
+	/* type03 */
+	.type03_swiper{margin-top: 40px;}
+	.type03_box{width: 49%; padding: 50px 0 95px 50px;}
+	.type03_box:nth-child(3), .type03_box:nth-child(4){margin-top: 15px;}
+
 }
 @media screen and (max-width: 768px) {
 	/* banner */
@@ -63,6 +80,7 @@
 	.main_swiper .text_wrap h4{font-size:24px; margin-bottom: 20px;}
 	.main_swiper .text_wrap p{font-size: 12px;}
 
+	/* type01 */
     .solution_box{padding: 0 20px; margin-top: 30px;}
 	.solution_box .swiper-slide{width: 100%; margin-right: 10px;}
 	.solution_box a{padding: 50px 0 150px 0; background-color: #fff; background: url(../icons/home/icon_mainsolutin01.png) bottom 40px center no-repeat; background-size: 100px;}
@@ -75,4 +93,8 @@
 	.solution_box .swiper-slide:nth-child(4) a:hover{background: url(../icons/home/icon_mainsolutin04.png) bottom 40px center no-repeat; background-size: 100px;}
 	.solution_box a h4{font-size: 22px;}
 	.solution_box a p{font-size: 18px;}
+
+	/* type03 */
+	.type03_swiper .swiper-wrapper{justify-content: normal; flex-wrap: nowrap;}
+	.type03_box{width: 100%; padding: 50px 0 105px 50px;}
 }
