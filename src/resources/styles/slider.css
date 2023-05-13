@@ -97,4 +97,5 @@
 	/* type03 */
 	.type03_swiper .swiper-wrapper{justify-content: normal; flex-wrap: nowrap;}
 	.type03_box{width: 100%; padding: 50px 0 105px 50px;}
+	.type03_box:nth-child(3), .type03_box:nth-child(4){margin-top: 0;}
 }
