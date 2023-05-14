@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
-import arrowIcon from "@/resources/icons/home/icon_slider_type03_arrow.png"
+import arrowIcon from "@/resources/icons/home/icon_slider_type03_arrow.png";
 
 
 const SliderType03 = () => {
@@ -24,7 +24,7 @@ const SliderType03 = () => {
         <Wrap>
             <Row>
                 <SectionTitle
-                    title="tttt"
+                    title="모바일일때 슬라이더 예시2"
                 />
                 <Swiper
                     className="type03_swiper"
