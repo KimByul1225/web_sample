@@ -1,4 +1,5 @@
-import { faker } from "@faker-js/faker/locale/ko";
+import { GradeType } from "@/types/commons/grade";
+import { faker } from "@faker-js/faker";
 
 export function SliderType03Faker() {
     return {
@@ -10,32 +11,32 @@ export function SliderType03Faker() {
                     companyName: faker.company.name(),
                     keword: faker.location.countryCode(),
                     keword02: faker.lorem.word(),
-                    grade: "aa",
-                    grade02: "a",
+                    grade: GradeType.aa,
+                    grade02: GradeType.a,
                     linkUrl: "https://github.com/KimByul1225"
                 },
                 {
                     companyName: faker.company.name(),
                     keword: faker.location.countryCode(),
                     keword02: faker.lorem.word(),
-                    grade: "bb",
-                    grade02: "b",
+                    grade: GradeType.bb,
+                    grade02: GradeType.b,
                     linkUrl: "https://github.com/KimByul1225"
                 },
                 {
                     companyName: faker.company.name(),
                     keword: faker.location.countryCode(),
                     keword02: faker.lorem.word(),
-                    grade: "c",
-                    grade02: "d",
+                    grade: GradeType.c,
+                    grade02: GradeType.d,
                     linkUrl: "https://github.com/KimByul1225"
                 },
                 {
                     companyName: faker.company.name(),
                     keword: faker.location.countryCode(),
                     keword02: faker.lorem.word(),
-                    grade: "e",
-                    grade02: "e",
+                    grade: GradeType.e,
+                    grade02: GradeType.e,
                     linkUrl: "https://github.com/KimByul1225"
                 },
             ],

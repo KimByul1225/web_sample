@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import SectionTitle from '../commons/SectionTitle';
@@ -7,18 +7,43 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import arrowIcon from "@/resources/icons/home/icon_slider_type03_arrow.png";
+import { SliderType03Faker } from '@/resources/faker/home/SliderType03Faker';
+import { GradeColors } from '@/values/commons/grade';
+import { GradeType } from '@/types/commons/grade';
 
+interface ISlider{
+    companyName: string;
+    keword: string;
+    keword02: string;
+    grade: GradeType;
+    grade02: GradeType;
+    linkUrl: string;
+}
+
+interface IGrade{
+    gradeColor?: string;
+}
 
 const SliderType03 = () => {
+    const [sliderData, setSliderData] = useState<ISlider[]>([]);
     const swiperRef = useRef(null);
 
     const pagination = {
-        el: '.swiper-pagination-bullets',
         clickable: true,
         renderBullet: function (index:number, className: string) {
             return '<span class="' + className + '">' + (index + 1) + '</span>';
         },
     };
+
+    useEffect(() => {
+        const result = SliderType03Faker();
+        const { resultMap } = result || {}
+        console.log("data", resultMap);
+        if (resultMap.result) {
+            setSliderData(resultMap.resultList);
+        }
+    }, []);
+
 
     return (
         <Wrap>
@@ -47,82 +72,59 @@ const SliderType03 = () => {
                     observer={true}
                     observeParents={true}
                 >
-                    <SwiperSlide 
-                        className="type03_box"
-                    > 
-                        <BoxTitle>타이틀</BoxTitle>
-                        <ListWrap>
-                            <li>
-                                <p className='esglist_tit'>종목코드</p>
-                                <span className='esglist_txt'>종목코드56151561</span>
-                            </li>
-                            <li>
-                                <p className='esglist_tit'>규모등급</p>
-                                <span 
-                                    
-                                >51651</span>
-                            </li>
-                            <li>
-                                <p className='esglist_tit'>자산규모</p>
-                                <span className='esglist_txt'>자산규모515616</span>
-                            </li>
-                            <li>
-                                <p className='esglist_tit'>전체등급</p>
-                                <span>
-                                    4111651
-                                </span>
 
-                            </li>
-                        </ListWrap>
-                        <MoreView to="/">바로가기</MoreView>
-                    </SwiperSlide>
+                    {
+                        sliderData.length > 0 &&  sliderData.map((result, index) => {
+                            const color = GradeColors[result.grade];
+                            const color02 = GradeColors[result.grade02];
 
-
-                    {/* {resultList.map((result, idx) =>(
-                        <SwiperSlide 
-                            className="esg_box"
-                            key={idx} 
-                        > 
-                            <h4>{result.unvrsNm}</h4>
-                            <ul>
-                                <li>
-                                    <span className='esglist_tit'>종목코드</span>
-                                    <span className='esglist_txt'>{result.asymbol.substring(1)}</span>
-                                </li>
-                                <li>
-                                    <span className='esglist_tit'>규모등급</span>
-                                    <span 
-                                        className={"esglist_txt esglist_lv" + result.scaleLvResult }
-                                    >{result.scaleLvResult}</span>
-                                </li>
-                                <li>
-                                    <span className='esglist_tit'>자산규모</span>
-                                    <span className='esglist_txt'>{result.assetScale}</span>
-                                </li>
-                                <li>
-                                    <span className='esglist_tit'>전체등급</span>
-                                    <span
-                                        className={"esglist_txt esglist_lv" + result.allLvResult }
-                                    >
-                                        {result.allLvResult}
-                                    </span>
-
-                                </li>
-                            </ul>
-                            <Link to="/esg-ratings" className="esg_more">바로가기</Link>
-                        </SwiperSlide>
-                    ))} */}
-                    <div className='pagination_esg'>
-                        <div className="swiper-pagination-bullets">
-                        </div>
-                    </div>
+                            return(
+                                <SwiperSlide 
+                                    key={index}
+                                    className="type03_box"
+                                > 
+                                    <BoxTitle>{result.companyName}</BoxTitle>
+                                    <ListWrap>
+                                        <li>
+                                            <p>키워드1</p>
+                                            <span>{result.keword}</span>
+                                        </li>
+                                        <li>
+                                            <p>등급1</p>
+                                            <span>
+                                                <Grade
+                                                    gradeColor={color}
+                                                >
+                                                    {result.grade}
+                                                </Grade>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <p>키워드2</p>
+                                            <span>{result.keword02}</span>
+                                        </li>
+                                        <li>
+                                            <p>등급2</p>
+                                            <span>
+                                                <Grade
+                                                    gradeColor={color02}
+                                                >
+                                                    {result.grade02}
+                                                </Grade>
+                                                </span>
+                                        </li>
+                                    </ListWrap>
+                                    <MoreView to="/">바로가기</MoreView>
+                                </SwiperSlide>
+                            )
+                        })
+                    }
                 </Swiper>
             </Row>
             
         </Wrap>
     );
 };
-
 export default SliderType03;
 
 
@@ -224,9 +226,14 @@ const ListWrap = styled.ul`
         li:nth-child(odd), li:nth-child(even){
             width: 80%;
         }
-
     }
 `
+const Grade = styled.b<IGrade>`
+    color: ${(props) => props.gradeColor || "#000"};
+    text-transform: uppercase;
+`
+
+
 const MoreView = styled(Link)`
     position: absolute; 
     left: 0; 
@@ -244,23 +251,4 @@ const MoreView = styled(Link)`
         background-size: 25px; 
         transition: all .2s ease;}
 `
-
-
-
-
-// .pagination_esg{text-align: center; display: none;}
-// .pagination_esg .swiper-pagination-bullet{font-size: 0; background-color: #D9D9D9; opacity: 1;}
-// .pagination_esg .swiper-pagination-bullet-active{background-color: #000;}
-
-
-/* .esg_box .esglist_lv{color: var(--col_acc);}
-.esg_box .esglist_lv.col_blue{color: #3658CF;} */
-// .esg_box .esglist_lvAA{color: #2F80ED;}
-// .esg_box .esglist_lvA{color: #2D9CDB;}
-// .esg_box .esglist_lvBB{color: #219653;}
-// .esg_box .esglist_lvB{color: #27AE60;}
-// .esg_box .esglist_lvC{color: #F7CF46;}
-// .esg_box .esglist_lvD{color: #F2994A;}
-// .esg_box .esglist_lvE{color: var(--col_acc);}
-
 

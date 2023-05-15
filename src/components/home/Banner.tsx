@@ -30,7 +30,6 @@ const Banner = () => {
     useEffect(() => {
         const result = BannerFaker();
         const { resultMap } = result || {}
-        console.log("data", resultMap);
         if (resultMap.result) {
             setBannerData(resultMap.resultList);
         }

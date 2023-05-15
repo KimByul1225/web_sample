@@ -34,9 +34,12 @@
 /* type03 */
 .type03_swiper{margin-top: 50px;}
 .type03_swiper .swiper-wrapper{display: flex; justify-content: space-between; flex-wrap: wrap;}
-
 .type03_box{background: #fff; border: 1px solid #EAEAEA; width: 47.5%; padding: 55px 40px 105px 60px; position: relative; border-radius: 0px 0px 0px 20px; overflow: hidden;}
 .type03_box:nth-child(3), .type03_box:nth-child(4){margin-top: 60px;}
+
+.type03_swiper .swiper-pagination{text-align: center; display: none;}
+.type03_swiper .swiper-pagination-bullet{font-size: 0; background-color: #D9D9D9; opacity: 1;}
+.type03_swiper .swiper-pagination-bullet-active{background-color: #000;}
 
 	
 
@@ -98,4 +101,6 @@
 	.type03_swiper .swiper-wrapper{justify-content: normal; flex-wrap: nowrap;}
 	.type03_box{width: 100%; padding: 50px 0 105px 50px;}
 	.type03_box:nth-child(3), .type03_box:nth-child(4){margin-top: 0;}
+	.type03_swiper .swiper-pagination{display: block; position: relative; bottom: 0; margin-top: 10px;}
+
 }
