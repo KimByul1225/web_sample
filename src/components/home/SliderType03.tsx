@@ -27,7 +27,6 @@ interface IGrade{
 const SliderType03 = () => {
     const [sliderData, setSliderData] = useState<ISlider[]>([]);
     const swiperRef = useRef(null);
-
     const pagination = {
         clickable: true,
         renderBullet: function (index:number, className: string) {
@@ -43,7 +42,6 @@ const SliderType03 = () => {
             setSliderData(resultMap.resultList);
         }
     }, []);
-
 
     return (
         <Wrap>
@@ -72,12 +70,10 @@ const SliderType03 = () => {
                     observer={true}
                     observeParents={true}
                 >
-
                     {
                         sliderData.length > 0 &&  sliderData.map((result, index) => {
                             const color = GradeColors[result.grade];
                             const color02 = GradeColors[result.grade02];
-
                             return(
                                 <SwiperSlide 
                                     key={index}
@@ -127,7 +123,6 @@ const SliderType03 = () => {
 };
 export default SliderType03;
 
-
 const Wrap = styled.section`
     padding: 100px 0; background-color: #fff;
     @media screen and (max-width: 1200px) {
@@ -158,7 +153,6 @@ const BoxTitle = styled.h4`
     }
 `
 
-
 const ListWrap = styled.ul`
     display: flex; flex-wrap: wrap; justify-content: space-between;
     li{
@@ -187,7 +181,6 @@ const ListWrap = styled.ul`
     li:nth-child(3), li:nth-child(4){
         margin-top: 20px;
     }
-
     @media screen and (max-width: 1200px) {
         flex-direction: column;
         li{
@@ -208,7 +201,6 @@ const ListWrap = styled.ul`
                 width: 50%;
             }
         }
-        
     }
     @media screen and (max-width: 768px) {
         li{
@@ -232,15 +224,14 @@ const Grade = styled.b<IGrade>`
     color: ${(props) => props.gradeColor || "#000"};
     text-transform: uppercase;
 `
-
-
 const MoreView = styled(Link)`
     position: absolute; 
     left: 0; 
     bottom: 0; 
     width: 100%; 
     height: 50px; 
-    background: #6A717A url(${arrowIcon}) center right 10px no-repeat; background-size:25px; 
+    background: #6A717A url(${arrowIcon}) center right 10px no-repeat;
+    background-size:25px; 
     color: #fff; 
     font-size: var(--b2); 
     text-align: right; 
