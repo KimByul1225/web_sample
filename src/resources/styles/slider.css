@@ -30,6 +30,17 @@
 .solution_box a:hover h4{color: #fff; transition: all .3s ease;}
 .solution_box a:hover p{color: #fff; transition: all .3s ease;}
 
+/* type02*/
+.type02_swiper .swiper-wrapper{display: flex; justify-content: space-between; flex-wrap: wrap;}
+.type02_box{width: 23%;}
+
+
+
+
+
+
+
+
 
 /* type03 */
 .type03_swiper{margin-top: 50px;}
@@ -69,6 +80,19 @@
 	.solution_box a:hover h4{color: #333;}
 	.solution_box a:hover p{color: #717171;}
 
+	/* type02 */
+	.type02_box{width: 46%;}
+	.type02_box:nth-child(3), .type02_box:nth-child(4){margin-top: 50px;}
+
+
+	
+
+
+
+
+
+
+
 	/* type03 */
 	.type03_swiper{margin-top: 40px;}
 	.type03_box{width: 49%; padding: 50px 0 95px 50px;}
@@ -96,6 +120,14 @@
 	.solution_box .swiper-slide:nth-child(4) a:hover{background: url(../icons/home/icon_mainsolutin04.png) bottom 40px center no-repeat; background-size: 100px;}
 	.solution_box a h4{font-size: 22px;}
 	.solution_box a p{font-size: 18px;}
+
+	/* type02 */
+	.type02_swiper .swiper-wrapper {justify-content: normal; flex-wrap: nowrap;}
+	.type02_box{width: 100%; margin-right: 0;}
+	.type02_box:nth-child(3), .type02_box:nth-child(4){margin-top: 0;}
+
+
+
 
 	/* type03 */
 	.type03_swiper .swiper-wrapper{justify-content: normal; flex-wrap: nowrap;}

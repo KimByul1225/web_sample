@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SectionTitle from '../commons/SectionTitle';
-
+import SliderType02 from './SliderType02';
 
 const TabMenu = () => {
     return (
@@ -25,6 +25,7 @@ const TabMenu = () => {
                         <button>menu 04</button>
                     </li>
                 </TabWrap>
+                <SliderType02/>
             </Row>
             
         </Wrap>
