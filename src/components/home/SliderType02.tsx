@@ -7,6 +7,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Link } from 'react-router-dom';
 
+import LogiImage from "@/resources/images/commons/logo.png"
+
 
 const SliderType02 = () => {
     const swiperRef = useRef(null);
@@ -45,6 +47,19 @@ const SliderType02 = () => {
             <SwiperSlide
                 className="type02_box"
             >
+                <LinkWrap to="/">
+                    <div>
+                        <figure>
+                            <span className="ir_so"></span>
+                        </figure>
+                    </div>
+                    <h4 
+                        className="ellipsis"
+                    >
+                        titletitle
+                    </h4>
+                    <p>날짜날짜</p>
+                </LinkWrap>
 
 
                 {/* <Link to="/" className="insight_more">
@@ -63,8 +78,6 @@ const SliderType02 = () => {
                         >
                         </div>
                     </div>
-                    <p className="insight_tit ellipsis">titletitle</p>
-                    <p className="insight_date">날짜날짜</p>
                 </Link>               */}
             
             </SwiperSlide>
@@ -105,52 +118,77 @@ export default SliderType02;
 
 
 const LinkWrap = styled(Link)`
+    display: block;
+    div{
+        width: 100%; height: 300px;  transition: all .3s ease-in; overflow: hidden;
+    }
+    figure{
+        width: 100%; 
+        height: 100%; 
+        background: url(${LogiImage}) center no-repeat;
+        background-size: cover; 
+        transition: transform .3s ease-in;
+        
+    }
 
+    :hover div{
+        border-radius: 35px 0; transition: all .3s ease-out;
+    }
+    :hover figure{
+        transform: scale(1.1); transition: all .3s ease-out;
+    }
+    h4{
+        font: var(--b2); margin-top: 10px; margin-bottom: 5px; color: #fff;
+    }
+    p{
+        color: #828282; font-weight: 400;
+    }
 
 
     @media screen and (max-width: 1200px) {
+        div{
+            height: 335px;
+        }
+        figure{
+            
+        }
+
+        :hover div{
+            border-radius: 0;
+        }
+        :hover figure{
+            transform: scale(1);
+        }
+        h4{
+            margin-top: 10px; margin-bottom: 5px; font-size: 20px;
+        }
+        p{
+            font-size: 16px;
+        }
 
     }
     @media screen and (max-width: 768px) {
-        
+        div{
+            height: 360px;
+        }
+        figure{
+            
+        }
+
+        :hover div{
+
+        }
+        :hover figure{
+
+        }
+        h4{
+            font-size: 16px; margin-top: 10px; margin-bottom: 5px;
+        }
+        p{
+            font-size: 14px;
+        }
+
     }
 
 `
 
-
-/* .insight_more{display: block;}
-.insight_more .bgframe{width: 100%; height: 300px;  transition: all .3s ease-in; overflow: hidden;}
-.insight_more:hover .bgframe{border-radius: 35px 0; transition: all .3s ease-out;}
-
-.insight_more.link_disable:hover .bgframe{border-radius: 0;}
-.insight_more .bgbox{width: 100%; height: 100%; background-size: cover; transition: transform .3s ease-in;}
-.insight_more:hover .bgbox{transform: scale(1.1); transition: all .3s ease-out;}
-.insight_more.link_disable:hover .bgbox{transform: scale(1);}
-.insight_more p{color: #828282; font-weight: 400;}
-.insight_more .insight_tit{font: var(--b2); margin-top: 10px; margin-bottom: 5px; color: #fff;} */
-
-
-
-
-
-
-
-
-
-    /* .insight_more:hover .bgbox{transform: scale(1);}
-	.insight_more:hover .bgframe{border-radius: 0;}
-	.insight_more .bgframe{height: 335px;}
-	.insight_more .insight_tit{margin-top: 10px; margin-bottom: 5px; font-size: 20px;}
-	.insight_more p{font-size: 16px;} */
-
-
-
-
-
-
-
-
-
-	/* .insight_more .bgframe{height: 360px;}
-	.insight_more .insight_tit{font-size: 16px; margin-top: 10px; margin-bottom: 5px;}
-	.insight_more .insight_date{font-size: 14px;} */
