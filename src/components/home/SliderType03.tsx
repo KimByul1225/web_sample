@@ -37,7 +37,6 @@ const SliderType03 = () => {
     useEffect(() => {
         const result = SliderType03Faker();
         const { resultMap } = result || {}
-        console.log("data", resultMap);
         if (resultMap.result) {
             setSliderData(resultMap.resultList);
         }
