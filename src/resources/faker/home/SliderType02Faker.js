@@ -30,7 +30,6 @@ export function SliderType02Faker() {
                     imgPath: faker.image.urlPicsumPhotos({ width: 480 }),
                     linkUrl: "https://github.com/KimByul1225"
                 },
-
             ],
         }
     }

@@ -6,7 +6,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Link } from 'react-router-dom';
 import { SliderType02Faker } from '@/resources/faker/home/SliderType02Faker';
-
+import Logo from "@/resources/images/commons/logo_black.png";
+import NoImg from "@/resources/images/commons/no_image.png"
 
 interface ILinkWrap{
     background?: string;
@@ -31,14 +32,6 @@ const SliderType02 = ({menuIndex}: {menuIndex: number}) => {
             setSliderData(resultMap.resultList);
         }
     }, [menuIndex]);
-
-    // useEffect(() => {
-
-    //     if(swiperRef.current){
-    //         swiperRef.current.swiper.slideTo(0);
-    //     }
-        
-    // },[])
 
     return (
         <Swiper
@@ -91,8 +84,9 @@ const SliderType02 = ({menuIndex}: {menuIndex: number}) => {
                     )
                 })
             :
-                null
-                // 리스트 없는 경우! 조건 만들어줘야함.
+                <NoList>
+                    리스트가 없습니다.
+                </NoList>
             }
         </Swiper>
     );
@@ -109,12 +103,10 @@ const LinkWrap = styled(Link)<ILinkWrap>`
     figure{
         width: 100%; 
         height: 100%; 
-        background: url(${(props) => props.background}) center no-repeat;
+        background: url(${(props) => props.background || NoImg}) center no-repeat;
         background-size: cover; 
         transition: transform .3s ease-in;
-        
     }
-
     :hover div{
         border-radius: 35px 0; transition: all .3s ease-out;
     }
@@ -127,16 +119,10 @@ const LinkWrap = styled(Link)<ILinkWrap>`
     p{
         color: #828282; font-weight: 400;
     }
-
-
     @media screen and (max-width: 1200px) {
         div{
             height: 335px;
         }
-        figure{
-            
-        }
-
         :hover div{
             border-radius: 0;
         }
@@ -149,21 +135,10 @@ const LinkWrap = styled(Link)<ILinkWrap>`
         p{
             font-size: 16px;
         }
-
     }
     @media screen and (max-width: 768px) {
         div{
             height: 360px;
-        }
-        figure{
-            
-        }
-
-        :hover div{
-
-        }
-        :hover figure{
-
         }
         h4{
             font-size: 16px; margin-top: 10px; margin-bottom: 5px;
@@ -171,8 +146,15 @@ const LinkWrap = styled(Link)<ILinkWrap>`
         p{
             font-size: 14px;
         }
-
     }
-
 `
-
+const NoList = styled.div`
+    color: #fff; 
+    height: 358px; 
+    text-align: center; 
+    background: url(${Logo}) top 100px  center no-repeat; 
+    background-size: 260px 70px;
+    font-size: 18px; 
+    font-weight: 500; 
+    padding-top: 200px;
+`
