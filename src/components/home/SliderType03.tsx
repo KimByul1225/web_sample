@@ -46,7 +46,7 @@ const SliderType03 = () => {
         <Wrap>
             <Row>
                 <SectionTitle
-                    title="모바일일때 슬라이더 예시2"
+                    title="슬라이더 예시2(모바일기기 일때)"
                 />
                 <Swiper
                     className="type03_swiper"

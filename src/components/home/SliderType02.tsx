@@ -1,13 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Link } from 'react-router-dom';
-
-import LogiImage from "@/resources/images/commons/logo.png"
 import { SliderType02Faker } from '@/resources/faker/home/SliderType02Faker';
 
 
@@ -49,19 +46,19 @@ const SliderType02 = () => {
     return (
         <Swiper
             ref={swiperRef}
-            className="type03_swiper"
+            className="type02_swiper"
             navigation={true}
             modules={[Navigation]}
             breakpoints={{
-                768: {
-                    slidesPerView: 'auto',
-                    allowTouchMove: false,
-                    spaceBetween: 5,
-                },
                 360: {
                     slidesPerView: 'auto',
                     allowTouchMove: true,
                     spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 'auto',
+                    allowTouchMove: false,
+                    spaceBetween: 5,
                 }
             }}
             observer={true}
@@ -98,34 +95,8 @@ const SliderType02 = () => {
                 })
             :
                 null
+                // 리스트 없는 경우! 조건 만들어줘야함.
             }
-                
-
-
-                {/* <Link to="/" className="insight_more">
-                    <div className="bgframe">
-                        <div 
-                            className="bgbox"
-                            style={{
-                                // background: '#fff url('+ bgUrl +') center / cover no-repeat',
-                                // backgroundSize: bgSize,
-                                backgroundColor: '#fff',
-                                backgroundImage: 'url('+ bgUrl +')',
-                                backgroundPosition: 'center',
-                                backgroundRepeat: 'no-repeat',
-                                backgroundSize: bgSize,
-                            }}
-                        >
-                        </div>
-                    </div>
-                </Link>               */}
-            
-            
-
-
-
-
-
         </Swiper>
     );
 };

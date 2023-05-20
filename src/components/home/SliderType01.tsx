@@ -11,7 +11,7 @@ const SliderType01 = () => {
         <SliderWrap>
             <Row>
                 <SectionTitle
-                    title="모바일일때 슬라이더 예시"
+                    title="슬라이더 예시(모바일기기 일때)"
                 />
                 <Swiper 
                     className="solution_box"

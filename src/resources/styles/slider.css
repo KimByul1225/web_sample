@@ -33,13 +33,8 @@
 /* type02*/
 .type02_swiper .swiper-wrapper{display: flex; justify-content: space-between; flex-wrap: wrap;}
 .type02_box{width: 23%;}
-
-
-
-
-
-
-
+.type02_swiper .swiper-button-next{display: none;}
+.type02_swiper .swiper-button-prev{display: none;}
 
 
 /* type03 */
@@ -47,13 +42,9 @@
 .type03_swiper .swiper-wrapper{display: flex; justify-content: space-between; flex-wrap: wrap;}
 .type03_box{background: #fff; border: 1px solid #EAEAEA; width: 47.5%; padding: 55px 40px 105px 60px; position: relative; border-radius: 0px 0px 0px 20px; overflow: hidden;}
 .type03_box:nth-child(3), .type03_box:nth-child(4){margin-top: 60px;}
-
 .type03_swiper .swiper-pagination{text-align: center; display: none;}
 .type03_swiper .swiper-pagination-bullet{font-size: 0; background-color: #D9D9D9; opacity: 1;}
 .type03_swiper .swiper-pagination-bullet-active{background-color: #000;}
-
-	
-
 
 
 @media screen and (max-width: 1200px) {
@@ -83,15 +74,6 @@
 	/* type02 */
 	.type02_box{width: 46%;}
 	.type02_box:nth-child(3), .type02_box:nth-child(4){margin-top: 50px;}
-
-
-	
-
-
-
-
-
-
 
 	/* type03 */
 	.type03_swiper{margin-top: 40px;}
@@ -125,9 +107,13 @@
 	.type02_swiper .swiper-wrapper {justify-content: normal; flex-wrap: nowrap;}
 	.type02_box{width: 100%; margin-right: 0;}
 	.type02_box:nth-child(3), .type02_box:nth-child(4){margin-top: 0;}
-
-
-
+	.type02_swiper .swiper-button-next{display: block; width: 40px; height: 40px; background: #fff url(../icons/home/icon_slider_type02_next.png) center no-repeat; background-size: 10px 20px; border: 1px solid var(--col_acc); border-radius: 20px;}
+	.type02_swiper .swiper-button-prev{display: block; width: 40px; height: 40px; background: #fff url(../icons/home/icon_slider_type02_prev.png) center no-repeat; background-size: 10px 20px; border: 1px solid var(--col_acc); border-radius: 20px;}
+	.swiper-button-next:after, .swiper-button-prev:after{display: none;}
+	.type02_swiper .swiper-button-next.swiper-button-disabled{width: 40px; height: 40px; background: #fff url(../icons/home/icon_slider_type02_next_end.png) center no-repeat; background-size: 10px 20px; border: 1px solid #4F4F4F; border-radius: 20px; opacity: .5;}
+	.type02_swiper .swiper-button-prev.swiper-button-disabled{width: 40px; height: 40px; background: #fff url(../icons/home/icon_slider_type02_prev_end.png) center no-repeat; background-size: 10px 20px; border: 1px solid #4F4F4F; border-radius: 20px; opacity: .5;}
+	.swiper-button-next, .swiper-rtl .swiper-button-prev{right: 2px; left: auto; top: 43%;}
+	.swiper-button-prev, .swiper-rtl .swiper-button-next{right: auto; left: 2px; top: 43%;}
 
 	/* type03 */
 	.type03_swiper .swiper-wrapper{justify-content: normal; flex-wrap: nowrap;}
