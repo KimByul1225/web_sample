@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import SectionTitle from '../commons/SectionTitle';
 import SliderType02 from './SliderType02';
 
 const TabMenu = () => {
+    const [tabMenuIndex, setTabMenuIndex] = useState(0);
+
+    const menuArray = [
+        {
+            id: 1,
+            menuName: "menu01",
+        },
+        {
+            id: 2,
+            menuName: "menu02",
+        },
+        {
+            id: 3,
+            menuName: "menu03",
+        },
+        {
+            id: 4,
+            menuName: "menu04",
+        },
+    ];
+
+    const tabMenuHandler = (index: number) => {
+        setTabMenuIndex(index);
+    }
+
     return (
         <Wrap>
             <Row>
@@ -12,20 +37,24 @@ const TabMenu = () => {
                     color="#fff"
                 />
                 <TabWrap>
-                    <li>
-                        <button>menu 01</button>
-                    </li>
-                    <li>
-                        <button>menu 02</button>
-                    </li>
-                    <li>
-                        <button>menu 03</button>
-                    </li>
-                    <li>
-                        <button>menu 04</button>
-                    </li>
+                    {
+                        menuArray.map((element, index)=>{
+                            return(
+                                <li key={element.id}>
+                                    <button
+                                        onClick={() => tabMenuHandler(index)}
+                                        className={index === tabMenuIndex ? "on" : undefined}
+                                    >
+                                        {element.menuName}
+                                    </button>
+                                </li>
+                            )
+                        })
+                    }
                 </TabWrap>
-                <SliderType02/>
+                <SliderType02
+                    menuIndex = {tabMenuIndex}
+                />
             </Row>
             
         </Wrap>

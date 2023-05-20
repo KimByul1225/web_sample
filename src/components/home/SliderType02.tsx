@@ -19,12 +19,9 @@ interface ISlider{
     linkUrl: string;
 }
 
-const SliderType02 = () => {
+const SliderType02 = ({menuIndex}: {menuIndex: number}) => {
     const [sliderData, setSliderData] = useState<ISlider[]>([]);
-
-
     const swiperRef = useRef(null);
-
 
     useEffect(() => {
         const result = SliderType02Faker();
@@ -33,7 +30,7 @@ const SliderType02 = () => {
         if (resultMap.result) {
             setSliderData(resultMap.resultList);
         }
-    }, []);
+    }, [menuIndex]);
 
     // useEffect(() => {
 
