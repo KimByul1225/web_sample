@@ -1,8 +1,11 @@
 import React from 'react';
 import { createBrowserRouter } from "react-router-dom";
 import App from './App';
-import Sub1 from '@/containers/Sub1';
 import Home from '@/containers/Home';
+import Company from '@/containers/company/Company';
+
+
+
 import NotFound from '@/components/error/NotFound';
 
 
@@ -17,8 +20,13 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "sub",
-                element: <Sub1 />,
+                path: "company",
+                element: <Company />,
+                children: [
+                    {
+                        
+                    },
+                ],
             },
         ],
         errorElement: <NotFound />

@@ -28,13 +28,13 @@ const Header = () => {
                 >
                     <Depth1>
                         <li>
-                            <Link to="sub">
-                                menu1
+                            <Link to="company">
+                                회사소개
                             </Link>
                             <Depth2>
                                 <li>
-                                    <Link to="sub">
-                                        2222
+                                    <Link to="company">
+                                        회사소개
                                     </Link>
                                 </li>
                                 <li>

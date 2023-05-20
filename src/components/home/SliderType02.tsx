@@ -27,7 +27,6 @@ const SliderType02 = ({menuIndex}: {menuIndex: number}) => {
     useEffect(() => {
         const result = SliderType02Faker();
         const { resultMap } = result || {}
-        console.log("data", resultMap);
         if (resultMap.result) {
             setSliderData(resultMap.resultList);
         }
