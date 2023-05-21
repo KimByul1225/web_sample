@@ -38,25 +38,25 @@ const Header = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="sub">
+                                    <Link to="company">
                                         3333
                                     </Link>
                                 </li>
                             </Depth2>
                         </li>
                         <li>
-                            <Link to="sub">
-                                menu2
+                            <Link to="introduction">
+                                introduction
                             </Link>
                             <Depth2>
                                 <li>
-                                    <Link to="sub">
-                                        2222
+                                    <Link to="introduction">
+                                        type01
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="sub">
-                                        3333
+                                    <Link to="introduction/type02">
+                                        type02
                                     </Link>
                                 </li>
                             </Depth2>

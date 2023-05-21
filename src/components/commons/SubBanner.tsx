@@ -4,7 +4,7 @@ import styled from 'styled-components';
 interface ISubBanner {
     title: string;
     lineText01: string;
-    lineText02: string;
+    lineText02?: string;
 }
 
 
