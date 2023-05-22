@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled, {css} from 'styled-components';
 import { Link } from 'react-router-dom';
-import Logo from "@/resources/images/commons/logo_black.png"
+import Logo from "@/resources/images/commons/logo_black.png";
 
 interface IContainer {
     isMouseEnter?: boolean;

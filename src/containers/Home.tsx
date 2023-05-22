@@ -8,13 +8,13 @@ import TabMenu from '@/components/home/TabMenu';
 
 const Home = () => {
     return (
-        <div>
+        <>
             <Banner/>
             <SliderType01/>
             <TabMenu/>
             <SliderType03/>
             <ButtonType/>
-        </div>
+        </>
     );
 };
 
