@@ -59,6 +59,11 @@ const Header = () => {
                                         type02
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link to="introduction/partners">
+                                        partners
+                                    </Link>
+                                </li>
                             </Depth2>
                         </li>
                         <li>

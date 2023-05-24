@@ -13,6 +13,7 @@ import IntroductionType02 from './components/introduction/IntroductionType02';
 
 import NotFound from '@/components/error/NotFound';
 import CompanyTotal from './components/company/CompanyTotal';
+import Partners from './components/introduction/Partners';
 
 
 
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
                     {
                         path: "type02",
                         element: <IntroductionType02 />,
+                    },
+                    {
+                        path: "partners",
+                        element: <Partners />,
                     }
                 ],
             },
