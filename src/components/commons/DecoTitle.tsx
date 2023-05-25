@@ -39,7 +39,7 @@ const Title = styled.h3<DecorationTitleProps>`
         border-radius: 5px 0;
     }
     @media screen and (max-width: 1200px){
-        margin: 0 0 0 20px;
+        margin: 0 0 30px 0;
     }
     @media screen and (max-width: 768px){
         font-size: 18px; line-height: 31px; padding-top: 18px;

@@ -13,20 +13,22 @@ const Partners = () => {
 
     const viewMoreBtnHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        const clientList = document.querySelectorAll(".clientlist");
-        const clientLength = clientList.length;
-        const clientQuo = ~~(clientLength / 5);
-        const clientRem = clientLength % 5;
-        const clientMath = clientLength - clientRem;
-        if(partnersView < clientQuo * 5){
+        
+        const partnerList = document.querySelectorAll(".partnerslist");
+        const partnerLength = partnerList.length;
+        const partnerQuo = ~~(partnerLength / 5);
+        const partnerRem = partnerLength % 5;
+        const partnerMath = partnerLength - partnerRem;
+        if(partnersView < partnerQuo * 5){
             setPartnersView(partnersView + 5);
-        }else if(partnersView === clientMath){
-            setPartnersView(partnersView + clientRem);
+        }else if(partnersView === partnerMath){
+            setPartnersView(partnersView + partnerRem);
         }else{
             setViewMoreHidden(false)
         }
+
         for (var i = 0; i < partnersView; ++i) {
-            clientList[i].classList.add('on');
+            partnerList[i].classList.add('on');
         }
     }
 
@@ -97,7 +99,10 @@ const Partners = () => {
                         {
                             partnersArray.map((element) => {
                                 return(
-                                    <li key={element.id}>
+                                    <li 
+                                        key={element.id}
+                                        className="partnerslist"
+                                    >
                                         <a href="https://www.mss.go.kr/" target="_blank" rel="noopener noreferrer"><span className='ir_so'>{element.partnerName}</span></a>
                                     </li>
                                 )
