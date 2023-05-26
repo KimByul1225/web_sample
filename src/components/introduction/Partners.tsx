@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import SubBanner from '../commons/SubBanner';
 import Row from '../layout/Row';
@@ -11,9 +12,15 @@ const Partners = () => {
     const [partnersView, setPartnersView] = useState(5);
     const [veiwMoreHidden, setViewMoreHidden] = useState(true);
 
+    useEffect(()=>{
+        const partnerList = document.querySelectorAll(".partnerslist");
+        for (var i = 0; i < 5; ++i) {
+            partnerList[i].classList.add('on');
+        }
+    },[])
+
     const viewMoreBtnHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        
         const partnerList = document.querySelectorAll(".partnerslist");
         const partnerLength = partnerList.length;
         const partnerQuo = ~~(partnerLength / 5);
@@ -110,17 +117,21 @@ const Partners = () => {
                         }
                         
                     </PartnersWrap>
-
-                    {
-                        veiwMoreHidden === true &&
-                        <button 
-                            type="button"
-                            onClick={viewMoreBtnHandler}
-                            className="btn view_more"
-                        >
-                            더보기
-                        </button>
-                    }
+                    <ButtonWrap>
+                        {
+                            veiwMoreHidden &&
+                            <button 
+                                type="button"
+                                onClick={viewMoreBtnHandler}
+                                className="btn view_more"
+                            >
+                                더보기
+                            </button>
+                        }
+                        <Link to="/">
+                            연혁으로보기
+                        </Link>
+                    </ButtonWrap>
                 </Row>
             </Container>
             
@@ -164,3 +175,31 @@ const PartnersWrap =styled.ul`
 
 `
 
+const ButtonWrap = styled.div`
+    margin-top: 50px; text-align: center;
+    button{
+        display: none;
+    }
+    a{
+        width: 230px; height: 60px; line-height: 60px; font-size: 18px; font-weight: 500; border: 1px solid #E1E1E1; border-radius: 5px; display: inline-block; background-color: #fff; color: #000;
+    }
+    a:hover{
+        border: 1px solid #000; background-color: #000; color: #fff; transition: all .3s ease;
+    }
+    @media screen and (max-width:1200px) {
+        margin-top: 30px;
+        a{
+            width: 340px; height: 50px; line-height: 50px;
+        }
+    }
+    @media screen and (max-width:768px) {
+        margin-top: 0;
+        button{
+            display: inline-block; width: 100%; height: 45px; line-height: 45px; text-align: center; color: var(--col_acc); border: 1px solid var(--col_acc); background-color: #fff; font-size: 14px; font-weight: 500; border-radius: 5px; transition: all .3s ease;
+        }
+        a{
+            width: 100%; height: 45px; line-height: 45px; font-size: 14px; margin-top: 10px;
+        }
+
+    }
+`
