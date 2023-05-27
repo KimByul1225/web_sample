@@ -14,6 +14,9 @@ import IntroductionType02 from './components/introduction/IntroductionType02';
 import NotFound from '@/components/error/NotFound';
 import CompanyTotal from './components/company/CompanyTotal';
 import Partners from './components/introduction/Partners';
+import IntroductionDetail from './containers/IntroductionDetail';
+import IntroductionType01Detail from './components/introduction/IntroductionType01Detail';
+import IntroductionType02Detail from './components/introduction/IntroductionType02Detail';
 
 
 
@@ -54,6 +57,26 @@ const router = createBrowserRouter([
                     }
                 ],
             },
+            {
+                path: "introduction/:detailId",
+                element: <IntroductionDetail/>,
+                children: [
+                    {
+                        path: "",
+                        element: <IntroductionType01Detail />,
+                    },
+                ],
+            },
+            {
+                path: "introduction/type02/:detailId",
+                element: <IntroductionDetail />,
+                children: [
+                    {
+                        path: "",
+                        element: <IntroductionType02Detail />,
+                    },
+                ],
+            }
 
         ],
         errorElement: <NotFound />
