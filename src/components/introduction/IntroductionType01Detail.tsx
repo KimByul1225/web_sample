@@ -1,12 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useParams } from 'react-router-dom';
 import SubBanner from '../commons/SubBanner';
 import Container from '../layout/Container';
 import Row from '../layout/Row';
 import ImageSample from "@/resources/images/introduction/sample_04.png";
 import IconDownLoad from "@/resources/icons/introducation/icon_down.png"
+import IconQna from "@/resources/icons/introducation/icon_qna.png"
 
 const IntroductionType01Detail = () => {
+    const params = useParams();
+    const {detailId} = params; 
+
     return (
         <>
             <SubBanner
@@ -17,7 +23,7 @@ const IntroductionType01Detail = () => {
             <Container>
                 <Row>
                     <DeatilTitle>
-                        dddd
+                        {detailId}번 글 (제목위치)
                     </DeatilTitle>
                     <HeadLine>
                         <h4>Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
@@ -62,9 +68,22 @@ const IntroductionType01Detail = () => {
                             </BtnWrap>
                         </ComboBoxText>
                     </ImgTextComboWrap>
-                    
                 </Row>
             </AccentContainer>
+            <InnerContainer>
+                <Row>
+                    <QnaWrap>
+                        <QnaBox>
+                            <i/>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </QnaBox>
+                        <QnaButtonBox>
+                            <Link to="/">문의</Link>
+                        </QnaButtonBox>
+                    </QnaWrap>
+
+                </Row>
+            </InnerContainer>
         </>
     );
 };
@@ -83,7 +102,6 @@ const DeatilTitle = styled.h3`
             bottom: 15px;
         }
     }
-
 `
 const HeadLine = styled.div`
     text-align: center;
@@ -138,7 +156,6 @@ const TextBox = styled.div`
         h5{
             height: auto;
         }
-    
     }
     @media screen and (max-width: 768px) {
         h5{
@@ -222,6 +239,71 @@ const BtnWrap = styled.div`
     }
 `
 
+const InnerContainer = styled.div`
+    background-color: #fff;
+    padding: 0 0 120px 0;
+    @media screen and (max-width: 1200px){
+        padding: 0 0 80px 0;
+    }
+    @media screen and (max-width: 768px){
+        padding: 0 0 50px 0;
+    }
+`
 
+const QnaWrap = styled.div`
+    display: flex; align-items: center; justify-content: space-between; padding: 50px;border: 1px solid #F2F2F2;box-shadow: 0px 4px 24px rgba(182, 182, 182, 0.05); border-radius: 5px;
+    @media screen and (max-width: 768px){
+        flex-direction: column; padding: 50px 30px;
+    }
+`
+const QnaBox = styled.div`
+    display: flex; align-items: center;
+    i{
+        margin: 0 auto; width: 50px; height: 50px; background: url(${IconQna}) center no-repeat; background-size: contain; margin-right: 40px;
+    }
+    p{
+        font-size: 18px; font-weight: 400; color: #4F4F4F;text-align: center;
+    }
+    @media screen and (max-width: 1200px){
+        width: calc(100% - 205px);
+        p{
+            width: calc(100% - 90px); text-align: left;
+        }
+    }
+    @media screen and (max-width: 768px){
+        flex-direction: column; width: 100%;
+        i{
+            margin: 0 auto; width: 40px; height: 40px;margin-bottom: 40px;
+        }
+        p{
+            font-size: 14px;
+            text-align: center;
+            width: 100%;
+        }
+    }
+`
+const QnaButtonBox = styled.div`
+    text-align: center;
+    a{
+        display: inline-block; width: 230px; height: 60px; line-height: 60px; text-align: center; color: var(--col_acc); border: 1px solid var(--col_acc); background-color: #fff; font-size: 18px; font-weight: 500; border-radius: 5px; transition: all .3s ease;
+    }
+    a:hover{
+        color: #fff; background-color: var(--col_acc); transition: all .3s ease;
+    }
 
-
+    @media screen and (max-width: 1200px){
+        a{
+            width: 205px; height: 50px; line-height: 50px; font-size: 16px;
+        }
+    }
+    @media screen and (max-width: 768px){
+        margin-top: 40px;
+        width: 100%;
+        a{
+            width: 150px; height: 40px; line-height: 40px; font-size: 14px;
+        }
+        a:hover{
+            color: var(--col_acc); background-color: #fff; 
+        }
+    }
+`

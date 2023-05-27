@@ -52,7 +52,7 @@ const IntroductionType01 = () => {
                             introductionArray.map((element)=>{
                                 return(
                                     <li key={element.id}>
-                                        <Link to="/">
+                                        <Link to={`/introduction/${element.id}`}>
                                             <h3>
                                                 {element.id}
                                                 <span className="ir_so">{element.title}</span>
