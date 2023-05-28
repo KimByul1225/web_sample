@@ -33,14 +33,14 @@ const IntroductionType02 = () => {
             <Container>
                 <Row>
                     <DecoTitle
-                        text="소개 Type01"
+                        text="소개 Type02"
                     />
                     <ListWrap>
                         {
                             introductionArray.map((element)=>{
                                 return(
                                     <li key={element.id}>
-                                        <Link to="/">
+                                        <Link to={`/introduction/type02/${element.id}`}>
                                             <h3>
                                                 {element.title}
                                                 <span className="ir_so">{element.title}</span>
