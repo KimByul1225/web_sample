@@ -4,9 +4,9 @@ import styled, { css } from 'styled-components';
 interface DecorationTitleProps {
     underline?: boolean;
 }
-const DecoTitle = ({ text, underline }: { text: string | null, underline?: boolean }) => {
+const DecoTitle = ({ text, underline, className }: { text: string | null, underline?: boolean, className?: string }) => {
     return (
-        <Title underline={underline}>
+        <Title underline={underline} className={className}>
             {text ?? ""}
         </Title>
     );

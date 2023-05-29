@@ -5,6 +5,7 @@ import Container from '../layout/Container';
 import Row from '../layout/Row';
 import DecoTitle from '../commons/DecoTitle';
 import styled from 'styled-components';
+import SliderSection from './SliderSection';
 
 const IntroductionType02Detail = () => {
     const params = useParams();
@@ -21,18 +22,20 @@ const IntroductionType02Detail = () => {
                 <Row>
                     <DecoTitle
                         text={`${detailId}번 글 (제목위치)`}
-                        underline={true}
+                        underline
                     />
                     <TextBox>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </p>
                     </TextBox>
-                    
-
+                    <TextBox>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        </p>
+                    </TextBox>
                 </Row>
             </Container>
-
             <AccentContainer>
                 <Row>
                     <DecoTitle
@@ -62,6 +65,7 @@ const IntroductionType02Detail = () => {
                     </ListWrap>
                 </Row>
             </AccentContainer>
+            <SliderSection/>
         </>
     );
 };
@@ -81,7 +85,6 @@ const TextBox = styled.div`
         }
     }
 `
-
 const AccentContainer = styled.div`
     background-color: #F9F9F9;
     padding: 120px 0 80px 0;
@@ -96,7 +99,6 @@ const ListWrap = styled.ul`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-
     li{
         background-color: #fff;
         width: 48.333%;
