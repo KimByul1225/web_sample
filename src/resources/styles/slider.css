@@ -46,6 +46,10 @@
 .type03_swiper .swiper-pagination-bullet{font-size: 0; background-color: #D9D9D9; opacity: 1;}
 .type03_swiper .swiper-pagination-bullet-active{background-color: #000;}
 
+/* 일반소개 타입2 */
+.normal_type02 .swiper-pagination-bullets{position: relative; bottom: 0;}
+.normal_type02 .swiper-pagination-bullet {background-color: #d9d9d9; font-size: 0; opacity: 1}
+.normal_type02 .swiper-pagination-bullet-active {background-color: #000}
 
 @media screen and (max-width: 1200px) {
 	/* banner */

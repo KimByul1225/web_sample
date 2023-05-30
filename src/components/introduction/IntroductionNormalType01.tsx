@@ -144,6 +144,8 @@ const TextBox = styled.div`
         color: #4F4F4F;
     }
     @media screen and (max-width: 768px){
+        margin: 10px 0 30px 0;
+
         p {
             font-size: 14px;
         }
@@ -252,7 +254,7 @@ const SpaceBetween = styled.div`
     }
     @media screen and (max-width: 768px){
         flex-direction: column;
-        margin-bottom: 70px;
+        margin-bottom: 50px;
     }
 `
 const ReverseSpaceBetween = styled(SpaceBetween)`
