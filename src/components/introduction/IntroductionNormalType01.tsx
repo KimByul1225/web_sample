@@ -1,13 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
 import Container from '../layout/Container';
 import Row from '../layout/Row';
 import SubBanner from '../commons/SubBanner';
 import DecoTitle from '../commons/DecoTitle';
-
-
 import Icon01 from "@/resources/icons/introducation/icon_deco01.png";
 import Icon02 from "@/resources/icons/introducation/icon_deco02.png";
 import Icon03 from "@/resources/icons/introducation/icon_deco03.png";
@@ -15,21 +12,19 @@ import Icon01hover from "@/resources/icons/introducation/icon_deco01_hover.png";
 import Icon02hover from "@/resources/icons/introducation/icon_deco02_hover.png";
 import Icon03hover from "@/resources/icons/introducation/icon_deco03_hover.png";
 import DecoSubTitle from '../commons/DecoSubTitle';
-
-
 import BackGroundSample from "@/resources/images/introduction/sample_04.png"
 
 const IntroductionNormalType01 = () => {
     return (
         <>
             <SubBanner
-                title="소개페이지 일반형태 Type02"
+                title="소개페이지 일반형태 Type01"
                 lineText01="Lorem ipsum dolor sit amet, consectetur"
                 lineText02="Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
             /> 
             <Container>
                 <Row>
-                    <DetailTitle>ddd</DetailTitle>
+                    <DetailTitle>Lorem ipsum dolor sit amet</DetailTitle>
                     <>
                         <DecoTitle
                             text="Lorem ipsum"
@@ -76,7 +71,7 @@ const IntroductionNormalType01 = () => {
                         <SpaceBetween>
                             <HalfBox>
                                 <DecoSubTitle
-                                    title="dddd"
+                                    title="정방향 형태"
                                     underline
                                 />
                                 <TextBox>
@@ -89,6 +84,39 @@ const IntroductionNormalType01 = () => {
                                 <BackGroundBox/>
                             </HalfBox>
                         </SpaceBetween>
+                        <ReverseSpaceBetween>
+                            <HalfBox>
+                                <DecoSubTitle
+                                    title="reverse형태"
+                                    underline
+                                />
+                                <TextBox>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    </p>
+                                </TextBox>
+                            </HalfBox>
+                            <HalfBox>
+                                <BackGroundBox/>
+                            </HalfBox>
+                        </ReverseSpaceBetween>
+                        <SpaceBetween>
+                            <HalfBox>
+                                <DecoSubTitle
+                                    title="정방향 형태"
+                                    underline
+                                />
+                                <TextBox>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    </p>
+                                </TextBox>
+                            </HalfBox>
+                            <HalfBox>
+                                <BackGroundBox/>
+                            </HalfBox>
+                        </SpaceBetween>
+
                     </>
                     
                 </Row>
@@ -219,22 +247,33 @@ const SpaceBetween = styled.div`
     align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 80px;
+    @media screen and (max-width: 1200px){
+        margin-bottom: 30px;
+    }
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+        margin-bottom: 70px;
+    }
 `
-const HalfBox = styled.div`
-    width: 48%;
+const ReverseSpaceBetween = styled(SpaceBetween)`
+    flex-direction: row-reverse;
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+    }
 `
 
+const HalfBox = styled.div`
+    width: 48%;
+    @media screen and (max-width: 768px){
+        width: 100%;
+    }
+`
 const BackGroundBox = styled.div`
     width: 100%;
     height: 350px;
     background: url(${BackGroundSample}) center no-repeat;
     background-size: contain;
-    /* &&.sec{
-        background: url(${backGround02}) center no-repeat;
-        background-size: contain;
-    }
-    &&.thi{
-        background: url(${backGround03}) center no-repeat;
-        background-size: contain; */
+    @media screen and (max-width: 768px){
+        height: 57vw;
     }
 `
