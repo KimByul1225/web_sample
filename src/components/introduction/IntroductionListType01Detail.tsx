@@ -9,7 +9,7 @@ import ImageSample from "@/resources/images/introduction/sample_04.png";
 import IconDownLoad from "@/resources/icons/introducation/icon_down.png"
 import IconQna from "@/resources/icons/introducation/icon_qna.png"
 
-const IntroductionType01Detail = () => {
+const IntroductionListType01Detail = () => {
     const params = useParams();
     const {detailId} = params; 
 
@@ -88,7 +88,7 @@ const IntroductionType01Detail = () => {
     );
 };
 
-export default IntroductionType01Detail;
+export default IntroductionListType01Detail;
 
 const DeatilTitle = styled.h3`
     font-size: 36px; font-weight: 400; color: #4F4F4F; padding-bottom: 100px; text-align: center; position: relative;

@@ -7,7 +7,7 @@ import DecoTitle from '../commons/DecoTitle';
 import styled from 'styled-components';
 import SliderSection from './SliderSection';
 
-const IntroductionType02Detail = () => {
+const IntroductionListType02Detail = () => {
     const params = useParams();
     const {detailId} = params; 
     
@@ -70,7 +70,7 @@ const IntroductionType02Detail = () => {
     );
 };
 
-export default IntroductionType02Detail;
+export default IntroductionListType02Detail;
 
 const TextBox = styled.div`
     margin: 20px 0 0 0;

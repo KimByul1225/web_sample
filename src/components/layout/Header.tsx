@@ -45,23 +45,33 @@ const Header = () => {
                             </Depth2>
                         </li>
                         <li>
-                            <Link to="introduction">
-                                introduction
+                            <Link to="introduction/normalType01">
+                                소개페이지
                             </Link>
                             <Depth2>
                                 <li>
-                                    <Link to="introduction">
-                                        type01
+                                    <Link to="introduction/normalType01">
+                                        일반형태 Type01
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="introduction/type02">
-                                        type02
+                                    <Link to="introduction/normalType02">
+                                        일반형태 Type02
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="introduction/listType01">
+                                        리스트형태 Type01
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="introduction/listType02">
+                                        리스트형태 Type02
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to="introduction/partners">
-                                        partners
+                                        협력사 형태
                                     </Link>
                                 </li>
                             </Depth2>

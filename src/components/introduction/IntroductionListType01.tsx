@@ -7,7 +7,7 @@ import DecoTitle from '../commons/DecoTitle';
 import SampleImg from "@/resources/images/introduction/sample_01.png";
 import { Link } from 'react-router-dom';
 
-const IntroductionType01 = () => {
+const IntroductionListType01 = () => {
     const introductionArray = [
         {
             id: 1,
@@ -52,7 +52,7 @@ const IntroductionType01 = () => {
                             introductionArray.map((element)=>{
                                 return(
                                     <li key={element.id}>
-                                        <Link to={`/introduction/${element.id}`}>
+                                        <Link to={`/introduction/listType01/${element.id}`}>
                                             <h3>
                                                 {element.id}
                                                 <span className="ir_so">{element.title}</span>
@@ -71,7 +71,7 @@ const IntroductionType01 = () => {
         </>
     );
 };
-export default IntroductionType01;
+export default IntroductionListType01;
 
 
 const ListWrap = styled.ul`

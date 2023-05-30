@@ -7,16 +7,22 @@ import Company from '@/containers/Company';
 
 
 import Introduction from '@/containers/Introduction';
-import IntroductionType01 from './components/introduction/IntroductionType01';
-import IntroductionType02 from './components/introduction/IntroductionType02';
+
+import IntroductionListType01 from '@/components/introduction/IntroductionListType01';
+import IntroductionListType02 from '@/components/introduction/IntroductionListType02';
 
 
 import NotFound from '@/components/error/NotFound';
-import CompanyTotal from './components/company/CompanyTotal';
-import Partners from './components/introduction/Partners';
-import IntroductionDetail from './containers/IntroductionDetail';
-import IntroductionType01Detail from './components/introduction/IntroductionType01Detail';
-import IntroductionType02Detail from './components/introduction/IntroductionType02Detail';
+import CompanyTotal from '@/components/company/CompanyTotal';
+import Partners from '@/components/introduction/Partners';
+import IntroductionDetail from '@/containers/IntroductionDetail';
+
+
+import IntroductionListType01Detail from '@/components/introduction/IntroductionListType01Detail';
+import IntroductionListType02Detail from '@/components/introduction/IntroductionListType02Detail';
+
+import IntroductionNormalType01 from '@/components/introduction/IntroductionNormalType01';
+import IntroductionNormalType02 from '@/components/introduction/IntroductionNormalType02';
 
 
 
@@ -44,12 +50,20 @@ const router = createBrowserRouter([
                 element: <Introduction />,
                 children: [
                     {
-                        path: "",
-                        element: <IntroductionType01 />,
+                        path: "normalType01",
+                        element: <IntroductionNormalType01 />,
                     },
                     {
-                        path: "type02",
-                        element: <IntroductionType02 />,
+                        path: "normalType02",
+                        element: <IntroductionNormalType02 />,
+                    },
+                    {
+                        path: "listType01",
+                        element: <IntroductionListType01 />,
+                    },
+                    {
+                        path: "listType02",
+                        element: <IntroductionListType02 />,
                     },
                     {
                         path: "partners",
@@ -58,22 +72,22 @@ const router = createBrowserRouter([
                 ],
             },
             {
-                path: "introduction/:detailId",
+                path: "introduction/listType01/:detailId",
                 element: <IntroductionDetail/>,
                 children: [
                     {
                         path: "",
-                        element: <IntroductionType01Detail />,
+                        element: <IntroductionListType01Detail />,
                     },
                 ],
             },
             {
-                path: "introduction/type02/:detailId",
+                path: "introduction/listType02/:detailId",
                 element: <IntroductionDetail />,
                 children: [
                     {
                         path: "",
-                        element: <IntroductionType02Detail />,
+                        element: <IntroductionListType02Detail />,
                     },
                 ],
             }
