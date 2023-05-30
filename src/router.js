@@ -15,7 +15,6 @@ import IntroductionListType02 from '@/components/introduction/IntroductionListTy
 import NotFound from '@/components/error/NotFound';
 import CompanyTotal from '@/components/company/CompanyTotal';
 import Partners from '@/components/introduction/Partners';
-import IntroductionDetail from '@/containers/IntroductionDetail';
 
 
 import IntroductionListType01Detail from '@/components/introduction/IntroductionListType01Detail';
@@ -40,9 +39,13 @@ const router = createBrowserRouter([
                 element: <Company />,
                 children: [
                     {
-                        path: "",
+                        path: "introduction",
                         element: <CompanyTotal />,
                     },
+                    {
+                        path: "member",
+                        element: <CompanyTotal />,
+                    }
                 ],
             },
             {
@@ -68,29 +71,17 @@ const router = createBrowserRouter([
                     {
                         path: "partners",
                         element: <Partners />,
+                    },
+                    {
+                        path: "listType01/:detailId",
+                        element: <IntroductionListType01Detail />,
+                    },
+                    {
+                        path: "listType02/:detailId",
+                        element: <IntroductionListType02Detail />,
                     }
                 ],
             },
-            {
-                path: "introduction/listType01/:detailId",
-                element: <IntroductionDetail/>,
-                children: [
-                    {
-                        path: "",
-                        element: <IntroductionListType01Detail />,
-                    },
-                ],
-            },
-            {
-                path: "introduction/listType02/:detailId",
-                element: <IntroductionDetail />,
-                children: [
-                    {
-                        path: "",
-                        element: <IntroductionListType02Detail />,
-                    },
-                ],
-            }
 
         ],
         errorElement: <NotFound />

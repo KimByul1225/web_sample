@@ -78,10 +78,6 @@ const SliderPaginationComboSection = () => {
                     </p>
                 </div>
             </StyledSwiperSlide>
-            {/* <div className='pagination_esg'>
-                <div className="swiper-pagination-bullets">
-                </div>
-            </div> */}
         </StyledSwiper> 
     );
 };

@@ -28,18 +28,18 @@ const Header = () => {
                 >
                     <Depth1>
                         <li>
-                            <Link to="company">
-                                회사소개
+                            <Link to="company/introduction">
+                                기업소개
                             </Link>
                             <Depth2>
                                 <li>
-                                    <Link to="company">
-                                        회사소개
+                                    <Link to="company/introduction">
+                                        기업소개
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="company">
-                                        3333
+                                    <Link to="company/member">
+                                        구성원
                                     </Link>
                                 </li>
                             </Depth2>
