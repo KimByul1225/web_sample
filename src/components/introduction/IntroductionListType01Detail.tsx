@@ -16,15 +16,15 @@ const IntroductionListType01Detail = () => {
     return (
         <>
             <SubBanner
-                title="소개페이지 Type01 상세"
+                title="소개페이지 리스트형태 Type01 상세"
                 lineText01="Lorem ipsum dolor sit amet, consectetur"
                 lineText02="Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
             /> 
             <Container>
                 <Row>
-                    <DeatilTitle>
+                    <DetailTitle>
                         {detailId}번 글 (제목위치)
-                    </DeatilTitle>
+                    </DetailTitle>
                     <HeadLine>
                         <h4>Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -90,7 +90,7 @@ const IntroductionListType01Detail = () => {
 
 export default IntroductionListType01Detail;
 
-const DeatilTitle = styled.h3`
+const DetailTitle = styled.h3`
     font-size: 36px; font-weight: 400; color: #4F4F4F; padding-bottom: 100px; text-align: center; position: relative;
     ::after{
         content: ''; position: absolute; bottom: 30px; left: 50%; transform: translate(-1px, -50%) rotate(45deg); width: 1px; height: 25px; display: block; border-right: 2px solid #828282;

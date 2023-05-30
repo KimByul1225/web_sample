@@ -26,7 +26,7 @@ const IntroductionListType02 = () => {
     return (
         <>
             <SubBanner
-                title="소개페이지 Type02"
+                title="소개페이지 리스트형태 Type02"
                 lineText01="Lorem ipsum dolor sit amet, consectetur"
                 lineText02="Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
             /> 
