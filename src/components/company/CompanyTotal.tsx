@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import SubBanner from '../commons/SubBanner';
 import Company from './Company';
 import Greetings from './Greetings';
+import History from './History';
 
 const CompanyTotal = () => {
     const [tabMenuIndex, setTabMenuIndex] = useState(0);
@@ -61,7 +62,8 @@ const CompanyTotal = () => {
                 </div>
             </TabMenuWrap>
             {/* <Company/> */}
-            <Greetings/>
+            {/* <Greetings/> */}
+            <History/>
         </>
     );
 };
