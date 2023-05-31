@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Container from '../layout/Container';
@@ -36,6 +36,31 @@ const HistoryDetail = ({result}: {result: IHistoryDetail}) => {
 
 
 const History = () => {
+    const [historyView, setHistoryView] = useState(3);
+    const [veiwMoreHidden, setViewMoreHidden] = useState(true);
+    
+    const viewMoreBtnHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+
+        const historyList = document.querySelectorAll(".annualWrap");
+        const historyLength = historyList.length;
+        const historyQuo = ~~(historyLength / 3);
+        if(historyView < historyQuo * 3){
+            setHistoryView(historyView + 3);
+        }else{
+            setViewMoreHidden(false)
+        }
+        for (var i = 0; i < historyView; ++i) {
+            historyList[i].classList.add('on');
+        }
+    }
+
+    useEffect(()=>{
+        const partnerList = document.querySelectorAll(".annualWrap");
+        for (var i = 0; i < 3; ++i) {
+            partnerList[i].classList.add('on');
+        }
+    },[])
 
     const historyArray = [
         {
@@ -237,7 +262,10 @@ const History = () => {
                 {
                     historyArray.map((element, index) => {
                         return(
-                            <AnnualWrap key={index}>
+                            <AnnualWrap 
+                                key={index}
+                                className="annualWrap"
+                            >
                                 <YearBox>
                                     <h3>{element.year}</h3>
                                 </YearBox>
@@ -249,7 +277,17 @@ const History = () => {
                         )
                     })
                 }
-                
+                <MoreButtonWrap>
+                    {
+                        veiwMoreHidden === true &&
+                        <button 
+                            type="button"
+                            onClick={viewMoreBtnHandler}
+                        >
+                            더보기
+                        </button>
+                    }
+                </MoreButtonWrap>
             </Row>
         </Container>
     );
@@ -269,9 +307,6 @@ const AnnualWrap = styled.div`
 
     :first-child{
         margin: 0;
-    }
-    :last-child{
-        border-bottom: none;
     }
 
     @media screen and (max-width: 768px){
@@ -358,4 +393,35 @@ const DetailBox = styled.div`
                 font-size: 16px;
             }
         }
+`
+
+const MoreButtonWrap = styled.div`
+    margin-top: 100px;
+    text-align: center;
+    button{
+        display: none;
+    }
+    @media screen and (max-width: 1200px) {
+        margin-top: 80px;
+    }
+    @media screen and (max-width: 768px) {
+        margin-top: 0;
+        button{
+            background-color: #fff;
+            border: 1px solid #ff4d15;
+            border: 1px solid var(--col_acc);
+            border-radius: 5px;
+            color: #ff4d15;
+            color: var(--col_acc);
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 500;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            transition: all .3s ease;
+            width: 100%;
+        }
+    }
+
 `
