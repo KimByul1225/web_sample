@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import SubBanner from '../commons/SubBanner';
 import Company from './Company';
+import Greetings from './Greetings';
 
 const CompanyTotal = () => {
     const [tabMenuIndex, setTabMenuIndex] = useState(0);
@@ -59,7 +60,8 @@ const CompanyTotal = () => {
                     </ul>
                 </div>
             </TabMenuWrap>
-            <Company/>
+            {/* <Company/> */}
+            <Greetings/>
         </>
     );
 };
@@ -117,9 +119,6 @@ const TabMenuWrap = styled.div`
                 width: 50%;
             }
         }
-        
-    }
-    @media screen and (max-width: 768px){
         
     }
 `

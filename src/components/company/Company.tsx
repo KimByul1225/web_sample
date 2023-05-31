@@ -5,7 +5,8 @@ import SliderSection from './SliderSection';
 import Container from '../layout/Container';
 import Row from '../layout/Row';
 
-import BackGroundSample from "@/resources/images/company/sample01.png";
+import BackGroundSample from "@/resources/images/company/sample_01.png";
+import BrochureSample from "@/resources/images/company/sample_03.png";
 import DecoTitle from '../commons/DecoTitle';
 
 interface IProgressChart{
@@ -65,6 +66,28 @@ const Company = () => {
                     </SpaceBetween>
                 </Row>
             </Container>
+            <AccentContainer>
+                <Row>
+                    <ReverseSpaceBetween>
+                        <BrochureBox/>
+                        <TextBox>
+                            <DecoTitle
+                                text="Brochure 다운로드 영역"
+                                underline
+                            />
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+                            <ButtonWrap>
+                                <button>
+                                    한글 버전
+                                </button>
+                                <button>
+                                    English Ver.
+                                </button>
+                            </ButtonWrap>
+                        </TextBox>
+                    </ReverseSpaceBetween>
+                </Row>
+            </AccentContainer>
 
         </>
     );
@@ -123,6 +146,12 @@ const BackGroundBox = styled.div`
         height: 260px;
         width: 100%;
     }
+`
+
+const BrochureBox = styled(BackGroundBox)`
+    background: url(${BrochureSample}) center no-repeat;
+    background-size: cover;
+
 `
 
 const TextBox = styled.div`
@@ -227,8 +256,7 @@ const ProgressChart = styled.div<IProgressChart>`
 
 const ButtonWrap = styled.div`
     margin-top: 30px;
-    
-    a{
+    a, button{
         background-color: #fff;
         border: 1px solid #ff4d15;
         border: 1px solid var(--col_acc);
@@ -244,20 +272,52 @@ const ButtonWrap = styled.div`
         transition: all .3s ease;
         width: 230px;
     }
+    button{
+        margin-right: 10px;
+    }
+    a:hover, button:hover{
+        background-color: #ff4d15;
+        background-color: var(--col_acc);
+        color: #fff;
+        transition: all .3s ease;
+    }
+
     @media screen and (max-width: 1200px){
-        a{
+        a, button{
             font-size: 16px;
             height: 50px;
             line-height: 50px;
             width: 205px;
         }
+        a:hover, button:hover{
+            background-color: #fff;
+            color: #ff4d15;
+            color: var(--col_acc);
+        }
+        
     }
     @media screen and (max-width: 768px){
-        a{
+        a, button{
             font-size: 14px;
             height: 45px;
             line-height: 45px;
             width: 100%;
         }
+        button{
+            margin-bottom: 10px;
+            margin-right: 0;
+        }
+    }
+`
+
+const AccentContainer = styled.div`
+    background-color: #f9f9f9;
+    padding: 120px 0;
+    
+    @media screen and (max-width: 1200px){
+        padding: 80px 0;
+    }
+    @media screen and (max-width: 768px){
+        padding: 50px 0;
     }
 `
