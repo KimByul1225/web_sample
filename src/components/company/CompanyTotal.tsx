@@ -4,6 +4,7 @@ import SubBanner from '../commons/SubBanner';
 import Company from './Company';
 import Greetings from './Greetings';
 import History from './History';
+import ContactUs from './ContactUs';
 
 const CompanyTotal = () => {
     const [tabMenuIndex, setTabMenuIndex] = useState(0);
@@ -63,7 +64,8 @@ const CompanyTotal = () => {
             </TabMenuWrap>
             {/* <Company/> */}
             {/* <Greetings/> */}
-            <History/>
+            {/* <History/> */}
+            <ContactUs/>
         </>
     );
 };

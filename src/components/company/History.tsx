@@ -34,14 +34,12 @@ const HistoryDetail = ({result}: {result: IHistoryDetail}) => {
 }
 
 
-
 const History = () => {
     const [historyView, setHistoryView] = useState(3);
     const [veiwMoreHidden, setViewMoreHidden] = useState(true);
     
     const viewMoreBtnHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-
         const historyList = document.querySelectorAll(".annualWrap");
         const historyLength = historyList.length;
         const historyQuo = ~~(historyLength / 3);
@@ -61,7 +59,6 @@ const History = () => {
             partnerList[i].classList.add('on');
         }
     },[])
-
     const historyArray = [
         {
             year: 2023,
@@ -255,7 +252,6 @@ const History = () => {
     ];
 
 
-
     return (
         <Container>
             <Row>
@@ -292,23 +288,18 @@ const History = () => {
         </Container>
     );
 };
-
 export default History;
 
-
 const AnnualWrap = styled.div`
-    
     align-items: flex-start;
     border-bottom: 1px solid #e0e0e0;
     display: flex;
     justify-content: flex-start;
     margin: 50px 0 0 0;
     padding: 20px 0 50px;
-
     :first-child{
         margin: 0;
     }
-
     @media screen and (max-width: 768px){
         display: none;
         padding: 20px 20px 30px;
@@ -338,7 +329,6 @@ const YearBox = styled.div`
         }
     }
 `
-
 const DetailBox = styled.div`
         width: calc(100% - 270px);
         div{
@@ -394,7 +384,6 @@ const DetailBox = styled.div`
             }
         }
 `
-
 const MoreButtonWrap = styled.div`
     margin-top: 100px;
     text-align: center;
