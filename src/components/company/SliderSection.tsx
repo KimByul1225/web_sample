@@ -47,8 +47,8 @@ const SliderSection = () => {
                     <StyledSwiperSlide>
                         <span/>
                         <div>
-                            <p>Lorem ipsum</p>
-                            <p>Lorem ipsum dolor</p>
+                            <p>여기는 모바일에서</p>
+                            <p>슬라이더로 변경됩니다.</p>
                         </div>
                     </StyledSwiperSlide>
                     <StyledSwiperSlide>
