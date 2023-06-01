@@ -15,9 +15,7 @@ const ContactUs = () => {
                 <MapBox>
                     <Kakaomap/>
                 </MapBox>
-
             </Row>
-
             <InfomationWrap>
                 <InfomationLeft>
                     <div>
@@ -27,7 +25,7 @@ const ContactUs = () => {
                             </span>
                         </Logo>
                         <h4>주소</h4>
-                        <p>(1722) 안양시 동안구 동편로 20번길 43</p>
+                        <p>(1722-1) 안양시 동안구 동편로 20번길 43</p>
                         <h4>전화번호</h4>
                         <p>010 - 3092 - 1356</p>
                         <h4>이메일</h4>
@@ -67,13 +65,10 @@ const ContactUs = () => {
                 </InfomationRight>
 
             </InfomationWrap>
-
             <DecoBackGroundWrap>
                 <div/>
                 <div/>
             </DecoBackGroundWrap>
-
-
         </ContactUsContainer>
     );
 };
@@ -92,7 +87,6 @@ const ContactUsContainer = styled.div`
 const MapBox = styled.div`
     height: 650px;
     width: 100%;
-    border: 1px solid #000;
     @media screen and (max-width: 1200px){
         height: 480px;
     }   

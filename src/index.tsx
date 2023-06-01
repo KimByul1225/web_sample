@@ -4,6 +4,7 @@ import './index.css';
 import { RouterProvider } from 'react-router';
 import router from './router';
 import { GlobalStyle } from '@/resources/styles/GlobalStyle';
+import "@/resources/styles/slider.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

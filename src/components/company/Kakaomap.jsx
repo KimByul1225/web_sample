@@ -1,7 +1,9 @@
 
 /*global kakao */
 import {useEffect} from "react";
-// import insightDefault from "../../resources/img/map_logo.png"
+import "@/resources/styles/marker.css";
+import markerSample from "@/resources/images/company/marker_sample.png"
+
 
 function Kakaomap(){
     useEffect(() => {
@@ -12,34 +14,34 @@ function Kakaomap(){
         let container = document.getElementById("map");
         let options = {
             //집 위치로 변경
-            center: new kakao.maps.LatLng(37.56193113014863, 126.99103589326943),
+            center: new kakao.maps.LatLng(37.4061737, 126.9730445),
             level: 2,
         };
         //map
         const map = new kakao.maps.Map(container, options);
         //마커 위치 현재 위치와 동일하게 설정.
         let markerPosition = new kakao.maps.LatLng(
-            37.56193113014863,
-            126.99103589326943
+            37.4061737, 
+            126.9730445
         );
         // 마커생성
         let marker = new kakao.maps.Marker({
             position: markerPosition,
         });
 
-        // // <img src="${insightDefault}" alt="오시는길 회사로고" width="70" heigth="70"/>
+        
         const content = `
             <div class="map_wrap">
                 <div class="map_info">
-                    <div class="map_title">서스틴베스트</div>
+                    <div class="map_title">Lorem ipsum dolor</div>
                     <div class="map_body">
                         <div class="map_img">
-                            
+                            <img src="${markerSample}" alt="샘플 이미지" width="70" heigth="70"/>
                         </div>
                         <div class="map_desc">
-                            <div class="ellipsis">서울특별시 중구 퇴계로 137 </div>
-                            <div class="jibun ellipsis">남산스퀘어 22층 (04554)</div>
-                            <div class="jibun ellipsis">02-6310-9300</div>
+                            <div class="ellipsis">안양시 동안구 동편로 20번길 43</div>
+                            <div class="jibun ellipsis">데이드림 오피스텔 (1722-1)</div>
+                            <div class="jibun ellipsis">010-3092-1356</div>
                         </div>
                     </div>
                 </div>
