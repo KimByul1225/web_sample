@@ -11,35 +11,32 @@ const Ci = () => {
     return (
         <Container>
             <Row>
-                <>
-                    <CiTitle>
-                        Lorem ipsum dolor sit <b>"Lorem ipsum"</b>
-                    </CiTitle>
+                <CiTitle>
+                    Lorem ipsum dolor sit <b>"Lorem ipsum"</b>
+                </CiTitle>
 
-                    <CiItroBox>
-                        <figure/>
-                        <div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi </p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse </p>
-                        </div>
-                    </CiItroBox>
-                    <CiSubTitle>
-                        Ci 다운로드 영역
-                    </CiSubTitle>
-                    <CiDetailBox>
-                        <h4>영문 Ci</h4>
-                        <CiImageBox>
-                            <div></div>
-                            <div></div>
-                        </CiImageBox>
-                    </CiDetailBox>
-                    <ButtonWrap>
-                        <button>Ai파일 다운로드</button>
-                        <button>PNG파일 다운로드</button>
-                    </ButtonWrap>
-                </>
-
+                <CiItroBox>
+                    <figure/>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse </p>
+                    </div>
+                </CiItroBox>
+                <CiSubTitle>
+                    Ci 다운로드 영역
+                </CiSubTitle>
+                <CiDetailBox>
+                    <h4>영문 Ci</h4>
+                    <CiImageBox>
+                        <div></div>
+                        <div></div>
+                    </CiImageBox>
+                </CiDetailBox>
+                <ButtonWrap>
+                    <button>Ai파일 다운로드</button>
+                    <button>PNG파일 다운로드</button>
+                </ButtonWrap>
             </Row>
         </Container>
     );

@@ -22,6 +22,7 @@ import IntroductionListType02Detail from '@/components/introduction/Introduction
 
 import IntroductionNormalType01 from '@/components/introduction/IntroductionNormalType01';
 import IntroductionNormalType02 from '@/components/introduction/IntroductionNormalType02';
+import Member from './components/company/Member';
 
 
 
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
                     },
                     {
                         path: "member",
-                        element: <CompanyTotal />,
+                        element: <Member />,
                     }
                 ],
             },

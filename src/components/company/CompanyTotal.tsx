@@ -78,7 +78,6 @@ const CompanyTotal = () => {
             {
                 tabMenuIndex === 4 && <Ci/>
             }
-
         </>
     );
 };
