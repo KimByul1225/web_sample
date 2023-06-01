@@ -5,6 +5,7 @@ import Company from './Company';
 import Greetings from './Greetings';
 import History from './History';
 import ContactUs from './ContactUs';
+import Ci from './Ci';
 
 const CompanyTotal = () => {
     const [tabMenuIndex, setTabMenuIndex] = useState(0);
@@ -62,10 +63,22 @@ const CompanyTotal = () => {
                     </ul>
                 </div>
             </TabMenuWrap>
-            {/* <Company/> */}
-            {/* <Greetings/> */}
-            {/* <History/> */}
-            <ContactUs/>
+            {
+                tabMenuIndex === 0 && <Company/>
+            }
+            {
+                tabMenuIndex === 1 && <Greetings/>
+            }
+            {
+                tabMenuIndex === 2 && <History/>
+            }
+            {
+                tabMenuIndex === 3 && <ContactUs/>
+            }
+            {
+                tabMenuIndex === 4 && <Ci/>
+            }
+
         </>
     );
 };
