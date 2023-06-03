@@ -51,7 +51,7 @@ const MemberSliderSection = ({result}: {result: IMember[]}) => {
                             <div>
                                 <i/>
                                 <TextBox>
-                                    <p>
+                                    <p className="ellipsis">
                                         <b>{element.jobTitle}</b>
                                         <span/>
                                         <b>{element.name}</b>

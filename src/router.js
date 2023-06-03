@@ -22,7 +22,12 @@ import IntroductionListType02Detail from '@/components/introduction/Introduction
 
 import IntroductionNormalType01 from '@/components/introduction/IntroductionNormalType01';
 import IntroductionNormalType02 from '@/components/introduction/IntroductionNormalType02';
-import Member from './components/company/Member';
+import Member from '@/components/company/Member';
+
+
+import List from '@/containers/List';
+import TextType from '@/components/list/TextType';
+import ImageType from '@/components/list/ImageType';
 
 
 
@@ -83,6 +88,20 @@ const router = createBrowserRouter([
                     }
                 ],
             },
+            {
+                path: "list",
+                element: <List />,
+                children: [
+                    {
+                        path: "textType",
+                        element: <TextType />,
+                    },
+                    {
+                        path: "imageType",
+                        element: <ImageType />,
+                    },
+                ]
+            }
 
         ],
         errorElement: <NotFound />

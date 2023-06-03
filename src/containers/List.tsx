@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router';
 
-const Introduction = () => {
+const List = () => {
     return (
         <>
             <Outlet/>
@@ -9,4 +9,4 @@ const Introduction = () => {
     );
 };
 
-export default Introduction;
+export default List;

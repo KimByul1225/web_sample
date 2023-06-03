@@ -51,22 +51,22 @@ const Header = () => {
                             <Depth2>
                                 <li>
                                     <Link to="introduction/normalType01">
-                                        일반형태 Type01
+                                        일반형태 Type1
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to="introduction/normalType02">
-                                        일반형태 Type02
+                                        일반형태 Type2
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to="introduction/listType01">
-                                        리스트형태 Type01
+                                        리스트형태 Type1
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to="introduction/listType02">
-                                        리스트형태 Type02
+                                        리스트형태 Type2
                                     </Link>
                                 </li>
                                 <li>
@@ -77,18 +77,18 @@ const Header = () => {
                             </Depth2>
                         </li>
                         <li>
-                            <Link to="sub">
-                                menu3
+                            <Link to="list/textType">
+                                게시글
                             </Link>
                             <Depth2>
                                 <li>
-                                    <Link to="sub">
-                                        2222
+                                    <Link to="list/textType">
+                                        텍스트 형태
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="sub">
-                                        3333
+                                    <Link to="list/imageType">
+                                        이미지 형태
                                     </Link>
                                 </li>
                             </Depth2>
