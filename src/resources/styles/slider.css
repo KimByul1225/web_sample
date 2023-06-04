@@ -58,6 +58,8 @@
 .memberlist_box .swiper-button-next{display: none;}
 .memberlist_box .swiper-button-prev{display: none;}
 
+
+/* media */
 @media screen and (max-width: 1200px) {
 	/* banner */
 	.main_swiper .swiper-slide{padding: 0 115px;}
