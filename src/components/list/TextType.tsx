@@ -89,6 +89,7 @@ const TextType = () => {
             isShow : true,
             modalProps: {
                 message: "메세지 작성",
+                message2: "메세지 작성222",
                 confirmText: "확인",
                 cancelText: "취소",
                 handleConfirm: () => {
