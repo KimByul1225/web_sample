@@ -85,30 +85,12 @@ const TextType = () => {
     };
 
     const confirmModalHandler = () => {
-        // showModal({
-        //     //modalType: "ConfirmModal",
-        //     modalProps: {
-        //         message: "Yes or No",
-        //         confirmText: "Yes",
-        //         cancelText: "No",
-        //         handleConfirm: () => {
-        //         console.log("Yes!");
-        //         },
-        //         handleClose: () => {
-        //         console.log("No!");
-        //         }
-        //     }
-        // });
-
         setConfirmModal({
             isShow : true,
-            
             modalProps: {
-                message: "Yes or No",
-
-                confirmText: "Yes",
-                cancelText: "No",
-
+                message: "메세지 작성",
+                confirmText: "확인",
+                cancelText: "취소",
                 handleConfirm: () => {
                     console.log("Yes!");
                 },
@@ -117,7 +99,6 @@ const TextType = () => {
                 }
             }
         })
-        
     }
 
 
@@ -141,7 +122,7 @@ const TextType = () => {
                         컨펌창 테스트
                     </button>
 
-                   
+
                     <hr />
                     <hr />
                     <hr />

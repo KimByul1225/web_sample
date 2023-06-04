@@ -7,10 +7,8 @@ export const confirmState = atom<any>({
 
         modalProps: {
             message: "no message",
-
             confirmText: "no Text",
             cancelText: "No",
-
             handleConfirm: () => {
                 console.log("Yes!");
             },

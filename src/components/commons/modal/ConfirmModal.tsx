@@ -1,4 +1,6 @@
+import { confirmState } from '@/global/modal';
 import React from 'react';
+import { useRecoilState } from 'recoil';
 
 interface IConfirmModal {
     title?: string;
@@ -9,47 +11,68 @@ interface IConfirmModal {
     handleConfirm?: (...arg: any[]) => any;
 }
 
-const ConfirmModal = ({
-    title = "no title",
-    message = "no message",
-    cancelText = "취소",
-    confirmText = "확인",
-    handleClose,
-    handleConfirm
-}: IConfirmModal) => {
-
-
+const ConfirmModal = ( ) => {
+    const [confirmModal, setConfirmModal] = useRecoilState(confirmState);
+    const  { modalProps, isShow } = confirmModal;
 
     const closeHandler = () => {
-        if (handleClose) {
-        handleClose();
+        if (modalProps.handleClose) {
+        modalProps.handleClose();
         }
-        //hideModal();
-        console.log("hideModal");
+        setConfirmModal({
+            isShow: false,
+            modalProps: {
+                message: "no message",
+                confirmText: "no Text",
+                cancelText: "No",
+                handleConfirm: () => {
+                    console.log("Yes!");
+                },
+                handleClose: () => {
+                    console.log("No!");
+                }
+            }
+        })
     };
     
     const confirmHandler = async () => {
-        if (handleConfirm) {
-        await handleConfirm();
+        if (modalProps.handleConfirm) {
+        await modalProps.handleConfirm();
         }
-        console.log("hideModal");
+        setConfirmModal({
+            isShow: false,
+            modalProps: {
+                message: "no message",
+                confirmText: "no Text",
+                cancelText: "No",
+                handleConfirm: () => {
+                    console.log("Yes!");
+                },
+                handleClose: () => {
+                    console.log("No!");
+                }
+            }
+        })
     };
 
     return (
-        <div>
-
-            컨펌창!!!
-
-            <div>
-                <button onClick={closeHandler}>
-                    {cancelText}
-                </button>
-                <button onClick={confirmHandler}>
-                    {confirmText}
-                </button>
-            </div>
+        <>
+            {
+                isShow &&
+                <div>
+                    컨펌창
+                    <hr />
+                    <div>{modalProps.message}</div>
+                    <button onClick={closeHandler}>
+                        {modalProps.cancelText}
+                    </button>
+                    <button onClick={confirmHandler}>
+                        {modalProps.confirmText}
+                    </button>
+                </div>
+            }
             
-        </div>
+        </>
     );
 };
 
