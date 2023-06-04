@@ -6,14 +6,18 @@ import router from './router';
 import { GlobalStyle } from '@/resources/styles/GlobalStyle';
 import "@/resources/styles/slider.css";
 
+import { RecoilRoot } from 'recoil';
+import ConfirmModal from './components/commons/modal/ConfirmModal';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
+  <RecoilRoot>
     <RouterProvider router={router} /> 
+    <ConfirmModal/>
     <GlobalStyle/>
-  </React.StrictMode>
+  </RecoilRoot>
 );
 
 

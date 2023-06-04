@@ -6,6 +6,11 @@ import Row from '../layout/Row';
 import Pagination from './Pagination';
 import { TextTypeFaker } from '@/resources/faker/list/TextTypeFaker';
 import TextList from './TextList';
+import { useRecoilState } from 'recoil';
+
+
+
+import { confirmState } from '@/global/modal';
 
 
 interface Ipagination {
@@ -28,6 +33,9 @@ interface IListData{
 }
 
 const TextType = () => {
+
+    const [confirmModal, setConfirmModal] = useRecoilState(confirmState);
+
     const [searchParams, setSearchParams] = useState({
         // startYmd: location.state ? location.state.keyword.startYmd : null,
         // endYmd: location.state ? location.state.keyword.endYmd : null,
@@ -65,6 +73,53 @@ const TextType = () => {
     }, []);
 
 
+    const alertModalHandler = () => {
+        
+
+        // showModal({
+        //     modalType: "AlertModal",
+        //     modalProps: {
+        //         message: "Success!"
+        //     }
+        // });
+    };
+
+    const confirmModalHandler = () => {
+        // showModal({
+        //     //modalType: "ConfirmModal",
+        //     modalProps: {
+        //         message: "Yes or No",
+        //         confirmText: "Yes",
+        //         cancelText: "No",
+        //         handleConfirm: () => {
+        //         console.log("Yes!");
+        //         },
+        //         handleClose: () => {
+        //         console.log("No!");
+        //         }
+        //     }
+        // });
+
+        setConfirmModal({
+            isShow : true,
+            
+            modalProps: {
+                message: "Yes or No",
+
+                confirmText: "Yes",
+                cancelText: "No",
+
+                handleConfirm: () => {
+                    console.log("Yes!");
+                },
+                handleClose: () => {
+                    console.log("No!");
+                }
+            }
+        })
+        
+    }
+
 
     return (
         <>
@@ -75,8 +130,25 @@ const TextType = () => {
             /> 
             <Container>
                 <Row>
-                    <TextList
+                    <button
+                        onClick={alertModalHandler}
+                    >
+                        얼럿창 테스트
+                    </button>
+                    <button
+                        onClick={confirmModalHandler}
+                    >
+                        컨펌창 테스트
+                    </button>
 
+                   
+                    <hr />
+                    <hr />
+                    <hr />
+                    <hr />
+
+                    <TextList
+                        
                     />
                     {
                         listData.slice(offset, offset + limit).map((item) => {

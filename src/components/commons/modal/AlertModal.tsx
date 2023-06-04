@@ -1,11 +1,11 @@
 import React from 'react';
 
-const TextList = () => {
+const AlertModal = () => {
     return (
         <div>
-            textList
+            얼럿창!!!
         </div>
     );
 };
 
-export default TextList;
+export default AlertModal;
