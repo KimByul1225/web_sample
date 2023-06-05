@@ -6,11 +6,11 @@ import Row from '../layout/Row';
 import Pagination from './Pagination';
 import { TextTypeFaker } from '@/resources/faker/list/TextTypeFaker';
 import TextList from './TextList';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 
 
 
-import { confirmState } from '@/global/modal';
+import { alertState, confirmState } from '@/global/modal';
 
 
 interface Ipagination {
@@ -34,7 +34,8 @@ interface IListData{
 
 const TextType = () => {
 
-    const [confirmModal, setConfirmModal] = useRecoilState(confirmState);
+    const setConfirmModal = useSetRecoilState(confirmState);
+    const setAlertModal = useSetRecoilState(alertState)
 
     const [searchParams, setSearchParams] = useState({
         // startYmd: location.state ? location.state.keyword.startYmd : null,
@@ -74,14 +75,17 @@ const TextType = () => {
 
 
     const alertModalHandler = () => {
-        
-
-        // showModal({
-        //     modalType: "AlertModal",
-        //     modalProps: {
-        //         message: "Success!"
-        //     }
-        // });
+        setAlertModal({
+            isShow : true,
+            modalProps: {
+                message: "메세지 작성",
+                message2: "두번째줄!!!",
+                buttonName: "확인",
+                handleButton: () => {
+                    console.log("No!");
+                }
+            }
+        })
     };
 
     const confirmModalHandler = () => {
@@ -89,9 +93,9 @@ const TextType = () => {
             isShow : true,
             modalProps: {
                 message: "메세지 작성",
-                message2: "메세지 작성222",
-                confirmText: "확인",
-                cancelText: "취소",
+                message2: "두번째줄!!!",
+                confirmButtonName: "확인",
+                cancelButtonName: "취소",
                 handleConfirm: () => {
                     console.log("Yes!");
                 },

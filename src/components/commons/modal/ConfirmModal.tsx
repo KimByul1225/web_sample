@@ -8,8 +8,6 @@ const ConfirmModal = ( ) => {
     const confirmModal = useRecoilValue(confirmState);
     const resetConfirmModal= useResetRecoilState(confirmState);
 
-
-
     const  { modalProps, isShow } = confirmModal;
 
     const closeHandler = () => {
@@ -17,7 +15,6 @@ const ConfirmModal = ( ) => {
             modalProps.handleClose();
         }
         resetConfirmModal();
-        
     };
     
     const confirmHandler = async () => {
@@ -49,11 +46,11 @@ const ConfirmModal = ( ) => {
                         </TextBox>
                         <ButtonBox>
                             <button onClick={closeHandler}>
-                                {modalProps.cancelText}
+                                {modalProps.cancelButtonName}
                             </button>
 
                             <button onClick={confirmHandler}>
-                                {modalProps.confirmText}
+                                {modalProps.confirmButtonName}
                             </button>
                         </ButtonBox>
                     </ConfirmWrap>
