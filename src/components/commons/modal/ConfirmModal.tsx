@@ -1,5 +1,4 @@
 import { confirmState } from '@/global/modal';
-import React from 'react';
 import { useRecoilValue, useResetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import closeIcon from "@/resources/icons/commons/icon_modal_close.png"
@@ -7,16 +6,13 @@ import closeIcon from "@/resources/icons/commons/icon_modal_close.png"
 const ConfirmModal = ( ) => {
     const confirmModal = useRecoilValue(confirmState);
     const resetConfirmModal= useResetRecoilState(confirmState);
-
     const  { modalProps, isShow } = confirmModal;
-
     const closeHandler = () => {
         if (modalProps.handleClose) {
             modalProps.handleClose();
         }
         resetConfirmModal();
     };
-    
     const confirmHandler = async () => {
         if (modalProps.handleConfirm) {
             await modalProps.handleConfirm();
