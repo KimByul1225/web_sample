@@ -14,6 +14,8 @@ import { useSetRecoilState } from 'recoil';
 
 
 import { alertState, confirmState } from '@/global/modal';
+import RecommendList from './RecommendList';
+import { RecommendListFaker } from '@/resources/faker/list/RecommendListFaker';
 
 
 interface Ipagination {
@@ -61,6 +63,7 @@ const TextType = () => {
 
 
     const [listData, setListData] = useState<IListData[]>([] as IListData[]);
+    const [recommendListData, setRecommendListData] = useState<IListData[]>([] as IListData[]);
     // 게시글 목록갯수 설정
     const limit = 10;
     const [page, setPage] = useState(1);
@@ -71,8 +74,16 @@ const TextType = () => {
     useEffect(() => {
         const result = TextTypeFaker();
         const { resultMap } = result || {};
+
+        const recommendResult = RecommendListFaker();
+        const { resultMap: recommendResultMap } = recommendResult || {};
+
+
         if (resultMap.result) {
             setListData(resultMap.resultList);
+        }
+        if (recommendResultMap.result) {
+            setRecommendListData(recommendResultMap.resultList);
         }
     }, []);
 
@@ -149,12 +160,9 @@ const TextType = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>추천</td>
-                                        <td>51651</td>
-                                        <td>ㅁㅁㅁㅁ</td>
-                                        <td>ㅃㅃㅃ</td>
-                                    </tr>
+                                    <RecommendList
+                                        list = {recommendListData}
+                                    />
                                     {
                                         listData.slice(offset, offset + limit).map((item) => {
                                             const newDate = new Intl.DateTimeFormat('kr').format(item.date);
@@ -172,17 +180,10 @@ const TextType = () => {
                                             )
                                         })
                                     }
-
                                 </tbody>
                             </ListTable>
                         </Row>
-                    </ListWrap>
-
-                    
-
-
-
-                    <hr />
+                    </ListWrap>                    
                     <Pagination  
                         total={listData.length}
                         limit={limit}
