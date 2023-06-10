@@ -15,22 +15,12 @@ import { useSetRecoilState } from 'recoil';
 
 import { alertState, confirmState } from '@/global/modal';
 import RecommendList from './RecommendList';
+import BasicSearch from '../commons/search/BasicSearch';
+
+
 import { RecommendListFaker } from '@/resources/faker/list/RecommendListFaker';
 
 
-interface Ipagination {
-    currentPageNo: number;
-    recordCountPerPage: number;
-    pageSize: number;
-    totalRecordCount: number;
-    totalPageCount: number;
-    firstPageNoOnPageList: number;
-    lastPageNoOnPageList: number;
-    firstRecordIndex: number;
-    lastRecordIndex: number;
-    lastPageNo: number;
-    firstPageNo: number;
-}
 interface IListData{
     index: number;
     title: string;
@@ -54,12 +44,12 @@ const TextType = () => {
     //const [listData, setListData] = useState<IListData[]>([] as IListData[]);
     // const [paginationInfo, setPaginationInfo] = useState<Ipagination>({} as Ipagination);
 
-    // const onSubmit = (changedSearchParams: any) => {
-    //     setSearchParams({
-    //         ...searchParams,
-    //         ...changedSearchParams
-    //     });
-    // }
+    const onSubmit = (changedSearchParams: any) => {
+        setSearchParams({
+            ...searchParams,
+            ...changedSearchParams
+        });
+    }
 
 
     const [listData, setListData] = useState<IListData[]>([] as IListData[]);
@@ -147,6 +137,14 @@ const TextType = () => {
                     <hr />
                     <ListWrap>
                         <Row>
+                            <BasicSearch
+                                searchParams={searchParams} 
+                                onSubmit={onSubmit}
+                            />
+
+
+
+
                             <TotalCount>
                                 총 <span>{listData.length}</span>건
                             </TotalCount>
