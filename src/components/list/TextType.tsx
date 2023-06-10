@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import SubBanner from '../commons/SubBanner';
 import Container from '../layout/Container';
 import Row from '../layout/Row';
 import Pagination from './Pagination';
-import TextList from './TextList';
 
 
 
@@ -161,7 +161,11 @@ const TextType = () => {
                                             return(
                                                 <tr key={item.index}>
                                                     <td>{item.index}</td>
-                                                    <td className="ellipsis">{item.title}</td>
+                                                    <td className="ellipsis">
+                                                        <Link to="/">
+                                                            {item.title}
+                                                        </Link>
+                                                    </td>
                                                     <td>{newDate}</td>
                                                     <td></td>
                                                 </tr>
@@ -174,18 +178,8 @@ const TextType = () => {
                         </Row>
                     </ListWrap>
 
-                    <TextList
-                        
-                    />
-                    {
-                        listData.slice(offset, offset + limit).map((item) => {
-                            return(
-                                <div key={item.index}>
-                                    {item.index} | {item.title}
-                                </div>
-                            )
-                        })
-                    }
+                    
+
 
 
                     <hr />
@@ -272,9 +266,15 @@ const ListTable = styled.table`
     }
     tbody td:nth-child(3){
         width: 15%;
+        color: #828282;
+        font-size: 16px;
+        font-weight: 400;
     }
     tbody td:nth-child(4){
         width: 15%;
+    }
+    tbody td a{
+        color: #333;
     }
     @media screen and (max-width: 1200px){
         thead th:nth-child(1){
