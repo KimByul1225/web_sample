@@ -10,27 +10,44 @@ import moment from "moment";
 
 import iconDate from "@/resources/icons/commons/icon_date.png"
 import iconReset from "@/resources/icons/commons/icon_btn_reset.png"
+import iconSelect from "@/resources/icons/commons/icon_select.png"
+import { useSetRecoilState } from 'recoil';
+import { alertState } from '@/global/modal';
 
+interface ISearchParams {
+    startYmd: Date | null;
+    endYmd: Date | null;
+    searchType: string;
+    searchWord: string;
+    currentPageNo: number;
+}
 
-const BasicSearch = ({searchParams, onSubmit, datepicker}: {searchParams: any, onSubmit: any, datepicker?: boolean}) => {
-
-    const [params, setParams] = useState(searchParams);
-
+const BasicSearch = ({searchParams, onSubmit, datepicker}: {searchParams: ISearchParams, onSubmit: (changedSearchParams: ISearchParams) => void, datepicker?: boolean}) => {
+    const [params, setParams] = useState<ISearchParams>(searchParams);
+    const setAlertModal = useSetRecoilState(alertState);
     useEffect(() => {
         setParams({
             ...searchParams,
             currentPageNo : 1
         });
     }, [searchParams]);
-
-
     useEffect(() => {
         if(params.startYmd && params.endYmd){
             let startMoment = moment(params.startYmd, 'YYYYMMDD');
             let endMoment = moment(params.endYmd, 'YYYYMMDD');
             if(!endMoment.isAfter(startMoment) && !endMoment.isSame(startMoment)){
-                // dispatch(showAlertModal('시작일자 이후로 종료일자를 선택해주세요', '', '확인'));
-                params.endYmd = '';
+                setAlertModal({
+                    isShow : true,
+                    modalProps: {
+                        message: "시작일자 이후로 종료일자를 선택해주세요",
+                        buttonName: "확인",
+                        handleButton: () => {}
+                    }
+                })
+                setParams({
+                    ...params,
+                    endYmd: null
+                })
             }
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -70,36 +87,60 @@ const BasicSearch = ({searchParams, onSubmit, datepicker}: {searchParams: any, o
 
     return (
         <Wrap>
-            <LineBox>
-                <LabelWrap>
-                    <label htmlFor="">조회기간</label>
-                </LabelWrap>
-                <DateWrap>
-                    <DatePicker
-                        locale={ko}
-                        dateFormat="yyyy-MM-dd"
-                        selected={params.startYmd && moment(params.startYmd).toDate()}
-                        onChange={(date) => onChangeDate(date, 'startYmd')}
-                    />
-                    <span>~</span>
-                    <DatePicker
-                        locale={ko}
-                        dateFormat="yyyy-MM-dd"
-                        selected={params.endYmd && moment(params.endYmd).toDate()}
-                        onChange={date => onChangeDate(date, 'endYmd')}
-                    />
-                </DateWrap>
-                    <ResetButton
-                        onClick={reset}
-                    >
-                        <span className="ir_so">초기화 버튼</span>
-                    </ResetButton>
-            </LineBox>
+            {
+                datepicker !== false && 
+                <LineBox>
+                    <LabelWrap>
+                        <label htmlFor="">조회기간</label>
+                    </LabelWrap>
+                    <DateWrap>
+                        <DatePicker
+                            locale={ko}
+                            dateFormat="yyyy-MM-dd"
+                            selected={params.startYmd && moment(params.startYmd).toDate()}
+                            onChange={(date) => onChangeDate(date, 'startYmd')}
+                        />
+                        <span>~</span>
+                        <DatePicker
+                            locale={ko}
+                            dateFormat="yyyy-MM-dd"
+                            selected={params.endYmd && moment(params.endYmd).toDate()}
+                            onChange={date => onChangeDate(date, 'endYmd')}
+                        />
+                    </DateWrap>
+                        <ResetButton
+                            onClick={reset}
+                        >
+                            <span className="ir_so">초기화 버튼</span>
+                        </ResetButton>
+                </LineBox>
+            }
 
             <LineBox>
                 <LabelWrap>
                     <label htmlFor="">검색어</label>
                 </LabelWrap>
+                <InputWrap>
+                    <select  name="searchType" defaultValue={params.searchType || 'both'} onChange={onChange}>
+                        <option value="both">제목 + 내용</option>
+                        <option value="title">제목</option>
+                        <option value="content">내용</option>
+                    </select>
+                    <input 
+                        type="text" 
+                        id="searchWord"
+                        name="searchWord" 
+                        onChange={onChange} 
+                        placeholder="검색어를 입력하세요."
+                        value={params.searchWord || ''}
+                        //onKeyPress={(e) => enterKeyPressHandler(e, () => onSubmit(params))}
+                    />
+                    <button
+                        onClick={() => onSubmit(params)}
+                    >
+                        검색
+                    </button>
+                </InputWrap>
 
             </LineBox>
         </Wrap>
@@ -193,9 +234,6 @@ const DateWrap = styled.div`
         text-align: center;
         width: 30px;
     }
-    
-    
-
     @media screen and (max-width: 768px) {
         flex-direction: column;
         margin-right: 0;
@@ -207,7 +245,6 @@ const DateWrap = styled.div`
             line-height: 30px;
         }
     }
-
 `
 
 const ResetButton = styled.button`
@@ -220,5 +257,72 @@ const ResetButton = styled.button`
     @media screen and (max-width: 768px) {
         margin-top: 20px;
         width: 100%;
+    }
+`
+
+const InputWrap = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: calc(100% - 140px);
+    select{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 160px; 
+        height: 50px; 
+        border: 1px solid #E0E0E0; 
+        border-radius:4px; 
+        padding-left: 15px; 
+        font-size: 16px;  
+        color: #828282; 
+        background: #fff url(${iconSelect}) center right 15px no-repeat; background-size: 18px; margin-right: 10px;
+    }
+    input{
+        width: calc(100% - 280px);
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        color: #828282;
+        font-size: 16px;
+        height: 50px;
+        margin-right: 10px;
+        padding-left: 15px;
+    }
+    button{
+        background-color: var(--col_acc);
+        border: 1px solid var(--col_acc);
+        border-radius: 5px;
+        box-sizing: border-box;
+        color: #fff;
+        font-size: 16px;
+        height: 50px;
+        transition: all .3s ease;
+        width: 100px;
+    }
+    button:hover{
+        background-color: #fff;
+        color: #ff4d15;
+        color: var(--col_acc);
+        transition: all .3s ease;
+    }
+
+    @media screen and (max-width: 768px) {
+        display: block;
+        width: 100%;
+        select{
+            width: 100%;
+        }
+        input{
+            margin-top: 10px;
+            width: 100%;
+        }
+        button{
+            margin-top: 20px;
+            width: 100%;
+        }
+        button:hover{
+            background-color: var(--col_acc);
+            border: 1px solid var(--col_acc);
+            color: #fff;
+        }
     }
 `

@@ -27,28 +27,33 @@ interface IListData{
     date: Date;
 }
 
+interface ISearchParams {
+    startYmd: Date | null;
+    endYmd: Date | null;
+    searchType: string;
+    searchWord: string;
+    currentPageNo: number;
+}
+
 const TextType = () => {
-
     const setConfirmModal = useSetRecoilState(confirmState);
-    const setAlertModal = useSetRecoilState(alertState)
-
-    const [searchParams, setSearchParams] = useState({
-        // startYmd: location.state ? location.state.keyword.startYmd : null,
-        // endYmd: location.state ? location.state.keyword.endYmd : null,
-        // searchType: location.state ? location.state.keyword.searchType : 'both',
-        // searchWord: location.state ? location.state.keyword.searchWord : null,
-        // currentPageNo: location.state ? location.state.keyword.currentPageNo : 1,
-        // recordCountPerPage: 10
+    const setAlertModal = useSetRecoilState(alertState);
+    const [searchParams, setSearchParams] = useState<ISearchParams>({
+        startYmd: null,
+        endYmd: null,
+        searchType: "both",
+        searchWord: "",
+        currentPageNo: 1
     });
 
-    //const [listData, setListData] = useState<IListData[]>([] as IListData[]);
-    // const [paginationInfo, setPaginationInfo] = useState<Ipagination>({} as Ipagination);
-
-    const onSubmit = (changedSearchParams: any) => {
+    const onSubmit = (changedSearchParams: ISearchParams) => {
+        console.log("!!!", changedSearchParams)
         setSearchParams({
             ...searchParams,
             ...changedSearchParams
         });
+        console.log("검색!!!")
+
     }
 
 
@@ -64,11 +69,8 @@ const TextType = () => {
     useEffect(() => {
         const result = TextTypeFaker();
         const { resultMap } = result || {};
-
         const recommendResult = RecommendListFaker();
         const { resultMap: recommendResultMap } = recommendResult || {};
-
-
         if (resultMap.result) {
             setListData(resultMap.resultList);
         }
@@ -85,9 +87,7 @@ const TextType = () => {
                 message: "메세지 작성",
                 message2: "두번째줄!!!",
                 buttonName: "확인",
-                handleButton: () => {
-                    console.log("No!");
-                }
+                handleButton: () => {}
             }
         })
     };
@@ -100,12 +100,8 @@ const TextType = () => {
                 message2: "두번째줄!!!",
                 confirmButtonName: "확인",
                 cancelButtonName: "취소",
-                handleConfirm: () => {
-                    console.log("Yes!");
-                },
-                handleClose: () => {
-                    console.log("No!");
-                }
+                handleConfirm: () => {},
+                handleClose: () => {}
             }
         })
     }
@@ -141,10 +137,6 @@ const TextType = () => {
                                 searchParams={searchParams} 
                                 onSubmit={onSubmit}
                             />
-
-
-
-
                             <TotalCount>
                                 총 <span>{listData.length}</span>건
                             </TotalCount>
