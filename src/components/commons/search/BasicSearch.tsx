@@ -13,6 +13,7 @@ import iconReset from "@/resources/icons/commons/icon_btn_reset.png"
 import iconSelect from "@/resources/icons/commons/icon_select.png"
 import { useSetRecoilState } from 'recoil';
 import { alertState } from '@/global/modal';
+import { enterKeyPressHandler } from '@/modules/commons';
 
 interface ISearchParams {
     startYmd: Date | null;
@@ -133,7 +134,7 @@ const BasicSearch = ({searchParams, onSubmit, datepicker}: {searchParams: ISearc
                         onChange={onChange} 
                         placeholder="검색어를 입력하세요."
                         value={params.searchWord || ''}
-                        //onKeyPress={(e) => enterKeyPressHandler(e, () => onSubmit(params))}
+                        onKeyPress={(e) => enterKeyPressHandler(e, () => onSubmit(params))}
                     />
                     <button
                         onClick={() => onSubmit(params)}
