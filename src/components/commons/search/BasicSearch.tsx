@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ko } from 'date-fns/esm/locale'; //한국어 설정
-
-
 import moment from "moment";
-
 import iconDate from "@/resources/icons/commons/icon_date.png"
 import iconReset from "@/resources/icons/commons/icon_btn_reset.png"
 import iconSelect from "@/resources/icons/commons/icon_select.png"
@@ -42,7 +38,6 @@ const BasicSearch = ({searchParams, onSubmit, datepicker}: {searchParams: ISearc
                     modalProps: {
                         message: "시작일자 이후로 종료일자를 선택해주세요",
                         buttonName: "확인",
-                        handleButton: () => {}
                     }
                 })
                 setParams({
@@ -84,7 +79,6 @@ const BasicSearch = ({searchParams, onSubmit, datepicker}: {searchParams: ISearc
             endYmd: null,
         });
     }
-
 
     return (
         <Wrap>

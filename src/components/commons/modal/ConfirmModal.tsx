@@ -20,6 +20,23 @@ const ConfirmModal = ( ) => {
         resetConfirmModal();
     };
 
+    // 컨펌창 사용 예시
+    // const setConfirmModal = useSetRecoilState(confirmState);
+    // const confirmModalHandler = () => {
+    //     setConfirmModal({
+    //         isShow : true,
+    //         modalProps: {
+    //             message: "메세지 작성",
+    //             message2: "두번째줄!!!",
+    //             confirmButtonName: "확인",
+    //             cancelButtonName: "취소",
+    //             handleConfirm: () => {},
+    //             handleClose: () => {}
+    //         }
+    //     })
+    // }
+
+
     return (
         <>
             {

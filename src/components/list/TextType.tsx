@@ -5,19 +5,11 @@ import SubBanner from '../commons/SubBanner';
 import Container from '../layout/Container';
 import Row from '../layout/Row';
 import Pagination from './Pagination';
-
-
-
 import { TextTypeFaker } from '@/resources/faker/list/TextTypeFaker';
 import { useSetRecoilState } from 'recoil';
-
-
-
-import { alertState, confirmState } from '@/global/modal';
+import { alertState } from '@/global/modal';
 import RecommendList from './RecommendList';
 import BasicSearch from '../commons/search/BasicSearch';
-
-
 import { RecommendListFaker } from '@/resources/faker/list/RecommendListFaker';
 
 
@@ -36,7 +28,6 @@ interface ISearchParams {
 }
 
 const TextType = () => {
-    const setConfirmModal = useSetRecoilState(confirmState);
     const setAlertModal = useSetRecoilState(alertState);
     const [searchParams, setSearchParams] = useState<ISearchParams>({
         startYmd: null,
@@ -45,18 +36,6 @@ const TextType = () => {
         searchWord: "",
         currentPageNo: 1
     });
-
-    const onSubmit = (changedSearchParams: ISearchParams) => {
-        console.log("!!!", changedSearchParams)
-        setSearchParams({
-            ...searchParams,
-            ...changedSearchParams
-        });
-        console.log("검색!!!")
-
-    }
-
-
     const [listData, setListData] = useState<IListData[]>([] as IListData[]);
     const [recommendListData, setRecommendListData] = useState<IListData[]>([] as IListData[]);
     // 게시글 목록갯수 설정
@@ -64,7 +43,19 @@ const TextType = () => {
     const [page, setPage] = useState(1);
     const offset = (page - 1) * limit;
 
-
+    const onSubmit = (changedSearchParams: ISearchParams) => {
+        setSearchParams({
+            ...searchParams,
+            ...changedSearchParams
+        });
+        setAlertModal({
+            isShow : true,
+            modalProps: {
+                message: "검색 기능은 Api 연동이 필요합니다.",
+                buttonName: "확인",
+            }
+        })
+    }
 
     useEffect(() => {
         const result = TextTypeFaker();
@@ -80,33 +71,6 @@ const TextType = () => {
     }, []);
 
 
-    const alertModalHandler = () => {
-        setAlertModal({
-            isShow : true,
-            modalProps: {
-                message: "메세지 작성",
-                message2: "두번째줄!!!",
-                buttonName: "확인",
-                handleButton: () => {}
-            }
-        })
-    };
-
-    const confirmModalHandler = () => {
-        setConfirmModal({
-            isShow : true,
-            modalProps: {
-                message: "메세지 작성",
-                message2: "두번째줄!!!",
-                confirmButtonName: "확인",
-                cancelButtonName: "취소",
-                handleConfirm: () => {},
-                handleClose: () => {}
-            }
-        })
-    }
-
-
     return (
         <>
             <SubBanner
@@ -115,72 +79,56 @@ const TextType = () => {
                 lineText02="Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
             /> 
             <Container>
-                    <button
-                        onClick={alertModalHandler}
-                    >
-                        얼럿창 테스트
-                    </button>
-                    <button
-                        onClick={confirmModalHandler}
-                    >
-                        컨펌창 테스트
-                    </button>
-
-
-                    <hr />
-                    <hr />
-                    <hr />
-                    <hr />
-                    <ListWrap>
-                        <Row>
-                            <BasicSearch
-                                searchParams={searchParams} 
-                                onSubmit={onSubmit}
-                            />
-                            <TotalCount>
-                                총 <span>{listData.length}</span>건
-                            </TotalCount>
-                            <ListTable>
-                                <thead>
-                                    <tr>
-                                        <th>번호</th>
-                                        <th>제목</th>
-                                        <th>작성일</th>
-                                        <th>첨부파일</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <RecommendList
-                                        list = {recommendListData}
-                                    />
-                                    {
-                                        listData.slice(offset, offset + limit).map((item) => {
-                                            const newDate = new Intl.DateTimeFormat('kr').format(item.date);
-                                            return(
-                                                <tr key={item.index}>
-                                                    <td>{item.index}</td>
-                                                    <td className="ellipsis">
-                                                        <Link to="/">
-                                                            {item.title}
-                                                        </Link>
-                                                    </td>
-                                                    <td>{newDate}</td>
-                                                    <td></td>
-                                                </tr>
-                                            )
-                                        })
-                                    }
-                                </tbody>
-                            </ListTable>
-                        </Row>
-                    </ListWrap>                    
-                    <Pagination  
-                        total={listData.length}
-                        limit={limit}
-                        page={page}
-                        offset={offset}
-                        setPage={setPage}
-                    />
+                <ListWrap>
+                    <Row>
+                        <BasicSearch
+                            searchParams={searchParams} 
+                            onSubmit={onSubmit}
+                        />
+                        <TotalCount>
+                            총 <span>{listData.length}</span>건
+                        </TotalCount>
+                        <ListTable>
+                            <thead>
+                                <tr>
+                                    <th>번호</th>
+                                    <th>제목</th>
+                                    <th>작성일</th>
+                                    <th>첨부파일</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <RecommendList
+                                    list = {recommendListData}
+                                />
+                                {
+                                    listData.slice(offset, offset + limit).map((item) => {
+                                        const newDate = new Intl.DateTimeFormat('kr').format(item.date);
+                                        return(
+                                            <tr key={item.index}>
+                                                <td>{item.index}</td>
+                                                <td className="ellipsis">
+                                                    <Link to="/">
+                                                        {item.title}
+                                                    </Link>
+                                                </td>
+                                                <td>{newDate}</td>
+                                                <td></td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </ListTable>
+                    </Row>
+                </ListWrap>                    
+                <Pagination  
+                    total={listData.length}
+                    limit={limit}
+                    page={page}
+                    offset={offset}
+                    setPage={setPage}
+                />
             </Container>
         </>
     );

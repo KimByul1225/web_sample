@@ -13,6 +13,21 @@ const AlertModal = () => {
         }
         resetAlertModal();
     };
+
+
+    // 얼럿창 사용 예시
+    // const setAlertModal = useSetRecoilState(alertState);
+    // const alertModalHandler = () => {
+    //     setAlertModal({
+    //         isShow : true,
+    //         modalProps: {
+    //             message: "메세지 작성",
+    //             message2: "두번째줄!!!",
+    //             buttonName: "확인",
+    //             handleButton: () => {}
+    //         }
+    //     })
+    // };
     
     return (
         <>
