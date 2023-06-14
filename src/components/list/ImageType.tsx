@@ -1,5 +1,8 @@
 import React from 'react';
 import SubBanner from '../commons/SubBanner';
+import Container from '../layout/Container';
+import BasicSearch from '../commons/search/BasicSearch';
+import ImageRecommendList from './ImageRecommendList';
 
 const ImageType = () => {
     return (
@@ -9,6 +12,15 @@ const ImageType = () => {
                 lineText01="Lorem ipsum dolor sit amet, consectetur"
                 lineText02="Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
             /> 
+            <ImageRecommendList/>
+
+            <Container>
+
+                {/* <BasicSearch
+                
+                /> */}
+
+            </Container>
             
         </>
     );
