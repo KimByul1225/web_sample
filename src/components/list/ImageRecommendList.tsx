@@ -1,27 +1,22 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
-
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-
-import moment from "moment";
-
-import Row from '../layout/Row';
+import iconNext from "@/resources/icons/list/icon_recommend_next.png"
+import iconPrev from "@/resources/icons/list/icon_recommend_prev.png"
 
 
 const ImageRecommendList = () => {
     return (
         <RecommendWrap>
-            <Row>
+            <RecommendRow>
                 <h3>
                     <span>추천</span> 목록 예시
                 </h3>
                 <RecommendSwiper
-                    //className="recommend_swiper"
                     navigation={true}
                     modules={[Navigation]}
                     breakpoints={{
@@ -54,20 +49,79 @@ const ImageRecommendList = () => {
                         <SwiperSlide>
                             <ListLink to="/">
                                 <div>
-                                    <figure>
-
-                                    </figure>
+                                    <figure/>
+                                    <BackgroundFilter>
+                                        <TextBox>
+                                            <h4 className="ellipsis2">
+                                                ddd
+                                            </h4>
+                                            <p>51651</p>
+                                        </TextBox>
+                                    </BackgroundFilter>
                                 </div>
+                                
+                            </ListLink>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <ListLink to="/">
+                                <div>
+                                    <figure/>
+                                    <BackgroundFilter>
+                                        <TextBox>
+                                            <h4 className="ellipsis2">
+                                                ddd
+                                            </h4>
+                                            <p>51651</p>
+                                        </TextBox>
+                                    </BackgroundFilter>
+                                </div>
+                            </ListLink>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <ListLink to="/">
+                                <div>
+                                    <figure/>
+                                    <BackgroundFilter>
+                                        <TextBox>
+                                            <h4 className="ellipsis2">
+                                                ddd
+                                            </h4>
+                                            <p>51651</p>
+                                        </TextBox>
+                                    </BackgroundFilter>
+                                </div>
+                                
+                            </ListLink>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <ListLink to="/">
+                                <div>
+                                    <figure/>
+                                    <BackgroundFilter>
+                                        <TextBox>
+                                            <h4 className="ellipsis2">
+                                                ddd
+                                            </h4>
+                                            <p>51651</p>
+                                        </TextBox>
+                                    </BackgroundFilter>
+                                </div>
+                                
                             </ListLink>
                         </SwiperSlide>
                 </RecommendSwiper>
 
-            </Row>
+            </RecommendRow>
         </RecommendWrap>
     );
 };
 
 export default ImageRecommendList;
+
+const RecommendRow = styled.div`
+    margin: 0 auto;
+    max-width: 1260px;
+`
 
 const RecommendWrap = styled.div`
     background-color: #000;
@@ -101,19 +155,32 @@ const RecommendWrap = styled.div`
 `
 const RecommendSwiper = styled(Swiper)`
     padding: 0 30px;
-    a{
-        
+    .swiper-button-next::after, .swiper-button-prev::after{
+        display: none;
+    }
+    .swiper-button-prev{
+        background: var(--col_acc) url(${iconPrev}) center no-repeat; background-size: 24px; width: 60px; height: 60px; border-radius: 30px; left: 0; top: 50%;
+    }
+    .swiper-button-prev.swiper-button-disabled{
+        background: #333333 url(${iconPrev}) center no-repeat; background-size: 24px; width: 60px; height: 60px; border-radius: 30px; opacity: 1;
+    }
+    .swiper-button-next{
+        background: var(--col_acc) url(${iconNext}) center no-repeat; background-size: 24px; width: 60px; height: 60px; border-radius: 30px; right: 0; top: 50%;
+    }
+    .swiper-button-next.swiper-button-disabled{
+        background: #333333 url(${iconNext}) center no-repeat; background-size: 24px; width: 60px; height: 60px; border-radius: 30px; opacity: 1;
     }
     @media screen and (max-width: 1200px){
         padding: 0 20px;
+        .swiper-button-next, .swiper-button-prev{
+            display: none;
+        }
     }
 `
-
 const ListLink = styled(Link)`
     display: block;
-    div{
+    > div{
         border: 1px solid red;
-
         border-radius: 0;
         height: 450px;
         overflow: hidden;
@@ -121,7 +188,7 @@ const ListLink = styled(Link)`
         transition: all .3s ease-in;
         width: 100%;
     }
-    :hover div{
+    :hover > div{
         border-radius: 35px 0px; transition: all .3s ease-out;
     }
     figure{
@@ -132,7 +199,10 @@ const ListLink = styled(Link)`
     }
 
     @media screen and (max-width: 1200px){
-        :hover div{
+        > div {
+            height: 38vw;
+        }
+        :hover > div{
             border-radius: 0;
         }
         :hover figure{
@@ -140,18 +210,45 @@ const ListLink = styled(Link)`
         transform: scale(1);
         }
     }
+    @media screen and (max-width: 768px){
+        > div {
+            height: 55vw;
+        }
+    }
     @media screen and (max-width: 640px){
-        div{
+        > div{
             height: 380px;
         }
-        
-        
     }
 `
+const BackgroundFilter = styled.div`
+    background: linear-gradient(1turn,rgba(0,0,0,.6),transparent 35%);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;   
+`
 
-const BackgroundBox = styled.div`
-        
-    @media screen and (max-width: 640px){
-        
+const TextBox = styled.div`
+    bottom: 30px;
+    left: 0;
+    padding: 0 30px;
+    position: absolute;
+    h4{
+        color: #fff;
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    p{
+        color: #cecece;
+        font-size: 16px;
+        font-weight: 400;
+    }
+    @media screen and (max-width: 1200px){
+        h4{
+            font-size: 18px;
+        }
     }
 `
