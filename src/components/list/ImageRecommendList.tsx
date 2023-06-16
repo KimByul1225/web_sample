@@ -8,8 +8,22 @@ import "swiper/css/navigation";
 import iconNext from "@/resources/icons/list/icon_recommend_next.png"
 import iconPrev from "@/resources/icons/list/icon_recommend_prev.png"
 
+import NoImg from "@/resources/images/commons/no_image.png"
 
-const ImageRecommendList = () => {
+
+interface IListData{
+    index: number;
+    title: string;
+    date: Date;
+    imgPath: string;
+    linkUrl: string;
+}
+
+interface ILink{
+    background?: string;
+}
+
+const ImageRecommendList = ({list}: {list: IListData[]}) => {
     return (
         <RecommendWrap>
             <RecommendRow>
@@ -46,69 +60,35 @@ const ImageRecommendList = () => {
                         </SwiperSlide>
                         
                     ))} */}
-                        <SwiperSlide>
-                            <ListLink to="/">
-                                <div>
-                                    <figure/>
-                                    <BackgroundFilter>
-                                        <TextBox>
-                                            <h4 className="ellipsis2">
-                                                ddd
-                                            </h4>
-                                            <p>51651</p>
-                                        </TextBox>
-                                    </BackgroundFilter>
-                                </div>
-                                
-                            </ListLink>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <ListLink to="/">
-                                <div>
-                                    <figure/>
-                                    <BackgroundFilter>
-                                        <TextBox>
-                                            <h4 className="ellipsis2">
-                                                ddd
-                                            </h4>
-                                            <p>51651</p>
-                                        </TextBox>
-                                    </BackgroundFilter>
-                                </div>
-                            </ListLink>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <ListLink to="/">
-                                <div>
-                                    <figure/>
-                                    <BackgroundFilter>
-                                        <TextBox>
-                                            <h4 className="ellipsis2">
-                                                ddd
-                                            </h4>
-                                            <p>51651</p>
-                                        </TextBox>
-                                    </BackgroundFilter>
-                                </div>
-                                
-                            </ListLink>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <ListLink to="/">
-                                <div>
-                                    <figure/>
-                                    <BackgroundFilter>
-                                        <TextBox>
-                                            <h4 className="ellipsis2">
-                                                ddd
-                                            </h4>
-                                            <p>51651</p>
-                                        </TextBox>
-                                    </BackgroundFilter>
-                                </div>
-                                
-                            </ListLink>
-                        </SwiperSlide>
+                    {
+                        list.map((item) => {
+                            const newDate = new Intl.DateTimeFormat('kr').format(item.date);
+                            return(
+                                <SwiperSlide key={item.index}>
+                                    <ListLink 
+                                        to={item.linkUrl}
+                                        background={item.imgPath}
+                                    
+                                    >
+                                        <div>
+                                            <figure/>
+                                            <BackgroundFilter>
+                                                <TextBox>
+                                                    <h4 className="ellipsis2">
+                                                        {item.title}
+                                                    </h4>
+                                                    <p>{newDate}</p>
+                                                </TextBox>
+                                            </BackgroundFilter>
+                                        </div>
+                                        
+                                    </ListLink>
+                                </SwiperSlide>
+                            )
+                        })
+                    }
+                        
+                        
                 </RecommendSwiper>
 
             </RecommendRow>
@@ -177,10 +157,11 @@ const RecommendSwiper = styled(Swiper)`
         }
     }
 `
-const ListLink = styled(Link)`
+const ListLink = styled(Link)<ILink>`
     display: block;
     > div{
-        border: 1px solid red;
+        background: #fff url(${(props) => props.background || NoImg}) center no-repeat;
+        background-size: cover;
         border-radius: 0;
         height: 450px;
         overflow: hidden;
