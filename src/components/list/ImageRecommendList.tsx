@@ -106,7 +106,7 @@ const RecommendRow = styled.div`
 const RecommendWrap = styled.div`
     background-color: #000;
     height: 390px;
-    margin-bottom: 220px;
+    margin-bottom: 100px;
     margin-top: -1px;
     h3{
         color: #fff;
@@ -160,8 +160,6 @@ const RecommendSwiper = styled(Swiper)`
 const ListLink = styled(Link)<ILink>`
     display: block;
     > div{
-        background: #fff url(${(props) => props.background || NoImg}) center no-repeat;
-        background-size: cover;
         border-radius: 0;
         height: 450px;
         overflow: hidden;
@@ -174,6 +172,8 @@ const ListLink = styled(Link)<ILink>`
     }
     figure{
         width: 100%; height: 100%; transition: transform .3s ease-in;
+        background: #fff url(${(props) => props.background || NoImg}) center no-repeat;
+        background-size: cover;
     }
     :hover figure{
         transform: scale(1.1); transition: all .3s ease-out;

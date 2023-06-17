@@ -38,6 +38,7 @@ const TextType = () => {
     });
     const [listData, setListData] = useState<IListData[]>([] as IListData[]);
     const [recommendListData, setRecommendListData] = useState<IListData[]>([] as IListData[]);
+    
     // 게시글 목록갯수 설정
     const limit = 10;
     const [page, setPage] = useState(1);
