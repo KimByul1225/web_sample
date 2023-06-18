@@ -10,7 +10,7 @@ import { useSetRecoilState } from 'recoil';
 import { alertState } from '@/global/modal';
 import Row from '../layout/Row';
 import Pagination from './Pagination';
-
+import NoImg from "@/resources/images/commons/no_image.png"
 
 interface IListData{
     index: number;
@@ -28,6 +28,9 @@ interface ISearchParams {
     currentPageNo: number;
 }
 
+interface Ibackground{
+    background?: string;
+}
 
 
 const ImageType = () => {
@@ -65,14 +68,11 @@ const ImageType = () => {
     }
 
 
-
     useEffect(() => {
         const result = ImageTypeFaker();
         const { resultMap } = result || {};
         const recommendResult = ImageRecommendListFaker();
         const { resultMap: recommendResultMap } = recommendResult || {};
-
-
         if (resultMap.result) {
             setListData(resultMap.resultList);
         }
@@ -80,10 +80,6 @@ const ImageType = () => {
             setRecommendListData(recommendResultMap.resultList);
         }
     }, []);
-
-
-
-
 
     return (
         <>
@@ -95,28 +91,35 @@ const ImageType = () => {
             <ImageRecommendList
                 list={recommendListData}
             />
-
             <Container>
                 <Row>
                     <BasicSearch
                         searchParams={searchParams} 
                         onSubmit={onSubmit}
                     />
-                    <TotalCount>
-                        총 <span>{listData.length}</span>건
-                    </TotalCount>
-
-                    {
-                        listData.slice(offset, offset + limit).map((item) => {
-                            const newDate = new Intl.DateTimeFormat('kr').format(item.date);
-                            return(
-                                <div key={item.index}>
-                                    {item.index} / {item.title} / {newDate}
-                                </div>
-                            )
-                        })
-                    }
-
+                    <ListWrap>
+                        <TotalCount>
+                            총 <span>{listData.length}</span>건
+                        </TotalCount>
+                        <ListBox>
+                            {
+                                listData.slice(offset, offset + limit).map((item) => {
+                                    const newDate = new Intl.DateTimeFormat('kr').format(item.date);
+                                    return(
+                                        <li key={item.index}>
+                                            <BackgroundBox
+                                                background={item.imgPath}
+                                            />
+                                            <TextBox>
+                                                <h4 className="ellipsis">{item.title}</h4>
+                                                <p>{newDate}</p>
+                                            </TextBox>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ListBox>
+                    </ListWrap>
                     <Pagination  
                         total={listData.length}
                         limit={limit}
@@ -137,13 +140,19 @@ const ImageType = () => {
 
 export default ImageType;
 
+const ListWrap = styled.div`
+    margin: 60px 0;
+    @media screen and (max-width: 1200px){
+        margin: 40px 0;
+    }
+`
 
 const TotalCount = styled.p`
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 30px;
     span{
-        color: #ff4d15!important;
+        color: #ff4d15;
     }
     @media screen and (max-width: 1200px){
         margin-bottom: 20px;
@@ -152,4 +161,60 @@ const TotalCount = styled.p`
         font-size: 16px;
         margin-bottom: 15px;
     }   
+`
+
+const ListBox = styled.ul`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    li{
+        margin-bottom: 30px;
+        margin-left: 2.6%;
+        width: 31.6%;
+    }
+    li:nth-child(3n-2) {
+        margin-left: 0;
+    }
+    @media screen and (max-width: 768px){
+        li{
+            margin-bottom: 10px;
+            margin-left: 0;
+            width: 100%;
+        }
+        li:nth-child(3n-2) {
+            margin-left: 0;
+        }
+    }
+`
+
+const BackgroundBox = styled.div<Ibackground>`
+    height: 300px;
+    position: relative;
+    width: 100%;
+    background: #fff url(${(props) => props.background || NoImg}) center no-repeat;
+    background-size: cover;
+`
+const TextBox = styled.div`
+    margin-top: 10px;
+    padding-bottom: 10px;
+    h4{
+        color: #313131;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    p{
+        color: #828282;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    @media screen and (max-width: 768px){
+        h4{
+            font-size: 16px;
+            text-align: center;
+        }
+        p{
+            font-size: 14px;
+            text-align: center;
+        }
+    }
 `

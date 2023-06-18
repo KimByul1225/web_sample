@@ -148,10 +148,7 @@ export default BasicSearch;
 const Wrap = styled.div`
     background-color: #f8f8f8;
     padding: 30px;
-    margin-bottom: 60px;
-    @media screen and (max-width: 1200px){
-        margin-bottom: 40px;
-    }
+    
     @media screen and (max-width: 768px){
         padding: 30px 20px;
     }

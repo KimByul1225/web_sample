@@ -38,7 +38,7 @@ const TextType = () => {
     });
     const [listData, setListData] = useState<IListData[]>([] as IListData[]);
     const [recommendListData, setRecommendListData] = useState<IListData[]>([] as IListData[]);
-    
+
     // 게시글 목록갯수 설정
     const limit = 10;
     const [page, setPage] = useState(1);
@@ -80,49 +80,52 @@ const TextType = () => {
                 lineText02="Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
             /> 
             <Container>
-                <ListWrap>
-                    <Row>
-                        <BasicSearch
-                            searchParams={searchParams} 
-                            onSubmit={onSubmit}
-                        />
-                        <TotalCount>
-                            총 <span>{listData.length}</span>건
-                        </TotalCount>
-                        <ListTable>
-                            <thead>
-                                <tr>
-                                    <th>번호</th>
-                                    <th>제목</th>
-                                    <th>작성일</th>
-                                    <th>첨부파일</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <RecommendList
-                                    list = {recommendListData}
-                                />
-                                {
-                                    listData.slice(offset, offset + limit).map((item) => {
-                                        const newDate = new Intl.DateTimeFormat('kr').format(item.date);
-                                        return(
-                                            <tr key={item.index}>
-                                                <td>{item.index}</td>
-                                                <td className="ellipsis">
-                                                    <Link to="/">
-                                                        {item.title}
-                                                    </Link>
-                                                </td>
-                                                <td>{newDate}</td>
-                                                <td></td>
-                                            </tr>
-                                        )
-                                    })
-                                }
-                            </tbody>
-                        </ListTable>
-                    </Row>
-                </ListWrap>                    
+                <Row>
+                    <BasicSearch
+                        searchParams={searchParams} 
+                        onSubmit={onSubmit}
+                    />
+                    <ListWrap>
+                        <Row>
+                            
+                            <TotalCount>
+                                총 <span>{listData.length}</span>건
+                            </TotalCount>
+                            <ListTable>
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>제목</th>
+                                        <th>작성일</th>
+                                        <th>첨부파일</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <RecommendList
+                                        list = {recommendListData}
+                                    />
+                                    {
+                                        listData.slice(offset, offset + limit).map((item) => {
+                                            const newDate = new Intl.DateTimeFormat('kr').format(item.date);
+                                            return(
+                                                <tr key={item.index}>
+                                                    <td>{item.index}</td>
+                                                    <td className="ellipsis">
+                                                        <Link to="/">
+                                                            {item.title}
+                                                        </Link>
+                                                    </td>
+                                                    <td>{newDate}</td>
+                                                    <td></td>
+                                                </tr>
+                                            )
+                                        })
+                                    }
+                                </tbody>
+                            </ListTable>
+                        </Row>
+                    </ListWrap>   
+                </Row>
                 <Pagination  
                     total={listData.length}
                     limit={limit}

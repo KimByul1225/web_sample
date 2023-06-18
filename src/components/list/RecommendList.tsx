@@ -24,8 +24,8 @@ const RecommendList = ({list}: {list: IListData[]}) => {
                                     추천
                                 </RecommendBox>
                             </td>
-                            <td>
-                                <Link to="/">
+                            <td className="ellipsis">
+                                <Link to="/" >
                                     {item.title}
                                 </Link>
                             </td>
