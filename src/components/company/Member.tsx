@@ -12,6 +12,7 @@ interface IMember{
     jobTitle: string;
     introduction: string;
     image: string;
+    itroduction: string;
 }
 
 

@@ -17,43 +17,50 @@ export function MemberFaker() {
                     name: faker.person.fullName(),
                     jobTitle: faker.person.jobType(),
                     introduction: faker.lorem.sentence(),
-                    image: MemberSample01
+                    image: MemberSample01,
+                    itroduction: faker.lorem.lines({ min: 1, max: 3 }),
                 },
                 {
                     name: faker.person.fullName(),
                     jobTitle: faker.person.jobType(),
                     introduction: faker.lorem.sentence(),
-                    image: MemberSample02
+                    image: MemberSample02,
+                    itroduction: faker.lorem.lines({ min: 1, max: 3 }),
                 },
                 {
                     name: faker.person.fullName(),
                     jobTitle: faker.person.jobType(),
                     introduction: faker.lorem.sentence(),
-                    image: MemberSample03
+                    image: MemberSample03,
+                    itroduction: faker.lorem.lines({ min: 1, max: 3 }),
                 },
                 {
                     name: faker.person.fullName(),
                     jobTitle: faker.person.jobType(),
                     introduction: faker.lorem.sentence(),
-                    image: MemberSample04
+                    image: MemberSample04,
+                    itroduction: faker.lorem.lines({ min: 1, max: 3 }),
                 },
                 {
                     name: faker.person.fullName(),
                     jobTitle: faker.person.jobType(),
                     introduction: faker.lorem.sentence(),
-                    image: MemberSample05
+                    image: MemberSample05,
+                    itroduction: faker.lorem.lines({ min: 1, max: 3 }),
                 },
                 {
                     name: faker.person.fullName(),
                     jobTitle: faker.person.jobType(),
                     introduction: faker.lorem.sentence(),
-                    image: MemberSample06
+                    image: MemberSample06,
+                    itroduction: faker.lorem.lines({ min: 1, max: 3 }),
                 },
                 {
                     name: faker.person.fullName(),
                     jobTitle: faker.person.jobType(),
                     introduction: faker.lorem.sentence(),
-                    image: MemberSample07
+                    image: MemberSample07,
+                    itroduction: faker.lorem.lines({ min: 1, max: 3 }),
                 },
             ],
         }

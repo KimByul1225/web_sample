@@ -49,7 +49,7 @@ const CompanyTotal = () => {
                         {
                             menuArray.map((element, index) => {
                                 return(
-                                    <li>
+                                    <li key={index}>
                                         <button
                                             onClick={() => tabMenuHandler(index)}
                                             className={index === tabMenuIndex ? "on" : undefined}

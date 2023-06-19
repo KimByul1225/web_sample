@@ -22,7 +22,15 @@ interface IImageBox{
 
 
 const MemberSliderSection = ({result}: {result: IMember[]}) => {
-    
+    const [modalProps, setModalProps] = useState<IMember>({} as IMember);
+    const [isShow, setIsShow] = useState(false);
+    const closeHandler = () => {
+        setIsShow(false);
+    }
+    const viewButtonHandler = (e: IMember) => {
+        setModalProps(e);
+        setIsShow(true);
+    }
     return (
         <>
             <Swiper
@@ -46,7 +54,9 @@ const MemberSliderSection = ({result}: {result: IMember[]}) => {
             >   
                 {result.map((element, idx) => (
                     <SwiperSlide key={idx}>
-                        <LinkWrap>
+                        <ButtonWrap
+                            onClick={() => viewButtonHandler(element)}
+                        >
                             <ImageBox
                                 image={element.image}
                             >
@@ -61,27 +71,26 @@ const MemberSliderSection = ({result}: {result: IMember[]}) => {
                                     </TextBox>
                                 </div>
                             </ImageBox>
-                        </LinkWrap>
-                        
-                        {/* <button                                
-                            value={result.admSeq}
-                            onClick={memberPopHandler}
-                        >
-                            <MemberImg
-                                result={result}
-                            />
-                        </button> */}
+                        </ButtonWrap>
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <MemberModal/>
+            {
+                isShow && 
+                <MemberModal
+                    modalProps = {modalProps}
+                    showHide = {isShow}
+                    closeHandler = {closeHandler}
+                />
+            }
+            
         </>
     );
 };
 
 export default MemberSliderSection;
 
-const LinkWrap = styled.button`
+const ButtonWrap = styled.button`
     height: 100%;
     width: 100%;
     background: radial-gradient(circle, rgba(215,215,215,1) 0%, rgba(47,47,47,1) 100%);

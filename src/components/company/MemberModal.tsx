@@ -1,14 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
 import iconClose from "@/resources/icons/commons/icon_modal_close.png"
+import NoImg from "@/resources/images/commons/no_image.png"
 
-const MemberModal = () => {
+interface IMember{
+    name: string;
+    jobTitle: string;
+    introduction: string;
+    image: string;
+}
+
+interface IMemberImage {
+    memberImg: string;
+}
+
+const MemberModal = ({modalProps, showHide, closeHandler}: {modalProps: IMember, showHide: boolean, closeHandler: () => void}) => {
+    
     return (
+        
         <ModalBackground>
             <ModalWrap>
                 <ModalHeadLine>
                     <h3>구성원 소개 예시</h3>
-                    <button>
+                    <button
+                        onClick={closeHandler}
+                    >
                         <span className="ir_so">
                             닫기 버튼
                         </span>
@@ -16,13 +32,15 @@ const MemberModal = () => {
                 </ModalHeadLine>
                 <ModalScrollWrap>
                     <ModalContents>
-                        <MemberImage/>
+                        <MemberImage
+                            memberImg = {modalProps.image}
+                        />
                         <TextBox>
                             <h4>
-                                ddd <span/> ddd
+                                {modalProps.name || "홍길동"} <span/> {modalProps.jobTitle || "사원"}
                             </h4>
                             <p>
-                                dsfsdfdsf
+                                {modalProps.introduction || "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"}
                             </p>
                         </TextBox>
                     </ModalContents>
@@ -46,6 +64,7 @@ const ModalBackground = styled.div`
     top: 0;
     width: 100%;
     z-index: 1001;
+
 `
 
 const ModalWrap = styled.div`
@@ -84,7 +103,9 @@ const ModalScrollWrap = styled.div`
 const ModalContents = styled.div`
     padding-top: 40px;
 `
-const MemberImage = styled.div`
+const MemberImage = styled.div<IMemberImage>`
+    background: url(${(props) => props.memberImg || NoImg}) center no-repeat;
+    background-size: cover;
     border: none;
     height: 280px;
     margin: 0 auto;
@@ -93,7 +114,7 @@ const MemberImage = styled.div`
 const TextBox = styled.div`
     margin-top: 10px;
     text-align: center;
-    
+
     h4{
         color: #313131;
         font-size: 20px;
