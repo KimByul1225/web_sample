@@ -7,6 +7,7 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import MoreIcon from "@/resources/icons/company/icon_member_more.png"
+import MemberModal from './MemberModal';
 
 interface IMember{
     name: string;
@@ -23,55 +24,58 @@ interface IImageBox{
 const MemberSliderSection = ({result}: {result: IMember[]}) => {
     
     return (
-        <Swiper
-            className="memberlist_box"
-            navigation={true}
-            modules={[Navigation]}
-            breakpoints={{
-                360: {
-                    slidesPerView: 1,
-                    allowTouchMove: true,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 'auto',
-                    allowTouchMove: false,
-                    spaceBetween: 0,
-                }
-            }}
-            observer={true}
-            observeParents={true}
-        >   
-            {result.map((element, idx) => (
-                <SwiperSlide key={idx}>
-                    <LinkWrap>
-                        <ImageBox
-                            image={element.image}
+        <>
+            <Swiper
+                className="memberlist_box"
+                navigation={true}
+                modules={[Navigation]}
+                breakpoints={{
+                    360: {
+                        slidesPerView: 1,
+                        allowTouchMove: true,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 'auto',
+                        allowTouchMove: false,
+                        spaceBetween: 0,
+                    }
+                }}
+                observer={true}
+                observeParents={true}
+            >   
+                {result.map((element, idx) => (
+                    <SwiperSlide key={idx}>
+                        <LinkWrap>
+                            <ImageBox
+                                image={element.image}
+                            >
+                                <div>
+                                    <i/>
+                                    <TextBox>
+                                        <p className="ellipsis">
+                                            <b>{element.jobTitle}</b>
+                                            <span/>
+                                            <b>{element.name}</b>
+                                        </p>
+                                    </TextBox>
+                                </div>
+                            </ImageBox>
+                        </LinkWrap>
+                        
+                        {/* <button                                
+                            value={result.admSeq}
+                            onClick={memberPopHandler}
                         >
-                            <div>
-                                <i/>
-                                <TextBox>
-                                    <p className="ellipsis">
-                                        <b>{element.jobTitle}</b>
-                                        <span/>
-                                        <b>{element.name}</b>
-                                    </p>
-                                </TextBox>
-                            </div>
-                        </ImageBox>
-                    </LinkWrap>
-
-                    {/* <button                                
-                        value={result.admSeq}
-                        onClick={memberPopHandler}
-                    >
-                        <MemberImg
-                            result={result}
-                        />
-                    </button> */}
-                </SwiperSlide>
-            ))}
-        </Swiper>
+                            <MemberImg
+                                result={result}
+                            />
+                        </button> */}
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+            <MemberModal/>
+        </>
     );
 };
 

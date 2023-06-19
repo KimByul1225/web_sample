@@ -34,15 +34,6 @@ const Member = () => {
                 lineText01="Lorem ipsum dolor sit amet, consectetur"
                 lineText02="Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
             /> 
-            {/* {
-                memberData.map((element, index)=>{
-                    return(
-                        <TestBg key={index} img={element.image}></TestBg>
-                    )
-
-                })
-            } */}
-
             <Container>
                 <Row>
                     <MemberSliderSection
