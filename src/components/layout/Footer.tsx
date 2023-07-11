@@ -20,11 +20,7 @@ const Footer = () => {
                         <LeftBox>
                             <Link to="/terms">이용약관</Link>
                             <VerticalLine/>
-                            <Link to="/privacy">개인정보 취급 방침</Link>
-                            <VerticalLine/>
-                            <Link to="/stewardshipcode">스튜어드십코드</Link>
-                            <VerticalLine/>
-                            <Link to="/policy">이해상충방지</Link>
+                            <Link to="/privacy">개인정보 처리방침</Link>
                         </LeftBox>
                         <RightBox>
                             <a href="https://www.naver.com" target="_blank" rel="noopener noreferrer"><span className='ir_so'>Youtube</span></a>    
@@ -132,7 +128,7 @@ const LeftBox = styled.div`
         }
     }
     @media screen and (max-width: 768px) {
-        padding: 0 20px; border-bottom: 1px solid #676767; height: 90px; display: flex; align-items: center; justify-content: space-between;
+        padding: 0 20px; border-bottom: 1px solid #676767; height: 90px; display: flex; align-items: center; justify-content: space-around;
         a{
             font-size: 12px;letter-spacing: -0.03em;
         }

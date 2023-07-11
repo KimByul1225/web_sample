@@ -28,6 +28,8 @@ import Member from '@/components/company/Member';
 import List from '@/containers/List';
 import TextType from '@/components/list/TextType';
 import ImageType from '@/components/list/ImageType';
+import Terms from './containers/Terms';
+import Privacy from './containers/Privacy';
 
 
 
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
             {
                 path: "",
                 element: <Home />,
+            },
+            {
+                path: "terms",
+                element: <Terms />,
+            },
+            {
+                path: "privacy",
+                element: <Privacy />,
             },
             {
                 path: "company",
@@ -87,6 +97,20 @@ const router = createBrowserRouter([
                         element: <IntroductionListType02Detail />,
                     }
                 ],
+            },
+            {
+                path: "list",
+                element: <List />,
+                children: [
+                    {
+                        path: "textType",
+                        element: <TextType />,
+                    },
+                    {
+                        path: "imageType",
+                        element: <ImageType />,
+                    },
+                ]
             },
             {
                 path: "list",
