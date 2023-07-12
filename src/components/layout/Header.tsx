@@ -146,12 +146,11 @@ const Container = styled.div<IContainer>`
 
 const LogoWrap = styled.h1`
     position: relative; 
-    width: 260px; 
-    height: 70px; 
-    margin: 10px 0 10px 0;
+    width: 200px; 
+    height: 50px; 
+    margin: 20px 0 20px 0;
     background: url(${Logo}) center no-repeat;
     background-size: contain;
-
     a{
         position: absolute; 
         top: 0; 
@@ -159,7 +158,6 @@ const LogoWrap = styled.h1`
         left: 0; 
         right: 0;
         span{
-
         }
     }
 `

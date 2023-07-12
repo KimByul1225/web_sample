@@ -30,6 +30,7 @@ import TextType from '@/components/list/TextType';
 import ImageType from '@/components/list/ImageType';
 import Terms from './containers/Terms';
 import Privacy from './containers/Privacy';
+import ListDetail from './components/list/ListDetail';
 
 
 
@@ -110,6 +111,15 @@ const router = createBrowserRouter([
                         path: "imageType",
                         element: <ImageType />,
                     },
+                    {
+                        path: "textType/:detailId",
+                        element: <ListDetail />,
+                    },
+                    {
+                        path: "imageType/:detailId",
+                        element: <ListDetail />,
+                    },
+                    
                 ]
             },
             {

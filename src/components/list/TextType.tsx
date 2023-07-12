@@ -111,7 +111,13 @@ const TextType = () => {
                                                 <tr key={item.index}>
                                                     <td>{item.index}</td>
                                                     <td className="ellipsis">
-                                                        <Link to="/">
+                                                        <Link 
+                                                            to={`/list/textType/${item.index}`}
+                                                            state={{
+                                                                title: item.title,
+                                                                date: newDate
+                                                            }}
+                                                        >
                                                             {item.title}
                                                         </Link>
                                                     </td>
