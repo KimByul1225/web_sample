@@ -128,9 +128,9 @@ const Partners = () => {
                                 더보기
                             </button>
                         }
-                        <Link to="/">
+                        {/* <Link to="/">
                             연혁으로보기
-                        </Link>
+                        </Link> */}
                     </ButtonWrap>
                 </Row>
             </Container>

@@ -12,15 +12,15 @@ const ButtonType = () => {
                 />
                 <TextBox>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</TextBox>
                 <ButtonBox>
-                    <Link to="/">
+                    <Link to="/company/qna">
                         문의
                     </Link>
-                    <Link to="/">
+                    <Link to="/company/qna">
                         자주하는 질문
                     </Link>
-                    <button>
-                        Lorem ipsum
-                    </button>
+                    <Link to="/company/introduction">
+                        기업소개
+                    </Link>
                 </ButtonBox>
             </Row>
         </Wrap>

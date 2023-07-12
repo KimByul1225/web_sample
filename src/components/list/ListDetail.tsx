@@ -40,9 +40,9 @@ const ListDetail = () => {
             <SubBanner
                 title={
                     recommend ? 
-                        `추천 리스트 ${detailId}번글 상세`
+                        `추천 게시글 ${detailId}번 상세`
                     :
-                        `리스트 ${detailId}번글 상세`
+                        `게시글 ${detailId}번 상세`
                 }
                 lineText01="Lorem ipsum dolor sit amet, consectetur"
                 lineText02="Lorem ipsum dolor sit amet, consectetur adipiscing elit,"

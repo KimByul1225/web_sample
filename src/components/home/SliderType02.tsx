@@ -61,12 +61,17 @@ const SliderType02 = ({menuIndex}: {menuIndex: number}) => {
                     return(
                         <SwiperSlide
                             className="type02_box"
-                            key={index}
+                            key={index + 1}
                         >
                             <LinkWrap 
-                                to="/"
                                 background={result.imgPath}
+                                to={`/list/imageType/${index + 1}`}
+                                state={{
+                                    title: result.title,
+                                    date: newDate
+                                }}
                             >
+
                                 <div>
                                     <figure>
                                         <span className="ir_so"></span>

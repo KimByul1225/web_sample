@@ -33,25 +33,25 @@ const SliderType01 = () => {
                     observeParents={true}
                 >   
                     <SwiperSlide>
-                        <Link to="/">
+                        <Link to="/introduction/listType01/1">
                             <h4>[Lorem ipsum dolor]</h4>
                             <p>Lorem ipsum</p>
                         </Link>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <Link to="/">
+                        <Link to="/introduction/listType01/2">
                             <h4>[Lorem ipsum dolor]</h4>
                             <p>Lorem ipsum</p>
                         </Link>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <Link to="/">
+                        <Link to="/introduction/listType01/3">
                             <h4>[Lorem ipsum dolor]</h4>
                             <p>Lorem ipsum</p>
                         </Link>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <Link to="/">
+                        <Link to="/introduction/listType01/4">
                             <h4>[Lorem ipsum dolor]</h4>
                             <p>Lorem ipsum</p>
                         </Link>

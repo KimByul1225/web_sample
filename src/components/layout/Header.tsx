@@ -42,6 +42,11 @@ const Header = () => {
                                         구성원
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link to="company/qna">
+                                        문의
+                                    </Link>
+                                </li>
                             </Depth2>
                         </li>
                         <li>

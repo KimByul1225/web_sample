@@ -31,6 +31,7 @@ import ImageType from '@/components/list/ImageType';
 import Terms from './containers/Terms';
 import Privacy from './containers/Privacy';
 import ListDetail from './components/list/ListDetail';
+import Qna from './components/company/Qna';
 
 
 
@@ -62,7 +63,12 @@ const router = createBrowserRouter([
                     {
                         path: "member",
                         element: <Member />,
+                    },
+                    {
+                        path: "qna",
+                        element: <Qna />,
                     }
+
                 ],
             },
             {
