@@ -109,7 +109,7 @@ const SliderType03 = () => {
                                                 </span>
                                         </li>
                                     </ListWrap>
-                                    <MoreView to="/">바로가기</MoreView>
+                                    <MoreView to={`/introduction/listType02/${index + 1}`}>바로가기</MoreView>
                                 </SwiperSlide>
                             )
                         })
