@@ -25,7 +25,14 @@ const RecommendList = ({list}: {list: IListData[]}) => {
                                 </RecommendBox>
                             </td>
                             <td className="ellipsis">
-                                <Link to="/" >
+                                <Link 
+                                    to={`/list/textType/${item.index}`}
+                                    state={{
+                                        title: item.title,
+                                        date: newDate,
+                                        recommend: true,
+                                    }}
+                                >
                                     {item.title}
                                 </Link>
                             </td>

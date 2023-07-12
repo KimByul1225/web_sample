@@ -1,26 +1,49 @@
-import React from 'react'
-import { useLocation, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import styled from 'styled-components';
 import SubBanner from '../commons/SubBanner';
 import Container from '../layout/Container';
 import Row from '../layout/Row';
+import { ListDetailFaker } from '@/resources/faker/list/ListDetailFaker';
 
 
 const ListDetail = () => {
+    const [text, setText] = useState("");
     const params = useParams();
     const {detailId} = params; 
-
     const location = useLocation();
     const title = location.state.title;
     const date = location.state.date;
+    const recommend = location.state.recommend || false;
+    console.log("recommend", recommend);
 
+    const navigate = useNavigate();
+
+    const goListHandler = () => {
+        navigate(-1)
+    };
+
+    useEffect(() => {
+        const result = ListDetailFaker();
+        const { resultMap } = result || {};
+
+        if (resultMap.text) {
+            setText(resultMap.text);
+        }
+        
+    }, []);
 
     return (
         <>
             
             <SubBanner
-                title={`리스트형태 ${detailId}번글 상세`}
+                title={
+                    recommend ? 
+                        `추천 리스트 ${detailId}번글 상세`
+                    :
+                        `리스트 ${detailId}번글 상세`
+                }
                 lineText01="Lorem ipsum dolor sit amet, consectetur"
                 lineText02="Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
             /> 
@@ -33,12 +56,11 @@ const ListDetail = () => {
                         {date}
                     </Date>
                     <TextBox>
-
+                        {text}
                     </TextBox>
                     <ButtonWrap>
-                        <button>목록</button>
+                        <button onClick={goListHandler}>목록</button>
                     </ButtonWrap>
-
                 </Row>
 
             </Container>
