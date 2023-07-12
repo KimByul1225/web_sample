@@ -7,7 +7,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import iconNext from "@/resources/icons/list/icon_recommend_next.png"
 import iconPrev from "@/resources/icons/list/icon_recommend_prev.png"
-
 import NoImg from "@/resources/images/commons/no_image.png"
 
 
@@ -54,20 +53,19 @@ const ImageRecommendList = ({list}: {list: IListData[]}) => {
                     observer={true}
                     observeParents={true}
                 >
-                    {/* {list.map((content, idx) => (
-                        <SwiperSlide key={idx} className="">
-                            <RecommendCard bbsId={bbsId} content={content}/>
-                        </SwiperSlide>
-                        
-                    ))} */}
                     {
                         list.map((item) => {
                             const newDate = new Intl.DateTimeFormat('kr').format(item.date);
                             return(
                                 <SwiperSlide key={item.index}>
                                     <ListLink 
-                                        to={item.linkUrl}
                                         background={item.imgPath}
+                                        to={`/list/imageType/${item.index}`}
+                                        state={{
+                                            title: item.title,
+                                            date: newDate,
+                                            recommend: true,
+                                        }}
                                     
                                     >
                                         <div>
@@ -87,10 +85,7 @@ const ImageRecommendList = ({list}: {list: IListData[]}) => {
                             )
                         })
                     }
-                        
-                        
                 </RecommendSwiper>
-
             </RecommendRow>
         </RecommendWrap>
     );

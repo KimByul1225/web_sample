@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import SubBanner from '../commons/SubBanner';
 import Container from '../layout/Container';
@@ -10,7 +11,7 @@ import { useSetRecoilState } from 'recoil';
 import { alertState } from '@/global/modal';
 import Row from '../layout/Row';
 import Pagination from './Pagination';
-import NoImg from "@/resources/images/commons/no_image.png"
+import NoImg from "@/resources/images/commons/no_image.png";
 
 interface IListData{
     index: number;
@@ -107,13 +108,21 @@ const ImageType = () => {
                                     const newDate = new Intl.DateTimeFormat('kr').format(item.date);
                                     return(
                                         <li key={item.index}>
-                                            <BackgroundBox
-                                                background={item.imgPath}
-                                            />
-                                            <TextBox>
-                                                <h4 className="ellipsis">{item.title}</h4>
-                                                <p>{newDate}</p>
-                                            </TextBox>
+                                            <Link
+                                                to={`/list/imageType/${item.index}`}
+                                                state={{
+                                                    title: item.title,
+                                                    date: newDate
+                                                }}
+                                            >
+                                                <BackgroundBox
+                                                    background={item.imgPath}
+                                                />
+                                                <TextBox>
+                                                    <h4 className="ellipsis">{item.title}</h4>
+                                                    <p>{newDate}</p>
+                                                </TextBox>
+                                            </Link>
                                         </li>
                                     )
                                 })
