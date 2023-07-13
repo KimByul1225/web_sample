@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import SubBanner from '../commons/SubBanner';
@@ -10,9 +10,26 @@ import qIcon from "@/resources/icons/company/icon_q.png";
 import aIcon from "@/resources/icons/company/icon_a.png";
 import dropdownIcon from "@/resources/icons/company/icon_dropdown.png";
 import dropdownOnIcon from "@/resources/icons/company/icon_dropdown_on.png";
+import checkBoxIcon from "@/resources/icons/company/icon_checkbox_checked.png";
+import { FaqFaker } from '@/resources/faker/company/FaqFaker';
+import Pagination from '../list/Pagination';
+
+interface IFaqData{
+    index: number;
+    title: string;
+    text: string;
+}
 
 const Qna = () => {
     const [radioValue, setRadioValue] = useState<string>("");
+    const [agreeValue, setAgreeValue] = useState<boolean>(false);
+
+    const [faqData, setFaqData] = useState<IFaqData[]>([] as IFaqData[]);
+
+     // 게시글 목록갯수 설정
+    const limit = 10;
+    const [page, setPage] = useState(1);
+    const offset = (page - 1) * limit;
 
     const dropdownHandler = (e:any) => {
         const thisBtn = e.target;
@@ -35,9 +52,21 @@ const Qna = () => {
     }
     const radioBtnHandler = (e: { target: { value: string; }; }) => {
         const {value} = e.target;
-        // setInputs({...inputs, [name]: value})
         setRadioValue(value);
     };
+
+    const aggrCheckHandler = () => {
+        setAgreeValue(!agreeValue);
+    };
+
+    useEffect(() => {
+        const result = FaqFaker();
+        const { resultMap } = result || {};
+        if (resultMap.result) {
+            setFaqData(resultMap.resultList);
+        }
+        
+    }, []);
 
     return (
         <>
@@ -58,54 +87,46 @@ const Qna = () => {
                                     <button>
                                         <span className="ir_so">검색버튼</span>
                                     </button>
-                                    <input type="text" name="searchWord"/>
+                                    <input type="text" name="searchWord" placeholder="검색 기능은 Api 연동이 필요합니다."/>
                                 </FormWrap>
                                 <FaqListWrap>
                                     <ul>
-                                        <li>
-                                            <DroppableBox>
-                                                <i>
-                                                    <span className="ir_so">Q icon</span>
-                                                </i>
-                                                <p>어쩌구 저쩌구 내용이 들어가</p>
-                                                <button
-                                                    onClick={dropdownHandler}
-                                                    className="folding"
-                                                >
-                                                    <span className="ir_so">드롭다운 버튼</span>
-                                                </button>
-                                            </DroppableBox>
-                                            <DropdownBox
-                                                className="dropdownBox"
-                                            >
-                                                <p>- 서스틴베스트 홈페이지는 크롬, 엣지, 사파리, 파이어폭스, 오페라 브라우저를 지원하고 있습니다. 위 브라우저로 접속하셨는지 확인 부탁드립니다.</p>
-                                                <p>- 서스틴베스트 홈페이지는 크롬, 엣지, 사파리, 파이어폭스, 오페라 브라우저를 지원하고 있습니다. 위 브라우저로 접속하셨는지 확인 부탁드립니다.</p>
-                                            </DropdownBox>
-                                        </li>
-                                        <li>
-                                            <DroppableBox>
-                                                <i>
-                                                    <span className="ir_so">Q icon</span>
-                                                </i>
-                                                <p>어쩌구 저쩌구 내용이 들어가2</p>
-                                                <button
-                                                    onClick={dropdownHandler}
-                                                    className="folding"
-                                                >
-                                                    <span className="ir_so">드롭다운 버튼</span>
-                                                </button>
-                                            </DroppableBox>
-                                            <DropdownBox
-                                                className="dropdownBox"
-                                            >
-                                                <p>- 서스틴베스트 홈페이지는 크롬, 엣지, 사파리, 파이어폭스, 오페라 브라우저를 지원하고 있습니다. 위 브라우저로 접속하셨는지 확인 부탁드립니다.</p>
-                                                <p>- 서스틴베스트 홈페이지는 크롬, 엣지, 사파리, 파이어폭스, 오페라 브라우저를 지원하고 있습니다. 위 브라우저로 접속하셨는지 확인 부탁드립니다.</p>
-                                            </DropdownBox>
-                                        </li>
+                                        {
+                                            faqData.slice(offset, offset + limit).map((item)=> {
+                                                return(
+                                                    <li key={item.index}>
+                                                        <DroppableBox>
+                                                            <i>
+                                                                <span className="ir_so">Q icon</span>
+                                                            </i>
+                                                            <p>{item.title}</p>
+                                                            <button
+                                                                onClick={dropdownHandler}
+                                                                className="folding"
+                                                            >
+                                                                <span className="ir_so">드롭다운 버튼</span>
+                                                            </button>
+                                                        </DroppableBox>
+                                                        <DropdownBox
+                                                            className="dropdownBox"
+                                                        >
+                                                            <p>- {item.text}</p>
+                                                        </DropdownBox>
+                                                    </li>
+                                                )
+                                            })
+                                        }
+                                        
+                                        
                                     </ul>
-
                                 </FaqListWrap>
-
+                                <Pagination 
+                                    total={faqData.length}
+                                    limit={limit}
+                                    page={page}
+                                    offset={offset}
+                                    setPage={setPage}
+                                />
                             </div>
                         </FaqWrap>
 
@@ -121,18 +142,75 @@ const Qna = () => {
                                         <label htmlFor="radio1">
                                             이용문의
                                         </label>
-
                                         <input type="radio" name="radioBtn" id="radio2" className="ir_so" value="2" onChange={radioBtnHandler} checked={radioValue === '2'}/>
                                         <label htmlFor="radio2">
                                             서비스 문의
                                         </label>
-
                                         <input type="radio" name="radioBtn" id="radio3" className="ir_so" value="3" onChange={radioBtnHandler} checked={radioValue === '3'}/>
                                         <label htmlFor="radio3">
                                             기타 문의
                                         </label>
                                     </div>
                                 </RadioButtonTr>
+                                <InputTr>
+                                    <LabelArea>
+                                        <label htmlFor="email" className="necessary">이메일</label>
+                                    </LabelArea>
+                                    <FullSizeFormWrap>
+                                        <input type="text" name="email" id="email" value="" placeholder="Api 연동이 필요합니다."/>
+                                    </FullSizeFormWrap>
+                                </InputTr>
+
+                                <InputTr>
+                                    <LabelArea>
+                                        <label htmlFor="tel" className="necessary">전화번호</label>
+                                    </LabelArea>
+                                    <FullSizeFormWrap>
+                                        <input type="text" name="tel" id="tel" value="" placeholder="Api 연동이 필요합니다."/>
+                                    </FullSizeFormWrap>
+                                </InputTr>
+
+                                <InputTr>
+                                    <LabelArea>
+                                        <label htmlFor="company">회사명</label>
+                                    </LabelArea>
+                                    <FullSizeFormWrap>
+                                        <input type="text" name="company" id="company" value="" placeholder="Api 연동이 필요합니다."/>
+                                    </FullSizeFormWrap>
+                                </InputTr>
+
+                                <InputTr>
+                                    <LabelArea>
+                                        <label htmlFor="name" className="necessary">이름</label>
+                                    </LabelArea>
+                                    <FullSizeFormWrap>
+                                        <input type="text" name="name" id="name" value="" placeholder="Api 연동이 필요합니다."/>
+                                    </FullSizeFormWrap>
+                                </InputTr>
+
+                                <InputTr>
+                                    <LabelArea>
+                                        <label htmlFor="detail" className="necessary">문의내용</label>
+                                    </LabelArea>
+                                    <div>
+                                        <TextArea
+                                            placeholder="Api 연동이 필요합니다."
+                                        >
+                                            
+                                        </TextArea>
+                                    </div>
+                                </InputTr>
+
+                                <AgreeTr>
+                                    <input type="checkbox" name="agree" id="agree" className="ir_so" onChange={aggrCheckHandler} checked={agreeValue}/>
+                                    <label htmlFor="agree" className="icon_checkbox"></label>
+                                    <label htmlFor="agree">개인정보 수집 및 이용에 동의합니다.</label>
+                                </AgreeTr>
+                                <ButtonWrap>
+                                    <button>
+                                        문의하기
+                                    </button>
+                                </ButtonWrap>
                             </QnaBox>
                         </QnaWrap>
                     </SpaceBetween>
@@ -220,21 +298,16 @@ const RadioButtonTr = styled.div`
         text-align: center;
         width: 150px;
     }
-
     input[type=radio]:checked+label {
         border: 1px solid var(--col_acc);
         border-radius: 5px;
         color: var(--col_acc);
     }
-
-
     @media screen and (max-width: 1200px){
         input[type=radio]+label, input[type=radio]:checked+label{
             width: 31%;
         }
     }
-
-
     @media screen and (max-width: 768px){
         margin: 30px 0;
         div{
@@ -250,8 +323,106 @@ const RadioButtonTr = styled.div`
         }
     }
 `
+const InputTr = styled.div`
+    margin-top: 20px;
+`
+const LabelArea = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    label{
+        color: #4f4f4f;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    @media screen and (max-width: 768px){
+        label{
+            font-size: 14px;
+        }
+    }
 
-
+`
+const FullSizeFormWrap = styled.div`
+    input{
+        background-color: #fff;
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        font-size: 16px;
+        height: 50px;
+        padding-left: 15px;
+        width: 100%;
+    }
+`
+const TextArea = styled.textarea`
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    font-family: Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: 16px;
+    height: 150px;
+    padding: 10px 15px;
+    resize: none;
+`
+const AgreeTr = styled.div`
+    align-items: center;
+    display: flex;
+    margin-top: 30px;
+    label{
+        color: #4f4f4f;
+        font-size: 16px;
+    }
+    label:nth-child(2){
+        background: #d2d2d2 url(${checkBoxIcon}) center no-repeat;
+        background-size: 16px 16px;
+        border-radius: 12px;
+        cursor: pointer;
+        display: inline-block;
+        height: 24px;
+        margin-right: 5px;
+        width: 24px;
+    }
+    input[type=checkbox]:checked+label{
+        background: var(--col_acc) url(${checkBoxIcon}) center no-repeat;
+        background-size: 16px 16px;
+        border-radius: 12px;
+        display: inline-block;
+        height: 24px;
+        width: 24px;
+    }
+`
+const ButtonWrap = styled.div`
+    margin-top: 30px;
+    text-align: center;
+    button{
+        background: var(--col_acc);
+        border: 1px solid var(--col_acc);
+        border-radius: 5px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        height: 50px;
+        text-align: center;
+        transition: all .3s ease;
+        width: 160px;
+    }
+    button:hover {
+        background: #fff;
+        color: var(--col_acc);
+        transition: all .3s ease;
+    }
+    @media screen and (max-width: 768px){
+        button {
+            font-size: 14px;
+            height: 40px;
+            width: 100%;
+        }
+        button:hover{
+            background-color: var(--col_acc);
+            color: #fff;
+        }
+    }
+`
 
 
 

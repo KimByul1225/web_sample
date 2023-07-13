@@ -200,6 +200,9 @@ export const GlobalStyle = createGlobalStyle`
     .ellipsis{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .ellipsis2{overflow:hidden;text-overflow:ellipsis;word-wrap:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 
+    /*== 필수입력표시 ==*/
+    .necessary:after {color: red; content: "*"; font-family: Pretendard,serif; font-size: 14px; font-weight: 700; margin-left: 5px; vertical-align: top;}
+
     @media screen and (max-width:768px) {
         .mb_none{display: none !important;}
     }
