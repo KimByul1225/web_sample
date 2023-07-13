@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import SubBanner from '../commons/SubBanner';
@@ -12,6 +12,33 @@ import dropdownIcon from "@/resources/icons/company/icon_dropdown.png";
 import dropdownOnIcon from "@/resources/icons/company/icon_dropdown_on.png";
 
 const Qna = () => {
+    const [radioValue, setRadioValue] = useState<string>("");
+
+    const dropdownHandler = (e:any) => {
+        const thisBtn = e.target;
+        const allBtn = document.querySelectorAll('.folding');
+        const thisDropbox = e.target.parentNode.parentNode.querySelector('.dropdownBox');
+        const allDropbox = document.querySelectorAll('.dropdownBox');
+        if(thisDropbox.classList.contains("on")){
+            thisDropbox.classList.remove("on")
+            thisBtn.classList.remove("on")
+        }else{
+            allDropbox.forEach((allDropbox) => {
+                allDropbox.classList.remove("on");
+                thisDropbox.classList.add("on")
+            });
+            allBtn.forEach((allBtn) => {
+                allBtn.classList.remove("on");
+                thisBtn.classList.add("on")
+            });
+        }
+    }
+    const radioBtnHandler = (e: { target: { value: string; }; }) => {
+        const {value} = e.target;
+        // setInputs({...inputs, [name]: value})
+        setRadioValue(value);
+    };
+
     return (
         <>
             <SubBanner
@@ -41,16 +68,38 @@ const Qna = () => {
                                                     <span className="ir_so">Q icon</span>
                                                 </i>
                                                 <p>어쩌구 저쩌구 내용이 들어가</p>
-                                                <button>
+                                                <button
+                                                    onClick={dropdownHandler}
+                                                    className="folding"
+                                                >
                                                     <span className="ir_so">드롭다운 버튼</span>
                                                 </button>
                                             </DroppableBox>
                                             <DropdownBox
-                                                className="on"
+                                                className="dropdownBox"
                                             >
                                                 <p>- 서스틴베스트 홈페이지는 크롬, 엣지, 사파리, 파이어폭스, 오페라 브라우저를 지원하고 있습니다. 위 브라우저로 접속하셨는지 확인 부탁드립니다.</p>
                                                 <p>- 서스틴베스트 홈페이지는 크롬, 엣지, 사파리, 파이어폭스, 오페라 브라우저를 지원하고 있습니다. 위 브라우저로 접속하셨는지 확인 부탁드립니다.</p>
-
+                                            </DropdownBox>
+                                        </li>
+                                        <li>
+                                            <DroppableBox>
+                                                <i>
+                                                    <span className="ir_so">Q icon</span>
+                                                </i>
+                                                <p>어쩌구 저쩌구 내용이 들어가2</p>
+                                                <button
+                                                    onClick={dropdownHandler}
+                                                    className="folding"
+                                                >
+                                                    <span className="ir_so">드롭다운 버튼</span>
+                                                </button>
+                                            </DroppableBox>
+                                            <DropdownBox
+                                                className="dropdownBox"
+                                            >
+                                                <p>- 서스틴베스트 홈페이지는 크롬, 엣지, 사파리, 파이어폭스, 오페라 브라우저를 지원하고 있습니다. 위 브라우저로 접속하셨는지 확인 부탁드립니다.</p>
+                                                <p>- 서스틴베스트 홈페이지는 크롬, 엣지, 사파리, 파이어폭스, 오페라 브라우저를 지원하고 있습니다. 위 브라우저로 접속하셨는지 확인 부탁드립니다.</p>
                                             </DropdownBox>
                                         </li>
                                     </ul>
@@ -60,6 +109,32 @@ const Qna = () => {
                             </div>
                         </FaqWrap>
 
+                        <QnaWrap>
+                            <QnaBox>
+                                <BorderTitleBox>
+                                    <h4>문의</h4>
+                                    <p>* 필수입력 항목 입니다.</p>
+                                </BorderTitleBox>
+                                <RadioButtonTr>
+                                    <div>
+                                        <input type="radio" name="radioBtn" id="radio1" className="ir_so" value="1" onChange={radioBtnHandler} checked={radioValue === '1'}/>
+                                        <label htmlFor="radio1">
+                                            이용문의
+                                        </label>
+
+                                        <input type="radio" name="radioBtn" id="radio2" className="ir_so" value="2" onChange={radioBtnHandler} checked={radioValue === '2'}/>
+                                        <label htmlFor="radio2">
+                                            서비스 문의
+                                        </label>
+
+                                        <input type="radio" name="radioBtn" id="radio3" className="ir_so" value="3" onChange={radioBtnHandler} checked={radioValue === '3'}/>
+                                        <label htmlFor="radio3">
+                                            기타 문의
+                                        </label>
+                                    </div>
+                                </RadioButtonTr>
+                            </QnaBox>
+                        </QnaWrap>
                     </SpaceBetween>
                 </Row>
             </Container>
@@ -78,6 +153,111 @@ const SpaceBetween = styled.div`
         justify-content: normal;
     }
 `
+const QnaWrap = styled.div`
+    width: 48.3%;
+    @media screen and (max-width: 1200px){
+        margin-top: 60px;
+        width: 100%;
+    }
+`
+const QnaBox = styled.div`
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    box-shadow: 8px 8px 30px rgba(0,0,0,.1);
+    padding: 40px;
+    @media screen and (max-width: 768px){
+        padding: 20px;
+    }
+`
+const BorderTitleBox = styled.div`
+    align-items: center;
+    border-bottom: 1px dashed #bdbdbd;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 25px;
+    h4{
+        font-size: 28px;
+        font-weight: 500;
+    }
+    p{
+        color: #828282;
+        font-size: 15px;
+        font-weight: 400;
+    }
+    @media screen and (max-width: 768px){
+        padding-bottom: 10px;
+        h4{
+            font-size: 22px;
+        }
+        p{
+            font-size: 12px;
+        }
+    }
+`
+const RadioButtonTr = styled.div`
+    margin-bottom: 10px;
+    margin-top: 30px;
+    div{
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+    input[type=radio]+label {
+        background-color: #fff;
+        border: 1px solid #d1d1d1;
+        border-radius: 5px;
+        color: #828282;
+        cursor: pointer;
+    }
+    input[type=radio]+label, input[type=radio]:checked+label {
+        align-items: center;
+        display: inline-block;
+        display: flex;
+        flex-direction: column;
+        height: 90px;
+        justify-content: center;
+        text-align: center;
+        width: 150px;
+    }
+
+    input[type=radio]:checked+label {
+        border: 1px solid var(--col_acc);
+        border-radius: 5px;
+        color: var(--col_acc);
+    }
+
+
+    @media screen and (max-width: 1200px){
+        input[type=radio]+label, input[type=radio]:checked+label{
+            width: 31%;
+        }
+    }
+
+
+    @media screen and (max-width: 768px){
+        margin: 30px 0;
+        div{
+            flex-direction: column;
+        }
+        input[type=radio]+label, input[type=radio]:checked+label{
+            flex-direction: row;
+            font-size: 14px;
+            height: 60px;
+            line-height: 60px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    }
+`
+
+
+
+
+
+
+
+
 
 const FaqWrap = styled.div`
     width: 48.3%;
