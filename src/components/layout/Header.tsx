@@ -100,17 +100,39 @@ const Header = () => {
                         </li>
                         <li>
                             <Link to="sub">
-                                menu4
+                                마이페이지
                             </Link>
                             <Depth2>
                                 <li>
                                     <Link to="sub">
-                                        2222
+                                        로그인
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to="sub">
-                                        3333
+                                        아이디 찾기
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="sub">
+                                        비밀번호 재발급
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="sub">
+                                        회원가입
+                                    </Link>
+                                </li>
+                            </Depth2>
+                        </li>
+                        <li>
+                            <Link to="sub">
+                                기타
+                            </Link>
+                            <Depth2>
+                                <li>
+                                    <Link to="sub">
+                                        차트관련
                                     </Link>
                                 </li>
                             </Depth2>
