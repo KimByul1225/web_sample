@@ -99,27 +99,27 @@ const Header = () => {
                             </Depth2>
                         </li>
                         <li>
-                            <Link to="sub">
+                            <Link to="mypage/login">
                                 마이페이지
                             </Link>
                             <Depth2>
                                 <li>
-                                    <Link to="sub">
+                                    <Link to="mypage/login">
                                         로그인
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="sub">
+                                    <Link to="mypage/findid">
                                         아이디 찾기
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="sub">
+                                    <Link to="mypage/resetpwd">
                                         비밀번호 재발급
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="sub">
+                                    <Link to="mypage/register">
                                         회원가입
                                     </Link>
                                 </li>

@@ -28,10 +28,16 @@ import Member from '@/components/company/Member';
 import List from '@/containers/List';
 import TextType from '@/components/list/TextType';
 import ImageType from '@/components/list/ImageType';
-import Terms from './containers/Terms';
-import Privacy from './containers/Privacy';
-import ListDetail from './components/list/ListDetail';
-import Qna from './components/company/Qna';
+import Terms from '@/containers/Terms';
+import Privacy from '@/containers/Privacy';
+import ListDetail from '@/components/list/ListDetail';
+import Qna from '@/components/company/Qna';
+
+import Mypage from '@/containers/Mypage';
+import Login from '@/components/mypage/Login';
+import FindId from '@/components/mypage/FindId';
+import ResetPassword from '@/components/mypage/ResetPassword';
+import Register from '@/components/mypage/Register';
 
 
 
@@ -139,6 +145,28 @@ const router = createBrowserRouter([
                     {
                         path: "imageType",
                         element: <ImageType />,
+                    },
+                ]
+            },
+            {
+                path: "mypage",
+                element: <Mypage />,
+                children: [
+                    {
+                        path: "login",
+                        element: <Login />,
+                    },
+                    {
+                        path: "findid",
+                        element: <FindId />,
+                    },
+                    {
+                        path: "resetpwd",
+                        element: <ResetPassword />,
+                    },
+                    {
+                        path: "register",
+                        element: <Register />,
                     },
                 ]
             }
