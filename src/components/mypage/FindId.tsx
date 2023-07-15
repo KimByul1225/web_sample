@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import iconExclamation from "@/resources/icons/mypage/icon_exclamation.png";
 import iconSelect from "@/resources/icons/commons/icon_select.png"
 
 
 const FindId = () => {
-    
     const [emailAddress,  setEmailAddress] = useState<string>("");
+
+    const inputHandler = (e:React.ChangeEvent<HTMLInputElement>)=>{
+        const {value} = e.target;
+        setEmailAddress(value)
+            
+    }
 
     const selectHandler = (e: React.ChangeEvent<HTMLSelectElement>) =>{
         const {value} = e.target;
-
             value === "1" ? setEmailAddress("") : setEmailAddress(value);
-        
-            
-        
     }
+
     return (
         <FindIdContainer>
             <FindIdWrap>
@@ -32,14 +33,20 @@ const FindId = () => {
                     <form>
                         <InputWrap>
                             <label htmlFor="userName">이름</label>
-                            <input type="text" id="userName" name="id" placeholder="Api연동이 필요합니다."/>
+                            <input type="text" id="userName" name="userName" placeholder="Api연동이 필요합니다."/>
                         </InputWrap>
                         <EmailWrap>
                             <label htmlFor="emailId">이메일</label>
                             <div>
                                 <input type="text" id="emailId" name="email" />
                                 <span>@</span>
-                                <input type="text" id="emailAddress" name="email" value={emailAddress}/>
+                                <input 
+                                    type="text" 
+                                    id="emailAddress" 
+                                    name="email" 
+                                    value={emailAddress}
+                                    onChange={inputHandler}
+                                />
                                 <select 
                                     id="emailSel" 
                                     name="emailSel"
