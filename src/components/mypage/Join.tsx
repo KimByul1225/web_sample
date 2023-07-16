@@ -4,6 +4,7 @@ import Container from '../layout/Container';
 
 import passwordIcon from "@/resources/icons/mypage/icon_pw.png";
 import passwordCheckIcon from "@/resources/icons/mypage/icon_pwck.png";
+import iconSelect from "@/resources/icons/commons/icon_select.png";
 
 
 const Join = () => {
@@ -45,7 +46,77 @@ const Join = () => {
                             <PasswrodCheckInput type="password" id="pwCk" name="pwCk" placeholder="비밀번호를 다시 입력하세요."/>
                         </FullSizeFormWrap>
                     </Line>
+                    <Line>
+                        <label htmlFor="userName" className="necessary">이름</label>
+                        <FullSizeFormWrap>
+                            <input type="text" id="userName" name="userName" placeholder="이름"/>
+                        </FullSizeFormWrap>
+                    </Line>
+                    <Line>
+                        <label htmlFor="mobilePhone">휴대폰</label>
+                        <PhoneTypeFormWrap>
+                            <select name="mobilePhone">
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                            </select>
+                            <input type="text" name="mobilePhone2" placeholder="0000" maxLength={4}/>
+                            <input type="text" name="mobilePhone3" placeholder="0000" maxLength={4}/>
+                        </PhoneTypeFormWrap>
+                    </Line>
 
+                    <Line>
+                        <label htmlFor="phone">전화번호</label>
+                        <PhoneTypeFormWrap>
+                            <select name="phone">
+                                <option value="02">02</option>
+                                <option value="031">031</option>
+                                <option value="032">032</option>
+                                <option value="033">033</option>
+                                <option value="041">041</option>
+                                <option value="042">042</option>
+                                <option value="043">043</option>
+                                <option value="051">051</option>
+                                <option value="052">052</option>
+                                <option value="053">053</option>
+                                <option value="054">054</option>
+                                <option value="055">055</option>
+                                <option value="061">061</option>
+                                <option value="063">063</option>
+                                <option value="062">062</option>
+                                <option value="064">064</option>
+                            </select>
+                            <input type="text" name="phone2" placeholder="0000" maxLength={4}/>
+                            <input type="text" name="phone3" placeholder="0000" maxLength={4}/>
+                        </PhoneTypeFormWrap>
+                    </Line>
+                    <EmailLine>
+                        <label htmlFor="email" className="necessary">이메일</label>
+                        <div>
+                            <input type="text" name="email" placeholder="이메일 ID" />
+                            <span>@</span>
+                            <input type="text" name="emailAddress" placeholder="이메일 주소" />
+                        </div>
+                    </EmailLine>
+                    <Line>
+                        <label htmlFor="emailSel">
+                            <span className="ir_so">
+                                이메일 주소 선택
+                            </span>
+                        </label>
+                        <FullSizeFormWrap>
+                            <select name="emailSel">
+                                <option value="1">직접입력</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="hanmail.net">hanmail.net</option>
+                                <option value="hotmail.com">hotmail.com</option>
+                            </select>
+                        </FullSizeFormWrap>
+                    </Line>
 
 
                 </JoinBox>
@@ -148,6 +219,7 @@ const Line = styled.div`
         padding: 0;
     }
 `
+
 const FullSizeFormWrap = styled.div`
     width: calc(100% - 125px);
     position: relative;
@@ -161,14 +233,73 @@ const FullSizeFormWrap = styled.div`
         font-weight: 500;
         padding-left: 15px;
     }
+    input::placeholder{color: #BDBDBD;}
+    select{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 50px;
+        border: 1px solid #E0E0E0;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        padding-left: 15px;
+        background: #fff url(${iconSelect}) center right 15px no-repeat; 
+        background-size: 18px; 
+    }
     @media screen and (max-width: 768px){
         width: 100%;
+        input, select{
+            height: 40px;
+            font-size: 14px;
+        }
+    }
+`
+const PhoneTypeFormWrap = styled.div`
+    width: calc(100% - 125px);
+    display: flex;
+    justify-content: space-between;
+    select{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 31%;
+        height: 50px;
+        border: 1px solid #E0E0E0;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        padding-left: 15px;
+        background: #fff url(${iconSelect}) center right 15px no-repeat; 
+        background-size: 18px; 
+    }
+    input{
+        width: 31%;
+        height: 50px;
+        border: 1px solid #E0E0E0;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        padding-left: 15px;
+    }
+    input::placeholder{color: #BDBDBD;}
+    @media screen and (max-width: 768px){
+        width: 100%;
+        select{
+            
+            height: 40px;
+            font-size: 14px;
+            
+        }
         input{
             height: 40px;
             font-size: 14px;
         }
     }
 `
+
 
 const IdButtonWrap = styled.div`
     position: absolute;
@@ -220,6 +351,44 @@ const PasswrodCheckInput = styled.input`
 `
 
 
+const EmailLine = styled(Line)`
+    margin-bottom: 10px;
+    div{
+        width: calc(100% - 125px);
+        display: flex;
+        justify-content: space-between;
+    }
+    input{
+        width: calc(50% - 15px);
+        height: 50px;
+        border: 1px solid #E0E0E0;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        padding-left: 15px;
+    }
+    input::placeholder{color: #BDBDBD;}
+    span{
+        height: 50px;
+        line-height: 50px;
+        width: 30px;
+        text-align: center;
+    }
+    @media screen and (max-width: 768px){
+        div{
+            width: 100%;
+        }
+        input{
+            height: 40px;
+            font-size: 14px;
+        }
+        span{
+            height: 40px;
+            line-height: 40px;
+        }
+    }
+`
 
 
 
