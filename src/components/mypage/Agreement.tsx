@@ -108,17 +108,20 @@ const Agreement = ({checkHandler, checkValue, nextButton}: {checkHandler: (e: Re
                         </div>
                     </ScrollBox>
                 </AgreementBox>
+
+                <Notice>
+                    이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.
+                </Notice>
+                <ButtonWrap>
+                    <button
+                        onClick={nextButton}
+                    >
+                        다음
+                    </button>
+                </ButtonWrap>
+                
             </AgreementWrap>
-            <Notice>
-                이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.
-            </Notice>
-            <ButtonWrap>
-                <button
-                    onClick={nextButton}
-                >
-                    다음
-                </button>
-            </ButtonWrap>
+            
         </Container>
     )
 }
@@ -274,7 +277,7 @@ const ButtonWrap = styled.div`
     @media screen and (max-width: 768px){
         margin-top: 50px;
         button{
-            width: 90%;
+            width: 100%;
             height: 50px;
             font-size: 16px;
         }
