@@ -8,11 +8,20 @@ import iconSelect from "@/resources/icons/commons/icon_select.png";
 import { useSetRecoilState } from 'recoil';
 import { alertState } from '@/global/modal';
 
+import PostPopup from './PostPopup';
+
 
 const Join = () => {
     const [emailAddress, setEmailAddress] = useState("");
+    const [postPopup, setPostPopup] = useState(false);
 
     const setAlertModal = useSetRecoilState(alertState);
+
+    const [cmpnyAddress, setCmpnyAddress] = useState({
+        address:"",
+        zonecode:""
+    });
+
     const inputRef = useRef<any>([]);
 
     const buttonHandler = () => {
@@ -34,10 +43,22 @@ const Join = () => {
         }() : setEmailAddress(value);
     };
 
-    const emailAddressHandler = (e: any) => {
+    const emailAddressHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
         const {value} = e.target;
         setEmailAddress(value);
     }
+
+    // const companyAddressHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
+    //     const {value, name} = e.target;
+    //     setCmpnyAddress({...cmpnyAddress, [name]: value})
+    // };
+
+    const postHandler = () => {
+        setPostPopup(!postPopup);
+    }
+    // const postClose = () => {
+    //     setPostPopup(false);
+    // }
     
 
     return (
@@ -266,12 +287,21 @@ const Join = () => {
                         </FullSizeFormWrap>
                     </Line>
                     <Line>
-                        <label htmlFor="postCode">회사주소</label>
+                        <label htmlFor="zonecode">회사주소</label>
                         <FullSizeFormWrap>
-                            <input type="text" id="postCode" name="postCode" placeholder="우편번호"/>
+                            <input 
+                                type="text" 
+                                id="zonecode" 
+                                name="zonecode" 
+                                placeholder="우편번호"
+                                value={cmpnyAddress.zonecode}
+                                readOnly={true}
+                            />
                         </FullSizeFormWrap>
                         <IdButtonWrap>
-                            <button>
+                            <button
+                                onClick={postHandler}
+                            >
                                 검색
                             </button>
                         </IdButtonWrap>
@@ -283,7 +313,14 @@ const Join = () => {
                             </span>
                         </label>
                         <FullSizeFormWrap>
-                            <input type="text" id="adress" placeholder="주소" name="address" readOnly={true}/>
+                            <input 
+                                type="text" 
+                                id="adress" 
+                                placeholder="주소" 
+                                name="address" 
+                                value={cmpnyAddress.address}
+                                readOnly={true}
+                            />
                         </FullSizeFormWrap>
                     </Line>
                     <Line>
@@ -293,15 +330,16 @@ const Join = () => {
                             </span>
                         </label>
                         <FullSizeFormWrap>
-                            <input type="text" id="adressDetail" placeholder="상세주소" name="adressDetail" readOnly={true}/>
+                            <input 
+                            type="text" 
+                            id="adressDetail" 
+                            placeholder="상세주소" 
+                            name="adressDetail" 
+                            />
                         </FullSizeFormWrap>
                     </Line>
                     
-                </JoinBox>
-                
-
-
-
+                </JoinBox>                
                 <ButtonWrap>
                     <button
                         onClick={buttonHandler}
@@ -310,12 +348,20 @@ const Join = () => {
                     </button>
                 </ButtonWrap>
             </JoinWrap>
+            {postPopup && 
+                <div>
+                    <PostPopup 
+                        cmpnyAddress={cmpnyAddress} 
+                        setcompany={setCmpnyAddress}
+                        postClose={postHandler} 
+                    />
+                </div>
+            }
         </Container>
     )
 }
 
 export default Join
-
 
 const JoinWrap = styled.div`
     margin: 0 auto;
