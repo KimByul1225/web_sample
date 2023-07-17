@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import logo from "@/resources/images/commons/logo_symbol.png";
 import iconMenu from "@/resources/icons/commons/icon_menu.png";
 import iconMenuClose from "@/resources/icons/commons/icon_mobile_menu_close.png";
 
 const MobileHeader = () => {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const mobileMenuButtonHandler = () => {
+        setMobileMenuOpen(!mobileMenuOpen);
+    }
+
     return (
         <>
             <Container>
-                <button>
+                <button
+                    onClick={mobileMenuButtonHandler}
+                >
                     <span className="ir_so">모바일 메뉴창 열기 버튼</span>
                 </button>
                 <h1>
@@ -24,10 +32,12 @@ const MobileHeader = () => {
             </Container>
 
             <MenuWrap
-                className='on'
+                open={mobileMenuOpen}
             >
                 <MenuTopArea>
-                    <button>
+                    <button
+                        onClick={mobileMenuButtonHandler}
+                    >
                         <span className="ir_so">모바일 메뉴창 닫기 버튼</span>
                     </button>
                 </MenuTopArea>
@@ -205,7 +215,7 @@ const Container = styled.div`
     }
 `
 
-const MenuWrap = styled.nav`
+const MenuWrap = styled.nav<{open: boolean}>`
     position: fixed;
     width: 100%;
     height: 100%;
@@ -213,10 +223,10 @@ const MenuWrap = styled.nav`
     top: 0;
     left: -100%;
     transition: all .3s ease;
-    &.on{
+    ${(props) => props.open && css`
         left: 0;
-        transition: all .3s ease;
-    }
+        transition: all .3s ease;           
+    `}
 `
 const MenuTopArea = styled.div`
     height: 80px;
