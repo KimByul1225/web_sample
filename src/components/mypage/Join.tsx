@@ -1,13 +1,45 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import Container from '../layout/Container';
 
 import passwordIcon from "@/resources/icons/mypage/icon_pw.png";
 import passwordCheckIcon from "@/resources/icons/mypage/icon_pwck.png";
 import iconSelect from "@/resources/icons/commons/icon_select.png";
+import { useSetRecoilState } from 'recoil';
+import { alertState } from '@/global/modal';
 
 
 const Join = () => {
+    const [emailAddress, setEmailAddress] = useState("");
+
+    const setAlertModal = useSetRecoilState(alertState);
+    const inputRef = useRef<any>([]);
+
+    const buttonHandler = () => {
+        setAlertModal({
+            isShow : true,
+            modalProps: {
+                message: "Api 연동이 필요합니다.",
+                buttonName: "확인",
+            }
+        })
+    }
+
+    const emailSelectHandler = (e: { target: { value: string; }; }) => {
+        const {value} = e.target;
+        value === "1" ?
+        function(){
+            inputRef.current[9].focus();
+            setEmailAddress("");
+        }() : setEmailAddress(value);
+    };
+
+    const emailAddressHandler = (e: any) => {
+        const {value} = e.target;
+        setEmailAddress(value);
+    }
+    
+
     return (
         <Container>
             <JoinWrap>
@@ -26,10 +58,18 @@ const Join = () => {
                     <Line>
                         <label htmlFor="joinId" className="necessary">아이디</label>
                         <FullSizeFormWrap>
-                            <input type="text" id="joinId" name="id" placeholder="id"/>
+                            <input 
+                                type="text" 
+                                id="joinId" 
+                                name="id" 
+                                placeholder="id"
+                                ref={el => (inputRef.current[0] = el)} 
+                            />
                         </FullSizeFormWrap>
                         <IdButtonWrap>
-                            <button>
+                            <button
+                                onClick={buttonHandler}
+                            >
                                 중복확인
                             </button>
                         </IdButtonWrap>
@@ -37,19 +77,37 @@ const Join = () => {
                     <Line>
                         <label htmlFor="pw" className="necessary">비밀번호</label>
                         <FullSizeFormWrap>
-                            <PasswrodInput type="password" id="pw" name="pw" placeholder="비밀번호를 입력하세요."/>
+                            <PasswrodInput 
+                                type="password" 
+                                id="pw" 
+                                name="pw" 
+                                placeholder="비밀번호를 입력하세요."
+                                ref={el => (inputRef.current[1] = el)} 
+                            />
                         </FullSizeFormWrap>
                     </Line>
                     <Line>
                         <label htmlFor="pwCk" className="necessary">비밀번호</label>
                         <FullSizeFormWrap>
-                            <PasswrodCheckInput type="password" id="pwCk" name="pwCk" placeholder="비밀번호를 다시 입력하세요."/>
+                            <PasswrodCheckInput 
+                                type="password" 
+                                id="pwCk" 
+                                name="pwCk" 
+                                placeholder="비밀번호를 다시 입력하세요."
+                                ref={el => (inputRef.current[2] = el)} 
+                            />
                         </FullSizeFormWrap>
                     </Line>
                     <Line>
                         <label htmlFor="userName" className="necessary">이름</label>
                         <FullSizeFormWrap>
-                            <input type="text" id="userName" name="userName" placeholder="이름"/>
+                            <input 
+                                type="text" 
+                                id="userName" 
+                                name="userName" 
+                                placeholder="이름"
+                                ref={el => (inputRef.current[3] = el)} 
+                            />
                         </FullSizeFormWrap>
                     </Line>
                     <Line>
@@ -63,8 +121,20 @@ const Join = () => {
                                 <option value="018">018</option>
                                 <option value="019">019</option>
                             </select>
-                            <input type="text" name="mobilePhone2" placeholder="0000" maxLength={4}/>
-                            <input type="text" name="mobilePhone3" placeholder="0000" maxLength={4}/>
+                            <input 
+                                type="text" 
+                                name="mobilePhone2" 
+                                placeholder="0000" 
+                                maxLength={4}
+                                ref={el => (inputRef.current[4] = el)} 
+                            />
+                            <input 
+                                type="text"
+                                name="mobilePhone3" 
+                                placeholder="0000" 
+                                maxLength={4}
+                                ref={el => (inputRef.current[5] = el)} 
+                            />
                         </PhoneTypeFormWrap>
                     </Line>
 
@@ -89,16 +159,40 @@ const Join = () => {
                                 <option value="062">062</option>
                                 <option value="064">064</option>
                             </select>
-                            <input type="text" name="phone2" placeholder="0000" maxLength={4}/>
-                            <input type="text" name="phone3" placeholder="0000" maxLength={4}/>
+                            <input 
+                                type="text" 
+                                name="phone2" 
+                                placeholder="0000"
+                                maxLength={4}
+                                ref={el => (inputRef.current[6] = el)} 
+                            />
+                            <input 
+                                type="text" 
+                                name="phone3" 
+                                placeholder="0000" 
+                                maxLength={4}
+                                ref={el => (inputRef.current[7] = el)} 
+                            />
                         </PhoneTypeFormWrap>
                     </Line>
                     <EmailLine>
                         <label htmlFor="email" className="necessary">이메일</label>
                         <div>
-                            <input type="text" name="email" placeholder="이메일 ID" />
+                            <input 
+                                type="text" 
+                                name="email" 
+                                placeholder="이메일 ID" 
+                                ref={el => (inputRef.current[8] = el)} 
+                            />
                             <span>@</span>
-                            <input type="text" name="emailAddress" placeholder="이메일 주소" />
+                            <input 
+                                type="text" 
+                                name="emailAddress" 
+                                placeholder="이메일 주소" 
+                                value={emailAddress}
+                                onChange={emailAddressHandler}
+                                ref={el => (inputRef.current[9] = el)} 
+                            />
                         </div>
                     </EmailLine>
                     <Line>
@@ -108,7 +202,10 @@ const Join = () => {
                             </span>
                         </label>
                         <FullSizeFormWrap>
-                            <select name="emailSel">
+                            <select 
+                                name="emailSel"
+                                onChange={emailSelectHandler}
+                            >
                                 <option value="1">직접입력</option>
                                 <option value="naver.com">naver.com</option>
                                 <option value="gmail.com">gmail.com</option>
@@ -135,19 +232,37 @@ const Join = () => {
                     <Line>
                         <label htmlFor="company">회사명</label>
                         <FullSizeFormWrap>
-                            <input type="text" id="company" name="company" placeholder="회사명"/>
+                            <input 
+                                type="text" 
+                                id="company" 
+                                name="company" 
+                                placeholder="회사명"
+                                ref={el => (inputRef.current[11] = el)} 
+                            />
                         </FullSizeFormWrap>
                     </Line>
                     <Line>
                         <label htmlFor="part">부서명</label>
                         <FullSizeFormWrap>
-                            <input type="text" id="part" name="part" placeholder="부서명"/>
+                            <input 
+                                type="text" 
+                                id="part" 
+                                name="part" 
+                                placeholder="부서명"
+                                ref={el => (inputRef.current[13] = el)} 
+                            />
                         </FullSizeFormWrap>
                     </Line>
                     <Line>
                         <label htmlFor="position">직급</label>
                         <FullSizeFormWrap>
-                            <input type="text" id="position" name="position" placeholder="직급"/>
+                            <input 
+                                type="text" 
+                                id="position" 
+                                name="position" 
+                                placeholder="직급"
+                                ref={el => (inputRef.current[14] = el)} 
+                            />
                         </FullSizeFormWrap>
                     </Line>
                     <Line>
@@ -188,7 +303,9 @@ const Join = () => {
 
 
                 <ButtonWrap>
-                    <button>
+                    <button
+                        onClick={buttonHandler}
+                    >
                         회원가입
                     </button>
                 </ButtonWrap>
