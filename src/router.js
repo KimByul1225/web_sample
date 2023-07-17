@@ -2,29 +2,18 @@ import React from 'react';
 import { createBrowserRouter } from "react-router-dom";
 import App from './App';
 import Home from '@/containers/Home';
-
 import Company from '@/containers/Company';
-
-
 import Introduction from '@/containers/Introduction';
-
 import IntroductionListType01 from '@/components/introduction/IntroductionListType01';
 import IntroductionListType02 from '@/components/introduction/IntroductionListType02';
-
-
 import NotFound from '@/components/error/NotFound';
 import CompanyTotal from '@/components/company/CompanyTotal';
 import Partners from '@/components/introduction/Partners';
-
-
 import IntroductionListType01Detail from '@/components/introduction/IntroductionListType01Detail';
 import IntroductionListType02Detail from '@/components/introduction/IntroductionListType02Detail';
-
 import IntroductionNormalType01 from '@/components/introduction/IntroductionNormalType01';
 import IntroductionNormalType02 from '@/components/introduction/IntroductionNormalType02';
 import Member from '@/components/company/Member';
-
-
 import List from '@/containers/List';
 import TextType from '@/components/list/TextType';
 import ImageType from '@/components/list/ImageType';
@@ -32,12 +21,14 @@ import Terms from '@/containers/Terms';
 import Privacy from '@/containers/Privacy';
 import ListDetail from '@/components/list/ListDetail';
 import Qna from '@/components/company/Qna';
-
 import Mypage from '@/containers/Mypage';
 import Login from '@/components/mypage/Login';
 import FindId from '@/components/mypage/FindId';
 import ResetPassword from '@/components/mypage/ResetPassword';
 import Register from '@/components/mypage/Register';
+
+import Etc from '@/containers/Etc';
+import ChartType01 from './components/etc/ChartType01';
 
 
 
@@ -167,6 +158,20 @@ const router = createBrowserRouter([
                     {
                         path: "register",
                         element: <Register />,
+                    },
+                ]
+            },
+            {
+                path: "etc",
+                element: <Etc />,
+                children: [
+                    {
+                        path: "chartType01",
+                        element: <ChartType01 />,
+                    },
+                    {
+                        path: "chartType02",
+                        element: <ChartType01 />,
                     },
                 ]
             }

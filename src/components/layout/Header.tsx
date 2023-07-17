@@ -3,153 +3,164 @@ import styled, {css} from 'styled-components';
 import { Link } from 'react-router-dom';
 import Logo from "@/resources/images/commons/logo_black.png";
 
+import {useMediaQuery} from 'react-responsive';
+import MobileHeader from './MobileHeader';
+
 interface IContainer {
     isMouseEnter?: boolean;
 }
 
 const Header = () => {
     const [mouserEnter, setMouseEnter] = useState(false);
-    
+    const isTablet = useMediaQuery({query: '(max-width: 1200px)'});
+
     return (
         <HeaderWrap>
-            <Container
-                isMouseEnter={mouserEnter}
-            >
-                <LogoWrap>
-                    <Link to="/">
-                        <span className="ir_so">
-                            Byul's web sample 로고
-                        </span>
-                    </Link>
-                </LogoWrap>
-                <Nav
-                    onMouseEnter={() => setMouseEnter(true)}
-                    onMouseLeave={() => setMouseEnter(false)}
-                >
-                    <Depth1>
-                        <li>
-                            <Link to="company/introduction">
-                                기업소개
+            {
+                isTablet ? 
+                <MobileHeader></MobileHeader> 
+                :
+                <>
+                    <Container
+                        isMouseEnter={mouserEnter}
+                    >
+                        <LogoWrap>
+                            <Link to="/">
+                                <span className="ir_so">
+                                    Byul's web sample 로고
+                                </span>
                             </Link>
-                            <Depth2>
+                        </LogoWrap>
+                        <Nav
+                            onMouseEnter={() => setMouseEnter(true)}
+                            onMouseLeave={() => setMouseEnter(false)}
+                        >
+                            <Depth1>
                                 <li>
                                     <Link to="company/introduction">
                                         기업소개
                                     </Link>
+                                    <Depth2>
+                                        <li>
+                                            <Link to="company/introduction">
+                                                기업소개
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="company/member">
+                                                구성원
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="company/qna">
+                                                문의
+                                            </Link>
+                                        </li>
+                                    </Depth2>
                                 </li>
-                                <li>
-                                    <Link to="company/member">
-                                        구성원
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="company/qna">
-                                        문의
-                                    </Link>
-                                </li>
-                            </Depth2>
-                        </li>
-                        <li>
-                            <Link to="introduction/normalType01">
-                                소개페이지
-                            </Link>
-                            <Depth2>
                                 <li>
                                     <Link to="introduction/normalType01">
-                                        일반형태 Type1
+                                        소개페이지
                                     </Link>
+                                    <Depth2>
+                                        <li>
+                                            <Link to="introduction/normalType01">
+                                                일반형태 Type1
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="introduction/normalType02">
+                                                일반형태 Type2
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="introduction/listType01">
+                                                리스트형태 Type1
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="introduction/listType02">
+                                                리스트형태 Type2
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="introduction/partners">
+                                                협력사 형태
+                                            </Link>
+                                        </li>
+                                    </Depth2>
                                 </li>
-                                <li>
-                                    <Link to="introduction/normalType02">
-                                        일반형태 Type2
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="introduction/listType01">
-                                        리스트형태 Type1
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="introduction/listType02">
-                                        리스트형태 Type2
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="introduction/partners">
-                                        협력사 형태
-                                    </Link>
-                                </li>
-                            </Depth2>
-                        </li>
-                        <li>
-                            <Link to="list/textType">
-                                게시글
-                            </Link>
-                            <Depth2>
                                 <li>
                                     <Link to="list/textType">
-                                        텍스트 형태
+                                        게시글
                                     </Link>
+                                    <Depth2>
+                                        <li>
+                                            <Link to="list/textType">
+                                                텍스트 형태
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="list/imageType">
+                                                이미지 형태
+                                            </Link>
+                                        </li>
+                                    </Depth2>
                                 </li>
-                                <li>
-                                    <Link to="list/imageType">
-                                        이미지 형태
-                                    </Link>
-                                </li>
-                            </Depth2>
-                        </li>
-                        <li>
-                            <Link to="mypage/login">
-                                마이페이지
-                            </Link>
-                            <Depth2>
                                 <li>
                                     <Link to="mypage/login">
-                                        로그인
+                                        마이페이지
                                     </Link>
+                                    <Depth2>
+                                        <li>
+                                            <Link to="mypage/login">
+                                                로그인
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="mypage/findid">
+                                                아이디 찾기
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="mypage/resetpwd">
+                                                비밀번호 재발급
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="mypage/register">
+                                                회원가입
+                                            </Link>
+                                        </li>
+                                    </Depth2>
                                 </li>
                                 <li>
-                                    <Link to="mypage/findid">
-                                        아이디 찾기
+                                    <Link to="etc/chartType01">
+                                        기타
                                     </Link>
+                                    <Depth2>
+                                        <li>
+                                            <Link to="etc/chartType01">
+                                                차트관련
+                                            </Link>
+                                        </li>
+                                    </Depth2>
                                 </li>
-                                <li>
-                                    <Link to="mypage/resetpwd">
-                                        비밀번호 재발급
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="mypage/register">
-                                        회원가입
-                                    </Link>
-                                </li>
-                            </Depth2>
-                        </li>
-                        <li>
-                            <Link to="sub">
-                                기타
-                            </Link>
-                            <Depth2>
-                                <li>
-                                    <Link to="sub">
-                                        차트관련
-                                    </Link>
-                                </li>
-                            </Depth2>
-                        </li>
-                    </Depth1>
+                            </Depth1>
+                        </Nav>
+                    </Container>
+                </>
+            }
+            </HeaderWrap>
 
-                </Nav>
-
-            </Container>
-        </HeaderWrap>
+        
     );
 };
 
 export default Header;
 
 
-const HeaderWrap = styled.header`
+const HeaderWrap = styled.div`
     position: fixed; 
     width: 100%; 
     z-index: 999;
