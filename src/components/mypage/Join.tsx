@@ -117,8 +117,6 @@ const Join = () => {
                             </select>
                         </FullSizeFormWrap>
                     </Line>
-
-
                 </JoinBox>
 
 
@@ -128,8 +126,61 @@ const Join = () => {
 
 
 
-
+                <BoxTitle>
+                    <h4>
+                        회사정보 입력
+                    </h4>
+                </BoxTitle>
                 <JoinBox>
+                    <Line>
+                        <label htmlFor="company">회사명</label>
+                        <FullSizeFormWrap>
+                            <input type="text" id="company" name="company" placeholder="회사명"/>
+                        </FullSizeFormWrap>
+                    </Line>
+                    <Line>
+                        <label htmlFor="part">부서명</label>
+                        <FullSizeFormWrap>
+                            <input type="text" id="part" name="part" placeholder="부서명"/>
+                        </FullSizeFormWrap>
+                    </Line>
+                    <Line>
+                        <label htmlFor="position">직급</label>
+                        <FullSizeFormWrap>
+                            <input type="text" id="position" name="position" placeholder="직급"/>
+                        </FullSizeFormWrap>
+                    </Line>
+                    <Line>
+                        <label htmlFor="postCode">회사주소</label>
+                        <FullSizeFormWrap>
+                            <input type="text" id="postCode" name="postCode" placeholder="우편번호"/>
+                        </FullSizeFormWrap>
+                        <IdButtonWrap>
+                            <button>
+                                검색
+                            </button>
+                        </IdButtonWrap>
+                    </Line>
+                    <Line>
+                        <label htmlFor="adress">
+                            <span className="ir_so">
+                                주소 입력 창
+                            </span>
+                        </label>
+                        <FullSizeFormWrap>
+                            <input type="text" id="adress" placeholder="주소" name="address" readOnly={true}/>
+                        </FullSizeFormWrap>
+                    </Line>
+                    <Line>
+                        <label htmlFor="adressDetail">
+                            <span className="ir_so">
+                                상세주소 입력 창
+                            </span>
+                        </label>
+                        <FullSizeFormWrap>
+                            <input type="text" id="adressDetail" placeholder="상세주소" name="adressDetail" readOnly={true}/>
+                        </FullSizeFormWrap>
+                    </Line>
                     
                 </JoinBox>
                 
