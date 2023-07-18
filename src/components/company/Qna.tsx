@@ -87,7 +87,7 @@ const Qna = () => {
                                     <button>
                                         <span className="ir_so">검색버튼</span>
                                     </button>
-                                    <input type="text" name="searchWord" placeholder="검색 기능은 Api 연동이 필요합니다."/>
+                                    <input type="text" name="searchWord" placeholder="검색 기능은 Api 연동이 필요합니다." />
                                 </FormWrap>
                                 <FaqListWrap>
                                     <ul>
@@ -157,7 +157,7 @@ const Qna = () => {
                                         <label htmlFor="email" className="necessary">이메일</label>
                                     </LabelArea>
                                     <FullSizeFormWrap>
-                                        <input type="text" name="email" id="email" value="" placeholder="Api 연동이 필요합니다."/>
+                                        <input type="text" name="email" id="email" placeholder="Api 연동이 필요합니다."/>
                                     </FullSizeFormWrap>
                                 </InputTr>
 
@@ -166,7 +166,7 @@ const Qna = () => {
                                         <label htmlFor="tel" className="necessary">전화번호</label>
                                     </LabelArea>
                                     <FullSizeFormWrap>
-                                        <input type="text" name="tel" id="tel" value="" placeholder="Api 연동이 필요합니다."/>
+                                        <input type="text" name="tel" id="tel" placeholder="Api 연동이 필요합니다."/>
                                     </FullSizeFormWrap>
                                 </InputTr>
 
@@ -175,7 +175,7 @@ const Qna = () => {
                                         <label htmlFor="company">회사명</label>
                                     </LabelArea>
                                     <FullSizeFormWrap>
-                                        <input type="text" name="company" id="company" value="" placeholder="Api 연동이 필요합니다."/>
+                                        <input type="text" name="company" id="company"  placeholder="Api 연동이 필요합니다."/>
                                     </FullSizeFormWrap>
                                 </InputTr>
 
@@ -184,7 +184,7 @@ const Qna = () => {
                                         <label htmlFor="name" className="necessary">이름</label>
                                     </LabelArea>
                                     <FullSizeFormWrap>
-                                        <input type="text" name="name" id="name" value="" placeholder="Api 연동이 필요합니다."/>
+                                        <input type="text" name="name" id="name"  placeholder="Api 연동이 필요합니다."/>
                                     </FullSizeFormWrap>
                                 </InputTr>
 

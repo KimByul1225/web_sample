@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useMatch } from 'react-router-dom';
 import styled, {css} from 'styled-components';
 import logo from "@/resources/images/commons/logo_symbol.png";
 import iconMenu from "@/resources/icons/commons/icon_menu.png";
@@ -7,6 +7,28 @@ import iconMenuClose from "@/resources/icons/commons/icon_mobile_menu_close.png"
 
 const MobileHeader = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const location = useLocation();
+    const sliceLocation = location.pathname.substring(1);
+    const substringLocaton = sliceLocation.split("/");
+    const locationPath = substringLocaton[0];
+    const locationPathChild = substringLocaton[1];
+
+    console.log("locationPath", locationPath);
+    console.log("locationPathChild", locationPathChild);
+
+    // const sliceLocation = location.pathname.substring(1);
+    // const substringLocaton = sliceLocation.split("/");
+    // const locationPath = substringLocaton[0];
+
+    // console.log("sliceLocation", sliceLocation);
+
+
+    // const companyMatch = useMatch("/company/introduction");
+
+    // console.log("location", location);
+    // console.log("detailPage", detailPage);
+    // console.log("companyMatch", companyMatch);
+
 
     const mobileMenuButtonHandler = () => {
         setMobileMenuOpen(!mobileMenuOpen);
