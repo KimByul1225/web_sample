@@ -8,28 +8,21 @@ import iconMenuClose from "@/resources/icons/commons/icon_mobile_menu_close.png"
 const MobileHeader = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
-    const sliceLocation = location.pathname.substring(1);
-    const substringLocaton = sliceLocation.split("/");
-    const locationPath = substringLocaton[0];
-    const locationPathChild = substringLocaton[1];
-
-    console.log("locationPath", locationPath);
-    console.log("locationPathChild", locationPathChild);
-
-    // const sliceLocation = location.pathname.substring(1);
-    // const substringLocaton = sliceLocation.split("/");
-    // const locationPath = substringLocaton[0];
-
-    // console.log("sliceLocation", sliceLocation);
 
 
-    // const companyMatch = useMatch("/company/introduction");
+    // console.log("locationPath", locationPath);
+    // console.log("locationPathChild", locationPathChild);
 
-    // console.log("location", location);
-    // console.log("detailPage", detailPage);
-    // console.log("companyMatch", companyMatch);
+    
 
-
+    const isActive = (path: string) => {
+        const sliceLocation = location.pathname.substring(1);
+        const substringLocaton = sliceLocation.split("/");
+        const locationPath = substringLocaton[0];
+        //const locationPathChild = substringLocaton[1];
+        return path === locationPath ? "on" : ""
+    }
+    
     const mobileMenuButtonHandler = () => {
         setMobileMenuOpen(!mobileMenuOpen);
     }
@@ -66,11 +59,12 @@ const MobileHeader = () => {
                 <MenuBottomArea>
                     <Depth1>
                         <li>
-                            <button
-                                className='on'
+                            <Link
+                                to="company/introduction"
+                                className={isActive("company")}
                             >
                                 기업소개
-                            </button>
+                            </Link>
                             <Depth2>
                                 <li>
                                     <Link to="company/introduction">
@@ -90,9 +84,12 @@ const MobileHeader = () => {
                             </Depth2>
                         </li>
                         <li>
-                            <button>
+                            <Link
+                                to="introduction/normalType01"
+                                className={isActive("introduction")}
+                            >
                                 소개페이지
-                            </button>
+                            </Link>
                             <Depth2>
                                 <li>
                                     <Link to="introduction/normalType01">
@@ -122,9 +119,12 @@ const MobileHeader = () => {
                             </Depth2>
                         </li>
                         <li>
-                            <button>
+                            <Link
+                                to="list/textType"
+                                className={isActive("list")}
+                            >
                                 게시글
-                            </button>
+                            </Link>
                             <Depth2>
                                 <li>
                                     <Link to="list/textType">
@@ -139,9 +139,12 @@ const MobileHeader = () => {
                             </Depth2>
                         </li>
                         <li>
-                            <button>
+                            <Link
+                                to="mypage/login"
+                                className={isActive("mypage")}
+                            >
                                 마이페이지
-                            </button>
+                            </Link>
                             <Depth2>
                                 <li>
                                     <Link to="mypage/login">
@@ -166,9 +169,12 @@ const MobileHeader = () => {
                             </Depth2>
                         </li>
                         <li>
-                            <button>
+                            <Link
+                                to="etc/chartType01"
+                                className={isActive("etc")}
+                            >
                                 기타
-                            </button>
+                            </Link>
                             <Depth2>
                                 <li>
                                     <Link to="etc/chartType01">
@@ -272,7 +278,7 @@ const Depth1 = styled.ul`
     height: 100%;
     background: #F5F5F5;
     position: relative;
-    & > li > button{
+    & > li > a{
         font-size: 20px;
         font-weight: 500;
         line-height: 60px;
@@ -284,13 +290,13 @@ const Depth1 = styled.ul`
         text-align: left;
         background-color: #F5F5F5;
     }
-    & > li > button.on{
+    & > li > a.on{
         color: var(--col_acc);
         font-weight: 700;
         border-left: 6px solid var(--col_acc);
         background-color: #fff;
     }
-    & > li > button.on + ul{
+    & > li > a.on + ul{
         display: block;
     }
 `
