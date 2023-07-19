@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useLocation, useMatch } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import styled, {css} from 'styled-components';
 import logo from "@/resources/images/commons/logo_symbol.png";
 import iconMenu from "@/resources/icons/commons/icon_menu.png";
@@ -9,19 +9,31 @@ const MobileHeader = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
 
-
-    // console.log("locationPath", locationPath);
-    // console.log("locationPathChild", locationPathChild);
-
+    useEffect(() => {
+        setMobileMenuOpen(false);
+    }, [location]);
     
-
     const isActive = (path: string) => {
         const sliceLocation = location.pathname.substring(1);
         const substringLocaton = sliceLocation.split("/");
         const locationPath = substringLocaton[0];
-        //const locationPathChild = substringLocaton[1];
         return path === locationPath ? "on" : ""
     }
+
+    const depth2IsActive = (detailPath: string) => {
+        const sliceLocation = location.pathname.substring(1);
+        const substringLocaton = sliceLocation.split("/");
+        const locationPathChild = substringLocaton[1];
+        return detailPath === locationPathChild ? "on" : ""
+    }
+
+    const depth1MenuHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        const deth1Menu = document.querySelectorAll(".depth1Menu li button");
+        for (var n = 0; n < deth1Menu.length; ++n) {
+            deth1Menu[n].classList.remove("on");
+        }
+        e.currentTarget.classList.add("on");
+    };
     
     const mobileMenuButtonHandler = () => {
         setMobileMenuOpen(!mobileMenuOpen);
@@ -57,135 +69,185 @@ const MobileHeader = () => {
                     </button>
                 </MenuTopArea>
                 <MenuBottomArea>
-                    <Depth1>
+                    <Depth1
+                        className="depth1Menu"
+                    >
                         <li>
-                            <Link
-                                to="company/introduction"
+                            <button
+                                // to="company/introduction"
                                 className={isActive("company")}
+                                onClick={depth1MenuHandler}
                             >
                                 기업소개
-                            </Link>
+                            </button>
                             <Depth2>
                                 <li>
-                                    <Link to="company/introduction">
+                                    <Link 
+                                        to="company/introduction"
+                                        className={depth2IsActive("introduction")}
+                                    >
                                         기업소개
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="company/member">
+                                    <Link 
+                                        to="company/member"
+                                        className={depth2IsActive("member")}
+                                    >
                                         구성원
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="company/qna">
+                                    <Link 
+                                        to="company/qna"
+                                        className={depth2IsActive("qna")}
+                                    >
                                         문의
                                     </Link>
                                 </li>
                             </Depth2>
                         </li>
                         <li>
-                            <Link
-                                to="introduction/normalType01"
+                            <button
+                                // to="introduction/normalType01"
                                 className={isActive("introduction")}
+                                onClick={depth1MenuHandler}
                             >
                                 소개페이지
-                            </Link>
+                            </button>
                             <Depth2>
                                 <li>
-                                    <Link to="introduction/normalType01">
+                                    <Link 
+                                        to="introduction/normalType01"
+                                        className={depth2IsActive("normalType01")}
+                                    >
                                         일반형태 Type1
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="introduction/normalType02">
+                                    <Link 
+                                        to="introduction/normalType02"
+                                        className={depth2IsActive("normalType02")}
+                                    >
                                         일반형태 Type2
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="introduction/listType01">
+                                    <Link 
+                                        to="introduction/listType01"
+                                        className={depth2IsActive("listType01")}
+                                    >
                                         리스트형태 Type1
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="introduction/listType02">
+                                    <Link 
+                                        to="introduction/listType02"
+                                        className={depth2IsActive("listType02")}
+                                    >
                                         리스트형태 Type2
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="introduction/partners">
+                                    <Link 
+                                        to="introduction/partners"
+                                        className={depth2IsActive("partners")}
+                                    >
                                         협력사 형태
                                     </Link>
                                 </li>
                             </Depth2>
                         </li>
                         <li>
-                            <Link
-                                to="list/textType"
+                            <button
+                                // to="list/textType"
                                 className={isActive("list")}
+                                onClick={depth1MenuHandler}
                             >
                                 게시글
-                            </Link>
+                            </button>
                             <Depth2>
                                 <li>
-                                    <Link to="list/textType">
+                                    <Link 
+                                        to="list/textType"
+                                        className={depth2IsActive("textType")}
+                                    >
                                         텍스트 형태
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="list/imageType">
+                                    <Link 
+                                        to="list/imageType"
+                                        className={depth2IsActive("imageType")}
+                                    >
                                         이미지 형태
                                     </Link>
                                 </li>
                             </Depth2>
                         </li>
                         <li>
-                            <Link
-                                to="mypage/login"
+                            <button
+                                // to="mypage/login"
                                 className={isActive("mypage")}
+                                onClick={depth1MenuHandler}
                             >
                                 마이페이지
-                            </Link>
+                            </button>
                             <Depth2>
                                 <li>
-                                    <Link to="mypage/login">
+                                    <Link 
+                                        to="mypage/login"
+                                        className={depth2IsActive("login")}
+                                    >
                                         로그인
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="mypage/findid">
+                                    <Link 
+                                        to="mypage/findid"
+                                        className={depth2IsActive("findid")}
+                                    >
                                         아이디 찾기
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="mypage/resetpwd">
+                                    <Link 
+                                        to="mypage/resetpwd"
+                                        className={depth2IsActive("resetpwd")}
+                                    >
                                         비밀번호 재발급
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="mypage/register">
+                                    <Link 
+                                        to="mypage/register"
+                                        className={depth2IsActive("register")}
+                                    >
                                         회원가입
                                     </Link>
                                 </li>
                             </Depth2>
                         </li>
                         <li>
-                            <Link
-                                to="etc/chartType01"
+                            <button
+                                // to="etc/chartType01"
                                 className={isActive("etc")}
+                                onClick={depth1MenuHandler}
                             >
                                 기타
-                            </Link>
+                            </button>
                             <Depth2>
                                 <li>
-                                    <Link to="etc/chartType01">
+                                    <Link 
+                                        to="etc/chartType01"
+                                        className={depth2IsActive("chartType01")}
+                                    >
                                         차트관련
                                     </Link>
                                 </li>
                             </Depth2>
                         </li>
                     </Depth1>
-
-
                 </MenuBottomArea>
             </MenuWrap>
         
@@ -224,7 +286,6 @@ const Container = styled.div`
         width: 100%;
         height: 100%;
     }
-
     @media screen and (max-width: 1200px){
         height: 80px;
         padding: 0 20px 0 20px;
@@ -278,7 +339,7 @@ const Depth1 = styled.ul`
     height: 100%;
     background: #F5F5F5;
     position: relative;
-    & > li > a{
+    & > li > button{
         font-size: 20px;
         font-weight: 500;
         line-height: 60px;
@@ -290,18 +351,16 @@ const Depth1 = styled.ul`
         text-align: left;
         background-color: #F5F5F5;
     }
-    & > li > a.on{
+    & > li > button.on{
         color: var(--col_acc);
         font-weight: 700;
         border-left: 6px solid var(--col_acc);
         background-color: #fff;
     }
-    & > li > a.on + ul{
+    & > li > button.on + ul{
         display: block;
     }
 `
-
-
 
 const Depth2 = styled.ul`
     width: 62%;
