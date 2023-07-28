@@ -100,18 +100,6 @@ const TextBox = styled.div`
     @media screen and (max-width: 1200px){
         margin-top: 80px;
         text-align: center;
-        h3{
-
-        }
-        h4{
-
-        }
-        p{
-
-        }
-        a{
-            
-        }
     }
 
     @media screen and (max-width: 768px){
@@ -129,6 +117,4 @@ const TextBox = styled.div`
             font-size: 14px;
         }
     }
-
-
 `
