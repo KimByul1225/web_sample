@@ -7,10 +7,15 @@ import Container from '../layout/Container';
 import Row from '../layout/Row';
 import DecoTitle from '../commons/DecoTitle';
 import Pecentage01 from './chart/Pecentage01';
-
+import Pecentage02 from './chart/Pecentage02';
+import BasicBar from './chart/BasicBar';
 
 
 import { Pecentage01Faker } from '@/resources/faker/chart/Pecentage01Faker';
+import { Pecentage02Faker } from '@/resources/faker/chart/Pecentage02Faker';
+import { BasicBarFaker } from '@/resources/faker/chart/BasicBarFaker';
+
+
 
 interface GradeDataInterface {
     AA: number | null,
@@ -21,9 +26,20 @@ interface GradeDataInterface {
     D: number | null,
     E: number | null
 }
+interface Pecentage02Interface {
+    year: string,
+    pecentage: number
+}
+
+interface BasciBarInterface {
+    year: string,
+    pecentage: number
+}
 
 const ChartType01 = () => {
     const [pecentage01Data, setPecentage01Data] = useState<GradeDataInterface>({} as GradeDataInterface);
+    const [pecentage02Data, setPecentage02Data] = useState<Pecentage02Interface[]>([] as Pecentage02Interface[]);
+    const [basicBarData, setBasicBarData] = useState<BasciBarInterface[]>([] as Pecentage02Interface[]);
 
     useEffect(() => {
         const result = Pecentage01Faker();
@@ -31,6 +47,19 @@ const ChartType01 = () => {
         if (resultMap.grade) {
             setPecentage01Data(resultMap.grade);
         }
+
+        const result02 = Pecentage02Faker();
+        const { resultMap : result02Map } = result02 || {}
+        if (result02Map.resultList) {
+            setPecentage02Data(result02Map.resultList);
+        }
+
+        const result03 = BasicBarFaker();
+        const { resultMap : result03Map } = result03 || {}
+        if (result03Map.resultList) {
+            setBasicBarData(result03Map.resultList);
+        }
+
     }, []);
 
 
@@ -45,6 +74,15 @@ const ChartType01 = () => {
             <Container>
                 <Row>
                     <DecoTitle
+                        text="Basic Chart"
+                    />
+                    <ChartBox>
+                        <BasicBar
+                            chartData={basicBarData}
+                        />
+                    </ChartBox>
+
+                    <DecoTitle
                         text="Pecentage Chart01"
                     />
                     
@@ -58,8 +96,8 @@ const ChartType01 = () => {
                         text="Pecentage Chart02"
                     />
                     <ChartBox>
-                        <Pecentage01
-                            gradeData={pecentage01Data}
+                        <Pecentage02
+                            chartData={pecentage02Data}
                         />
                     </ChartBox>
                 </Row>
@@ -77,4 +115,5 @@ const ChartBox = styled.div`
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     margin-bottom: 100px;
+    padding: 20px;
 `

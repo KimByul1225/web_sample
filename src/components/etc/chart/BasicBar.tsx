@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -39,7 +38,8 @@ interface Pecentage02Interface {
     pecentage: number
 }
 
-export default function Pecentage01({chartData}: {chartData: Pecentage02Interface[]}) {
+export default function BasicBar({chartData}: {chartData: Pecentage02Interface[]}) {
+
     const labels = chartData.map((item)=> item.year);
     const values = chartData.map((item)=> item.pecentage);
 
@@ -51,11 +51,7 @@ export default function Pecentage01({chartData}: {chartData: Pecentage02Interfac
                 type: 'bar',
                 label: 'Dataset 2',
                 data: values,
-                backgroundColor: function(context) {
-                        const index = context.dataIndex;
-                        const value = context.dataset.data[index];
-                        return value > 0 ? '#FF4D15' : '#2F80ED';
-                },
+                backgroundColor: "#ccc",
                 barPercentage: 0.3,
                 borderRadius: 5,
                 borderSkipped: false,
@@ -93,10 +89,6 @@ export default function Pecentage01({chartData}: {chartData: Pecentage02Interfac
                 font:{
                         size: 14
                 },
-                formatter: function(value) {
-                        if(value === "-"){return "NA"}
-                        return value + '%';
-                }
             },
 
         },
@@ -122,9 +114,6 @@ export default function Pecentage01({chartData}: {chartData: Pecentage02Interfac
                         drawBorder: false,
                 },
                 ticks:{
-                        callback: function(val) {
-                            return val + "%";
-                        },
                         display: true,
                         color: '#BDBDBD',
                         font: {
