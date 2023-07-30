@@ -166,11 +166,11 @@ const router = createBrowserRouter([
                 element: <Etc />,
                 children: [
                     {
-                        path: "chartType01",
+                        path: "barChart",
                         element: <ChartType01 />,
                     },
                     {
-                        path: "chartType02",
+                        path: "barChart",
                         element: <ChartType01 />,
                     },
                 ]

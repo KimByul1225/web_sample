@@ -74,7 +74,6 @@ const MobileHeader = () => {
                     >
                         <li>
                             <button
-                                // to="company/introduction"
                                 className={isActive("company")}
                                 onClick={depth1MenuHandler}
                             >
@@ -109,7 +108,6 @@ const MobileHeader = () => {
                         </li>
                         <li>
                             <button
-                                // to="introduction/normalType01"
                                 className={isActive("introduction")}
                                 onClick={depth1MenuHandler}
                             >
@@ -160,7 +158,6 @@ const MobileHeader = () => {
                         </li>
                         <li>
                             <button
-                                // to="list/textType"
                                 className={isActive("list")}
                                 onClick={depth1MenuHandler}
                             >
@@ -187,7 +184,6 @@ const MobileHeader = () => {
                         </li>
                         <li>
                             <button
-                                // to="mypage/login"
                                 className={isActive("mypage")}
                                 onClick={depth1MenuHandler}
                             >
@@ -230,7 +226,6 @@ const MobileHeader = () => {
                         </li>
                         <li>
                             <button
-                                // to="etc/chartType01"
                                 className={isActive("etc")}
                                 onClick={depth1MenuHandler}
                             >
@@ -239,10 +234,10 @@ const MobileHeader = () => {
                             <Depth2>
                                 <li>
                                     <Link 
-                                        to="etc/chartType01"
+                                        to="etc/barChart"
                                         className={depth2IsActive("chartType01")}
                                     >
-                                        차트관련
+                                        Bar Chart
                                     </Link>
                                 </li>
                             </Depth2>

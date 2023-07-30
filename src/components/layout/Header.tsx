@@ -140,8 +140,8 @@ const Header = () => {
                                     </Link>
                                     <Depth2>
                                         <li>
-                                            <Link to="etc/chartType01">
-                                                차트관련
+                                            <Link to="etc/barChart">
+                                                Bar Chart
                                             </Link>
                                         </li>
                                     </Depth2>
