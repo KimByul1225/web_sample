@@ -14,6 +14,8 @@ import BasicBar from './chart/BasicBar';
 import { Pecentage01Faker } from '@/resources/faker/chart/Pecentage01Faker';
 import { Pecentage02Faker } from '@/resources/faker/chart/Pecentage02Faker';
 import { BasicBarFaker } from '@/resources/faker/chart/BasicBarFaker';
+import Horizontal from './chart/Horizontal';
+import { HorizontalFaker } from '@/resources/faker/chart/HorizontalFaker';
 
 
 
@@ -35,11 +37,17 @@ interface BasciBarInterface {
     year: string,
     pecentage: number
 }
+interface HorizontalInterface{
+    value: number,
+    avg: number,
+}
 
 const ChartType01 = () => {
     const [pecentage01Data, setPecentage01Data] = useState<GradeDataInterface>({} as GradeDataInterface);
     const [pecentage02Data, setPecentage02Data] = useState<Pecentage02Interface[]>([] as Pecentage02Interface[]);
     const [basicBarData, setBasicBarData] = useState<BasciBarInterface[]>([] as Pecentage02Interface[]);
+
+    const [horizontalData, setHorizontalData] = useState<HorizontalInterface[]>([] as HorizontalInterface[]);
 
     useEffect(() => {
         const result = Pecentage01Faker();
@@ -59,6 +67,14 @@ const ChartType01 = () => {
         if (result03Map.resultList) {
             setBasicBarData(result03Map.resultList);
         }
+
+        const result04 = HorizontalFaker();
+        const { resultMap : result04Map } = result04 || {}
+        if (result04Map.resultList) {
+            setHorizontalData(result04Map.resultList);
+        }
+
+
 
     }, []);
 
@@ -82,6 +98,14 @@ const ChartType01 = () => {
                         />
                     </ChartBox>
 
+                    <DecoTitle
+                        text="Horizontal Chart"
+                    />
+                    <ChartBox>
+                        <Horizontal
+                            chartData={horizontalData}
+                        />
+                    </ChartBox>
                     <DecoTitle
                         text="Pecentage Chart01"
                     />

@@ -135,7 +135,7 @@ const Header = () => {
                                     </Depth2>
                                 </li>
                                 <li>
-                                    <Link to="etc/chartType01">
+                                    <Link to="etc/barChart">
                                         기타
                                     </Link>
                                     <Depth2>
