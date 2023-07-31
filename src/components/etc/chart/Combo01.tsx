@@ -29,18 +29,16 @@ ChartJS.register(
 );
 
 interface IComboChartData {
-	evaluationYear: string | null;
-	average: string | null;
-	value: string | null;
-	max: string | null;
-	min: string | null;
+	evaluationYear: string;
+	average: number;
+	value: number;
+	max: number;
+	min: number;
 }
 
 export default function Combo01({
-	companyName,
 	chartData,
 }: {
-	companyName?: string;
 	chartData: IComboChartData[];
 }) {
 	// console.log("totalChartData", totalChartData);
@@ -163,7 +161,7 @@ export default function Combo01({
 		datasets: [
 			{
 				type: 'line',
-				label: companyName,
+				label: "Sample",
 				backgroundColor: '#2F80ED',
 				datalabels: {
 					color: '#2F80ED',
