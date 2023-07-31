@@ -77,7 +77,7 @@ const MobileHeader = () => {
                                 className={isActive("company")}
                                 onClick={depth1MenuHandler}
                             >
-                                기업소개
+                                기업관련
                             </button>
                             <Depth2>
                                 <li>
@@ -235,9 +235,17 @@ const MobileHeader = () => {
                                 <li>
                                     <Link 
                                         to="etc/barChart"
-                                        className={depth2IsActive("chartType01")}
+                                        className={depth2IsActive("barChart")}
                                     >
                                         Bar Chart
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link 
+                                        to="etc/etcChart"
+                                        className={depth2IsActive("etcChart")}
+                                    >
+                                        ETC Chart
                                     </Link>
                                 </li>
                             </Depth2>

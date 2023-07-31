@@ -38,7 +38,7 @@ const Header = () => {
                             <Depth1>
                                 <li>
                                     <Link to="company/introduction">
-                                        기업소개
+                                        기업관련
                                     </Link>
                                     <Depth2>
                                         <li>
@@ -142,6 +142,11 @@ const Header = () => {
                                         <li>
                                             <Link to="etc/barChart">
                                                 Bar Chart
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="etc/etcChart">
+                                                ETC Chart
                                             </Link>
                                         </li>
                                     </Depth2>

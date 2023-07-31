@@ -28,7 +28,8 @@ import ResetPassword from '@/components/mypage/ResetPassword';
 import Register from '@/components/mypage/Register';
 
 import Etc from '@/containers/Etc';
-import ChartType01 from './components/etc/ChartType01';
+import ChartType01 from '@/components/etc/ChartType01';
+import ChartType02 from '@/components/etc/ChartType02';
 
 
 
@@ -170,8 +171,8 @@ const router = createBrowserRouter([
                         element: <ChartType01 />,
                     },
                     {
-                        path: "barChart",
-                        element: <ChartType01 />,
+                        path: "etcChart",
+                        element: <ChartType02 />,
                     },
                 ]
             }
