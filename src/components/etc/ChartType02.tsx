@@ -1,83 +1,44 @@
 import React, { useEffect, useState } from 'react';
-
 import styled from 'styled-components';
-
 import SubBanner from '../commons/SubBanner';
 import Container from '../layout/Container';
 import Row from '../layout/Row';
 import DecoTitle from '../commons/DecoTitle';
-import Pecentage01 from './chart/Pecentage01';
-import Pecentage02 from './chart/Pecentage02';
-import BasicBar from './chart/BasicBar';
+import { GradeFaker } from '@/resources/faker/chart/GradeFaker';
+import { ComboFaker } from '@/resources/faker/chart/ComboFaker';
+import Grade from './chart/Grade';
+import Combo01 from './chart/Combo01';
 
 
-import { Pecentage01Faker } from '@/resources/faker/chart/Pecentage01Faker';
-import { Pecentage02Faker } from '@/resources/faker/chart/Pecentage02Faker';
-import { BasicBarFaker } from '@/resources/faker/chart/BasicBarFaker';
-import Horizontal from './chart/Horizontal';
-import { HorizontalFaker } from '@/resources/faker/chart/HorizontalFaker';
-
-
-
-interface GradeDataInterface {
-    AA: number | null,
-    A: number | null,
-    BB: number | null,
-    B: number | null,
-    C: number | null,
-    D: number | null,
-    E: number | null
-}
-interface Pecentage02Interface {
+interface IyearlyGradeData{
     year: string,
-    pecentage: number
+    rating: string,
 }
 
-interface BasciBarInterface {
-    year: string,
-    pecentage: number
-}
-interface HorizontalInterface{
-    value: number,
-    avg: number,
+interface IComboChartData {
+	evaluationYear: string | null;
+	average: string | null;
+	value: string | null;
+	max: string | null;
+	min: string | null;
 }
 
 const ChartType02 = () => {
-    const [pecentage01Data, setPecentage01Data] = useState<GradeDataInterface>({} as GradeDataInterface);
-    const [pecentage02Data, setPecentage02Data] = useState<Pecentage02Interface[]>([] as Pecentage02Interface[]);
-    const [basicBarData, setBasicBarData] = useState<BasciBarInterface[]>([] as Pecentage02Interface[]);
-
-    const [horizontalData, setHorizontalData] = useState<HorizontalInterface[]>([] as HorizontalInterface[]);
-
+    const [gradeData, setGradeData] = useState<IyearlyGradeData[]>([] as IyearlyGradeData[])
+    const [combo01Data, setCombo01Data] = useState<IComboChartData[]>([] as IComboChartData[])
+    
     useEffect(() => {
-        const result = Pecentage01Faker();
+        const result = GradeFaker();
         const { resultMap } = result || {}
-        if (resultMap.grade) {
-            setPecentage01Data(resultMap.grade);
+        if (resultMap.resultList) {
+            setGradeData(resultMap.resultList);
         }
-
-        const result02 = Pecentage02Faker();
-        const { resultMap : result02Map } = result02 || {}
-        if (result02Map.resultList) {
-            setPecentage02Data(result02Map.resultList);
+        const resultCombo = ComboFaker();
+        const { resultMap: comboResultMap } = resultCombo || {}
+        if (comboResultMap.resultList) {
+            setCombo01Data(comboResultMap.resultList);
         }
-
-        const result03 = BasicBarFaker();
-        const { resultMap : result03Map } = result03 || {}
-        if (result03Map.resultList) {
-            setBasicBarData(result03Map.resultList);
-        }
-
-        const result04 = HorizontalFaker();
-        const { resultMap : result04Map } = result04 || {}
-        if (result04Map.resultList) {
-            setHorizontalData(result04Map.resultList);
-        }
-
-
-
     }, []);
-
 
 
     return (
@@ -90,38 +51,20 @@ const ChartType02 = () => {
             <Container>
                 <Row>
                     <DecoTitle
-                        text="ETC Chart"
+                        text="Grade Chart"
                     />
                     <ChartBox>
-                        <BasicBar
-                            chartData={basicBarData}
-                        />
-                    </ChartBox>
-
-                    <DecoTitle
-                        text="Horizontal Chart"
-                    />
-                    <ChartBox>
-                        <Horizontal
-                            chartData={horizontalData}
+                        <Grade
+                            yearlyGradeData={gradeData}
                         />
                     </ChartBox>
                     <DecoTitle
-                        text="Pecentage Chart01"
-                    />
-                    
-                    <ChartBox>
-                        <Pecentage01
-                            gradeData={pecentage01Data}
-                        />
-                    </ChartBox>
-
-                    <DecoTitle
-                        text="Pecentage Chart02"
+                        text="Combo Chart01"
                     />
                     <ChartBox>
-                        <Pecentage02
-                            chartData={pecentage02Data}
+                        <Combo01 
+                            companyName="Sample"
+                            chartData={combo01Data}                           
                         />
                     </ChartBox>
                 </Row>
