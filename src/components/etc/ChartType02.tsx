@@ -30,10 +30,14 @@ interface IComboChart02Data{
 	lineData: number,
 }
 
+
+
+
 const ChartType02 = () => {
     const [gradeData, setGradeData] = useState<IyearlyGradeData[]>([] as IyearlyGradeData[])
     const [combo01Data, setCombo01Data] = useState<IComboChartData[]>([] as IComboChartData[])
     const [combo02Data, setCombo02Data] = useState<IComboChart02Data[]>([] as IComboChart02Data[])
+    
     
     useEffect(() => {
         const result = GradeFaker();
@@ -52,8 +56,6 @@ const ChartType02 = () => {
         if (combo02ResultMap.resultList) {
             setCombo02Data(combo02ResultMap.resultList);
         }
-
-
     }, []);
 
 

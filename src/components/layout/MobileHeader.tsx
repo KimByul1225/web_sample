@@ -242,10 +242,26 @@ const MobileHeader = () => {
                                 </li>
                                 <li>
                                     <Link 
+                                        to="etc/doughnutChart"
+                                        className={depth2IsActive("doughnutChart")}
+                                    >
+                                        DoughnutChart Chart
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link 
                                         to="etc/etcChart"
                                         className={depth2IsActive("etcChart")}
                                     >
                                         ETC Chart
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link 
+                                        to="etc/quickMenu"
+                                        className={depth2IsActive("quickMenu")}
+                                    >
+                                        Quick Menu
                                     </Link>
                                 </li>
                             </Depth2>

@@ -30,6 +30,8 @@ import Register from '@/components/mypage/Register';
 import Etc from '@/containers/Etc';
 import ChartType01 from '@/components/etc/ChartType01';
 import ChartType02 from '@/components/etc/ChartType02';
+import QuickMenu from './components/etc/QuickMenu';
+import ChartType03 from './components/etc/ChartType03';
 
 
 
@@ -173,6 +175,14 @@ const router = createBrowserRouter([
                     {
                         path: "etcChart",
                         element: <ChartType02 />,
+                    },
+                    {
+                        path: "doughnutChart",
+                        element: <ChartType03 />,
+                    },
+                    {
+                        path: "quickMenu",
+                        element: <QuickMenu />,
                     },
                 ]
             }

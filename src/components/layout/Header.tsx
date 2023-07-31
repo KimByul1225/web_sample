@@ -145,8 +145,18 @@ const Header = () => {
                                             </Link>
                                         </li>
                                         <li>
+                                            <Link to="etc/doughnutChart">
+                                                Doughnut Chart
+                                            </Link>
+                                        </li>
+                                        <li>
                                             <Link to="etc/etcChart">
                                                 ETC Chart
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="etc/quickMenu">
+                                                Quick Menu
                                             </Link>
                                         </li>
                                     </Depth2>
