@@ -14,6 +14,7 @@ export default Row;
 
 const RowSection = styled.div`
     max-width: 1200px; margin: 0 auto;
+    position: relative;
     @media screen and (max-width: 1200px){
         max-width: 100%; padding: 0 20px;
     }
