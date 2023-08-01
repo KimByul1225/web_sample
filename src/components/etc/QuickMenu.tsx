@@ -1,12 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Container from '../layout/Container';
 import Row from '../layout/Row';
 import SubBanner from '../commons/SubBanner';
 import Menu from './quickmenu/Menu';
-
-
 import IconImg01 from '@/resources/icons/etc/icon_quickmenu_01.png';
 import IconImg01Active from '@/resources/icons/etc/icon_quickmenu_01_active.png';
 import IconImg02 from '@/resources/icons/etc/icon_quickmenu_02.png';
