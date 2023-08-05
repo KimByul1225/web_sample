@@ -38,6 +38,9 @@ interface IComboChart02Data {
 	lineData: number,
 }
 
+/**
+ * @description 콤보차트 타입2(바,라인차트) 컴포넌트
+ */
 
 
 export default function EnvironmentChart({chartData}: {chartData: IComboChart02Data[]}) {

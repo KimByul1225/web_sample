@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import Container from '@/components/layout/Container';
 import Row from '@/components/layout/Row';
 
+/**
+ * @description 이용약관
+ */
 
 const Terms = () => {
     return (

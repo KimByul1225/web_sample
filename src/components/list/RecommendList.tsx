@@ -9,6 +9,10 @@ interface IListData{
     date: Date;
 }
 
+/**
+ * @description 텍스트형태 추천글 리스트를 위한 컴포넌트
+ */
+
 const RecommendList = ({list}: {list: IListData[]}) => {
     return (
         <>

@@ -3,6 +3,10 @@ import closeIcon from "@/resources/icons/commons/icon_modal_close.png"
 import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { alertState } from '@/global/modal';
 
+/**
+ * @description 얼럿모달창 컴포넌트
+ */
+
 const AlertModal = () => {
     const alertModal = useRecoilValue(alertState);
     const resetAlertModal= useResetRecoilState(alertState);

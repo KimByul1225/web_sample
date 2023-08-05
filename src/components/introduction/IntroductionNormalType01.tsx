@@ -14,6 +14,10 @@ import Icon03hover from "@/resources/icons/introducation/icon_deco03_hover.png";
 import DecoSubTitle from '../commons/DecoSubTitle';
 import BackGroundSample from "@/resources/images/introduction/sample_04.png"
 
+/**
+ * @description 소개페이지 일반형태 Type01 페이지
+ */
+
 const IntroductionNormalType01 = () => {
     return (
         <>

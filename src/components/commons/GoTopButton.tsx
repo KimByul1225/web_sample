@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import goTopIcon from "@/resources/icons/commons/icon_gotop_arrow.png";
 
+/**
+ * @description 위로가기 버튼 컴포넌트
+ */
+
 const GoTopButton = () => {
     const [showTopBtn, setShowTopBtn] = useState(false);
     useEffect(() => {

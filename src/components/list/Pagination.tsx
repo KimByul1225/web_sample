@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
 import lastIcon from "@/resources/icons/commons/icon_pagination_last.png";
 import lastIconOn from "@/resources/icons/commons/icon_pagination_last_on.png";
-
 import firstIcon from "@/resources/icons/commons/icon_pagination_first.png";
 import firstIconOn from "@/resources/icons/commons/icon_pagination_first_on.png";
-
 import nextIcon from "@/resources/icons/commons/icon_pagination_next.png";
 import nextIconOn from "@/resources/icons/commons/icon_pagination_next_on.png";
-
 import prevIcon from "@/resources/icons/commons/icon_pagination_prev.png";
 import prevIconOn from "@/resources/icons/commons/icon_pagination_prev_on.png";
-
 
 interface IPagination{
     total: number;
@@ -21,6 +16,10 @@ interface IPagination{
     page: number;
     setPage: React.Dispatch<React.SetStateAction<number>>;
 }
+
+/**
+ * @description Pagination 컴포넌트. 
+ */
 
 const Pagination = ( {total, limit, offset, page, setPage} : IPagination) => {
     const numPages = Math.ceil(total / limit);

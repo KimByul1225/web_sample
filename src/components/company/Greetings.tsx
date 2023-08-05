@@ -4,6 +4,10 @@ import Container from '../layout/Container';
 import Row from '../layout/Row';
 import GreetingImageSample from "@/resources/images/company/sample_04.png";
 
+/**
+ * @description 기업소개 탭 하위 인사말 컴포넌트
+ */
+
 const Greetings = () => {
     return (
         <Container>

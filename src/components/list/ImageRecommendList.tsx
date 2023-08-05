@@ -22,6 +22,10 @@ interface ILink{
     background?: string;
 }
 
+/**
+ * @description 이미지형태 추천글 리스트를 위한 컴포넌트
+ */
+
 const ImageRecommendList = ({list}: {list: IListData[]}) => {
     return (
         <RecommendWrap>

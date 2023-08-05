@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import Container from '../layout/Container';
 import Row from '../layout/Row';
 import SubBanner from '../commons/SubBanner';
-
-
 import IconProcess01 from "@/resources/icons/introducation/icon_process_01.png";
 import IconProcess02 from "@/resources/icons/introducation/icon_process_02.png";
 import IconProcess03 from "@/resources/icons/introducation/icon_process_03.png";
 import IconProcess04 from "@/resources/icons/introducation/icon_process_04.png";
 import IconProcess05 from "@/resources/icons/introducation/icon_process_05.png";
 import SliderPaginationComboSection from './SliderPaginationComboSection';
+
+/**
+ * @description 소개페이지 일반형태 Type02 페이지
+ */
 
 const IntroductionNormalType02 = () => {
     return (

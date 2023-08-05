@@ -36,6 +36,10 @@ interface IchartData{
     avg: number,
 }
 
+/**
+ * @description 수평차트 컴포넌트
+ */
+
 export default function Horizontal({chartData}: {chartData:IchartData[]}) {
 
     const avg = chartData.map((item)=> item.avg);

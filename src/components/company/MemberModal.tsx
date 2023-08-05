@@ -14,6 +14,10 @@ interface IMemberImage {
     memberImg: string;
 }
 
+/**
+ * @description 구성원 클릭시 나타나는 모달창 컴포넌트
+ */
+
 const MemberModal = ({modalProps, showHide, closeHandler}: {modalProps: IMember, showHide: boolean, closeHandler: () => void}) => {
     
     return (

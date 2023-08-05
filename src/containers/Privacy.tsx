@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import Container from '@/components/layout/Container';
 import Row from '@/components/layout/Row';
 
+
+/**
+ * @description 개인정보 처리방침
+ */
 
 const Privacy = () => {
     return (

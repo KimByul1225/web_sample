@@ -2,6 +2,10 @@ import DaumPostcode from "react-daum-postcode";
 import styled from "styled-components";
 import closeIcon from "@/resources/icons/commons/icon_modal_close.png";
 
+/**
+ * @description 회원가입 우편번호 검색을 위한 팝업창 컴포넌트
+ */
+
 const PostPopup = (props) => {
     const complete = (data) =>{
         let fullAddress = data.address;

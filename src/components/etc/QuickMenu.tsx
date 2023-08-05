@@ -12,8 +12,11 @@ import IconImg03Active from '@/resources/icons/etc/icon_quickmenu_03_active.png'
 import IconImg04 from '@/resources/icons/etc/icon_quickmenu_04.png';
 import IconImg04Active from '@/resources/icons/etc/icon_quickmenu_04_active.png';
 
-const QuickMenu = () => {
+/**
+ * @description 퀵메뉴 페이지
+ */
 
+const QuickMenu = () => {
     useEffect(() => {
         const scrollEvent = () => {
             const scrollPosition = window.scrollY;

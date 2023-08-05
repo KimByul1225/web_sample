@@ -36,6 +36,10 @@ interface IComboChartData {
 	min: number;
 }
 
+/**
+ * @description 콤보차트 타입1(혼합) 컴포넌트
+ */
+
 export default function Combo01({
 	chartData,
 }: {

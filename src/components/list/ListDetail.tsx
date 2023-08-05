@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-
 import styled from 'styled-components';
 import SubBanner from '../commons/SubBanner';
 import Container from '../layout/Container';
 import Row from '../layout/Row';
 import { ListDetailFaker } from '@/resources/faker/list/ListDetailFaker';
 
+/**
+ * @description 게시글 텍스트, 이미지형태 상세 페이지
+ */
 
 const ListDetail = () => {
     const [text, setText] = useState("");
@@ -17,23 +19,17 @@ const ListDetail = () => {
     const date = location.state.date;
     const recommend = location.state.recommend || false;
     console.log("recommend", recommend);
-
     const navigate = useNavigate();
-
     const goListHandler = () => {
         navigate(-1)
     };
-
     useEffect(() => {
         const result = ListDetailFaker();
         const { resultMap } = result || {};
-
         if (resultMap.text) {
             setText(resultMap.text);
         }
-        
     }, []);
-
     return (
         <>
             

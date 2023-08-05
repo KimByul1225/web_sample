@@ -7,16 +7,16 @@ import passwordCheckIcon from "@/resources/icons/mypage/icon_pwck.png";
 import iconSelect from "@/resources/icons/commons/icon_select.png";
 import { useSetRecoilState } from 'recoil';
 import { alertState } from '@/global/modal';
-
 import PostPopup from './PostPopup';
 
+/**
+ * @description 회원가입 컴포넌트
+ */
 
 const Join = () => {
     const [emailAddress, setEmailAddress] = useState("");
     const [postPopup, setPostPopup] = useState(false);
-
     const setAlertModal = useSetRecoilState(alertState);
-
     const [cmpnyAddress, setCmpnyAddress] = useState({
         address:"",
         zonecode:""

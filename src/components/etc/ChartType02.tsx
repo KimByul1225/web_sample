@@ -30,7 +30,9 @@ interface IComboChart02Data{
 	lineData: number,
 }
 
-
+/**
+ * @description 기타차트 페이지
+ */
 
 
 const ChartType02 = () => {

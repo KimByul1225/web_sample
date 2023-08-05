@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+/**
+ * @description 로그인페이지 Api연동 미실시
+ */
+
 const Login = () => {
     return (
         <LoginContainer>

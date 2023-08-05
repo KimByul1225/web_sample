@@ -8,6 +8,10 @@ interface ISubwayIcon{
     lineNumber: number;
 }
 
+/**
+ * @description 기업소개 탭 하위 오시는길 컴포넌트
+ */
+
 const ContactUs = () => {
     return (
         <ContactUsContainer>

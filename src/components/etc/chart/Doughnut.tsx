@@ -16,6 +16,10 @@ interface IdoughnutChart {
     percentage?: number
 }
 
+/**
+ * @description 도넛차트 컴포넌트
+ */
+
 export default function DoughnutChart ({chartData}: {chartData: IdoughnutChart[]}) {
     const sampleColor =["#2F80ED", "#2D9CDB", "#219653", "#27AE60", "#F7CF46", "#F2994A", "#FF4D15"];
     const labels = chartData.map((item) => item.label);

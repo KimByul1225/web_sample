@@ -9,10 +9,13 @@ import ImageSample from "@/resources/images/introduction/sample_04.png";
 import IconDownLoad from "@/resources/icons/introducation/icon_down.png"
 import IconQna from "@/resources/icons/introducation/icon_qna.png"
 
+/**
+ * @description 소개페이지 리스트형태 Type01 상세페이지
+ */
+
 const IntroductionListType01Detail = () => {
     const params = useParams();
     const {detailId} = params; 
-
     return (
         <>
             <SubBanner

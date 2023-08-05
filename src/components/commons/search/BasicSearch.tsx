@@ -19,6 +19,10 @@ interface ISearchParams {
     currentPageNo: number;
 }
 
+/**
+ * @description 기본검색창 컴포넌트
+ */
+
 const BasicSearch = ({searchParams, onSubmit, datepicker}: {searchParams: ISearchParams, onSubmit: (changedSearchParams: ISearchParams) => void, datepicker?: boolean}) => {
     const [params, setParams] = useState<ISearchParams>(searchParams);
     const setAlertModal = useSetRecoilState(alertState);

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
 import SubBanner from '../commons/SubBanner';
 import Container from '../layout/Container';
 import Row from '../layout/Row';
-
 import searchIcon from "@/resources/icons/company/icon_faq_search.png";
 import qIcon from "@/resources/icons/company/icon_q.png";
 import aIcon from "@/resources/icons/company/icon_a.png";
@@ -20,12 +18,14 @@ interface IFaqData{
     text: string;
 }
 
+/**
+ * @description 문의 페이지
+ */
+
 const Qna = () => {
     const [radioValue, setRadioValue] = useState<string>("");
     const [agreeValue, setAgreeValue] = useState<boolean>(false);
-
     const [faqData, setFaqData] = useState<IFaqData[]>([] as IFaqData[]);
-
      // 게시글 목록갯수 설정
     const limit = 10;
     const [page, setPage] = useState(1);

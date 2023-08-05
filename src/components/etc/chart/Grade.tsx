@@ -46,6 +46,10 @@ enum GradeType {
     nodata = "-"
 }
 
+/**
+ * @description 등급차트 컴포넌트
+ */
+
 const Grade = ({ gridVisible, yearlyGradeData }: { gridVisible?: boolean, yearlyGradeData: IyearlyGradeData[] }) => {
     const GradeColors = {
         AA: "#2F80ED",

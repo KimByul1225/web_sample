@@ -5,8 +5,11 @@ import SubBanner from '../commons/SubBanner';
 import Row from '../layout/Row';
 import Container from '../layout/Container';
 import DecoTitle from '../commons/DecoTitle';
-
 import PartnerSample from "@/resources/images/introduction/sample_03.png"
+
+/**
+ * @description 소개페이지 협력사형태 페이지
+ */
 
 const Partners = () => {
     const [partnersView, setPartnersView] = useState(5);

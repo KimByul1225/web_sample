@@ -33,6 +33,9 @@ interface Ibackground{
     background?: string;
 }
 
+/**
+ * @description 게시글 이미지형태 페이지
+ */
 
 const ImageType = () => {
     const setAlertModal = useSetRecoilState(alertState);

@@ -16,6 +16,10 @@ interface IdoughnutChart {
     percentage?: number
 }
 
+/**
+ * @description 도넛차트 페이지
+ */
+
 const ChartType03 = () => {
     const [doughnutData, setDoughnutData] = useState<IdoughnutChart[]>([] as IdoughnutChart[]);
     const [doughnutTableData, setDoughnutTableData] = useState<IdoughnutChart[]>([] as IdoughnutChart[]);

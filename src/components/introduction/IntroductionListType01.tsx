@@ -7,6 +7,10 @@ import DecoTitle from '../commons/DecoTitle';
 import SampleImg from "@/resources/images/introduction/sample_01.png";
 import { Link } from 'react-router-dom';
 
+/**
+ * @description 소개페이지 리스트형태 Type01 페이지
+ */
+
 const IntroductionListType01 = () => {
     const introductionArray = [
         {

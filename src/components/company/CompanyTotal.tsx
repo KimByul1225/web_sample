@@ -7,6 +7,10 @@ import History from './History';
 import ContactUs from './ContactUs';
 import Ci from './Ci';
 
+/**
+ * @description 기업소개 페이지 / 해당페이지는 기업소개, 인사말, 연혁, 오시는길, ci소개 탭을 포함합니다.
+ */
+
 const CompanyTotal = () => {
     const [tabMenuIndex, setTabMenuIndex] = useState(0);
     const menuArray = [

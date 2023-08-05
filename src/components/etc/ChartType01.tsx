@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
 import styled from 'styled-components';
-
 import SubBanner from '../commons/SubBanner';
 import Container from '../layout/Container';
 import Row from '../layout/Row';
@@ -9,15 +7,11 @@ import DecoTitle from '../commons/DecoTitle';
 import Pecentage01 from './chart/Pecentage01';
 import Pecentage02 from './chart/Pecentage02';
 import BasicBar from './chart/BasicBar';
-
-
 import { Pecentage01Faker } from '@/resources/faker/chart/Pecentage01Faker';
 import { Pecentage02Faker } from '@/resources/faker/chart/Pecentage02Faker';
 import { BasicBarFaker } from '@/resources/faker/chart/BasicBarFaker';
 import Horizontal from './chart/Horizontal';
 import { HorizontalFaker } from '@/resources/faker/chart/HorizontalFaker';
-
-
 
 interface GradeDataInterface {
     AA: number | null,
@@ -41,6 +35,10 @@ interface HorizontalInterface{
     value: number,
     avg: number,
 }
+
+/**
+ * @description 바차트 페이지
+ */
 
 const ChartType01 = () => {
     const [pecentage01Data, setPecentage01Data] = useState<GradeDataInterface>({} as GradeDataInterface);

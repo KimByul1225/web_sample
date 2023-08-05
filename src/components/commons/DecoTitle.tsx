@@ -4,6 +4,11 @@ import styled, { css } from 'styled-components';
 interface DecorationTitleProps {
     underline?: boolean;
 }
+
+/**
+ * @description 큰사각형 꾸밈요소가 있는 Main Title 컴포넌트
+ */
+
 const DecoTitle = ({ text, underline, className }: { text: string | null, underline?: boolean, className?: string }) => {
     return (
         <Title underline={underline} className={className}>

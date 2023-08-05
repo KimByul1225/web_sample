@@ -2,10 +2,13 @@
 import React, {ReactNode, useEffect, useState}from 'react'
 import styled from 'styled-components'
 
+/**
+ * @description 퀵메뉴 컴포넌트
+ */
+
 export default function Menu({children}: { children: ReactNode}) {
     const [scrollY, setScrollY] = useState(0)
     const modifedScrollY = scrollY > 500 ? scrollY - 370 : 130
-
     useEffect(() => {
         const scrollEvent = () => {
             setScrollY(window.scrollY)

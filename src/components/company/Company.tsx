@@ -13,6 +13,10 @@ interface IProgressChart{
     percentage? : number;
 }
 
+/**
+ * @description 기업소개 탭 하위 기업소개 컴포넌트
+ */
+
 const Company = () => {
     return (
         <>

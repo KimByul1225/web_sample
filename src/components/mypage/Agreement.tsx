@@ -9,6 +9,10 @@ interface IChecked{
     check2: boolean
 }
 
+/**
+ * @description 약관동의 컴포넌트
+ */
+
 const Agreement = ({checkHandler, checkValue, nextButton}: {checkHandler: (e: React.ChangeEvent<HTMLInputElement>) => void, checkValue: IChecked, nextButton: () => void}) => {
     return (
         <Container>

@@ -4,8 +4,6 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-
-
 ChartJS.register(
     ArcElement, 
     Tooltip, 
@@ -18,6 +16,10 @@ interface IdoughnutChart {
     data: number,
     percentage?: number
 }
+
+/**
+ * @description 도넛차트, 테이블 혼합형태 컴포넌트
+ */
 
 export default function DoughnutTable({chartData}: {chartData: IdoughnutChart[]}) {
     const sampleColor = ["#DE6F6B", "#FF905F", "#F3C96B", "#9ECA80", "#5AA173", "#3C869B", "#88BBF9", "#DCECFF", "#EBF7D9", "#F7CEDB", "#95E3F5", "#F9DCC3", "#DCC8F9", "#7DFBCC", "#EBAA9C", "#C7CBF9", "#788BF0", "#78A1F0", "#3AF1E6", "#FFA724", "#FF3E24", "#689A36", "#6571F1", "#8424FF"]

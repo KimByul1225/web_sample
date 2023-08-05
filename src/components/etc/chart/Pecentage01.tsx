@@ -40,6 +40,10 @@ interface GradeDataInterface {
     E: number | null
 }
 
+/**
+ * @description Pecentage차트 컴포넌트
+ */
+
 const Pecentage01 = ({gradeData}: {gradeData: GradeDataInterface}) => {
     const labels = Object.keys(gradeData);
     const values = Object.values(gradeData);

@@ -1,10 +1,13 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
 
-
 interface IDecoSubTitle {
     underline?: boolean;
 }
+
+/**
+ * @description 작은사각형 꾸밈요소가 있는 Sub Title 컴포넌트
+ */
 
 const DecoSubTitle = ({title, underline}: { title:string, underline?: boolean}) => {
     return (

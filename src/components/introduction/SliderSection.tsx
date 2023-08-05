@@ -8,6 +8,10 @@ import Icon01 from "@/resources/icons/introducation/icon_slider_01.png";
 import Icon02 from "@/resources/icons/introducation/icon_slider_02.png";
 import Icon03 from "@/resources/icons/introducation/icon_slider_03.png";
 
+/**
+ * @description 소개페이지 리스트형태 Type02 상세페이지 하위 모바일 슬라이더 영역 컴포넌트
+ */
+
 const SliderSection = ({className}: {className?:string}) => {
     return (
         <Container>

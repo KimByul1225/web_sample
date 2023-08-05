@@ -6,6 +6,10 @@ interface ISectionTitle {
     title?: string;
 }
 
+/**
+ * @description 각섹션 가운데 정렬된 Title 컴포넌트
+ */
+
 const SectionTitle = ({color, title}: ISectionTitle) => {
     return (
         <Title color={color}>

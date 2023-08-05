@@ -27,6 +27,10 @@ interface ISearchParams {
     currentPageNo: number;
 }
 
+/**
+ * @description 게시글 텍스트형태 페이지
+ */
+
 const TextType = () => {
     const setAlertModal = useSetRecoilState(alertState);
     const [searchParams, setSearchParams] = useState<ISearchParams>({

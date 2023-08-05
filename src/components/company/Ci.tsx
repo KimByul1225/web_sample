@@ -2,10 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import Container from '../layout/Container';
 import Row from '../layout/Row';
-
 import Logo from "@/resources/images/commons/logo.png"
 import LogoBlack from "@/resources/images/commons/logo_black.png"
 import SymbolSample from "@/resources/images/commons/logo_symbol.png"
+
+/**
+ * @description 기업소개 탭 하위 CI소개 컴포넌트
+ */
 
 const Ci = () => {
     return (

@@ -4,6 +4,9 @@ import {useEffect} from "react";
 import "@/resources/styles/marker.css";
 import markerSample from "@/resources/images/company/marker_sample.png"
 
+/**
+ * @description 카카오맵 컴포넌트
+ */
 
 function Kakaomap(){
     useEffect(() => {

@@ -1,6 +1,10 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
+/**
+ * @description Row 컴포넌트. 각 페이지 별 내용이 들어가는 가로 길이를 제한하기 위한 컴포넌트
+ */
+
 const Row = ({children}:{children: ReactNode}) => {
     return (
         <RowSection>

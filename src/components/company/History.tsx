@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
 import Container from '../layout/Container';
 import Row from '../layout/Row';
 
@@ -14,6 +13,9 @@ interface IHistoryDetail {
     
 }
 
+/**
+ * @description 기업소개 탭 하위 연혁 컴포넌트
+ */
 
 
 const HistoryDetail = ({result}: {result: IHistoryDetail}) => { 

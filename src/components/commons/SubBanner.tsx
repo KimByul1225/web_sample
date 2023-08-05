@@ -7,6 +7,9 @@ interface ISubBanner {
     lineText02?: string;
 }
 
+/**
+ * @description Sub페이지 최상단 배너 영역 컴포넌트
+ */
 
 const SubBanner = (props: ISubBanner) => {
     const {title, lineText01, lineText02} = props;

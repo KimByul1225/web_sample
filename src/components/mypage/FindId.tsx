@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import iconExclamation from "@/resources/icons/mypage/icon_exclamation.png";
 import iconSelect from "@/resources/icons/commons/icon_select.png"
 
+/**
+ * @description 아이디 찾기페이지 Api연동 미실시
+ */
 
 const FindId = () => {
     const [emailAddress,  setEmailAddress] = useState<string>("");

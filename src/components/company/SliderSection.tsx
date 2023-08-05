@@ -9,6 +9,10 @@ import Icon02 from "@/resources/icons/company/icon_company_int02.png";
 import Icon03 from "@/resources/icons/company/icon_company_int03.png";
 import Row from '../layout/Row';
 
+/**
+ * @description 기업소개 탭 하위 모바일 슬라이더 영역 컴포넌트
+ */
+
 const SliderSection = () => {
     const pagination = {
         clickable: true,

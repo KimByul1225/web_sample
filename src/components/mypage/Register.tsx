@@ -4,7 +4,9 @@ import { useSetRecoilState } from "recoil";
 import { alertState } from "@/global/modal";
 import Join from "./Join";
 
-
+/**
+ * @description 회원가입 페이지 Api연동 미실시
+ */
 
 const Register = () => {
     const [checkBox, setCheckBox] = useState({

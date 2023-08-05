@@ -1,11 +1,13 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styled from 'styled-components';
-
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
 
+/**
+ * @description 소개페이지 일반형태 Type02 페이지 하위 모바일 슬라이더 영역 컴포넌트
+ */
 
 const SliderPaginationComboSection = () => {
     const pagination = {

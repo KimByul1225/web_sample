@@ -3,6 +3,10 @@ import { useRecoilValue, useResetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import closeIcon from "@/resources/icons/commons/icon_modal_close.png"
 
+/**
+ * @description 컨펌모달창 컴포넌트
+ */
+
 const ConfirmModal = ( ) => {
     const confirmModal = useRecoilValue(confirmState);
     const resetConfirmModal= useResetRecoilState(confirmState);

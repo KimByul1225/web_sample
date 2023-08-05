@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -38,6 +37,10 @@ interface Pecentage02Interface {
     year: string,
     pecentage: number
 }
+
+/**
+ * @description Pecentage차트 타입2 컴포넌트
+ */
 
 export default function Pecentage01({chartData}: {chartData: Pecentage02Interface[]}) {
     const labels = chartData.map((item)=> item.year);

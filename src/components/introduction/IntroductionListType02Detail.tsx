@@ -7,10 +7,13 @@ import DecoTitle from '../commons/DecoTitle';
 import styled from 'styled-components';
 import SliderSection from './SliderSection';
 
+/**
+ * @description 소개페이지 리스트형태 Type02 상세페이지
+ */
+
 const IntroductionListType02Detail = () => {
     const params = useParams();
     const {detailId} = params; 
-    
     return (
         <>
             <SubBanner

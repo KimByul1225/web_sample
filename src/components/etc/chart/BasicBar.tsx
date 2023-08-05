@@ -38,6 +38,10 @@ interface Pecentage02Interface {
     pecentage: number
 }
 
+/**
+ * @description 기본 바차트 컴포넌트
+ */
+
 export default function BasicBar({chartData}: {chartData: Pecentage02Interface[]}) {
 
     const labels = chartData.map((item)=> item.year);

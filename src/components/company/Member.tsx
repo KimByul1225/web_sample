@@ -16,6 +16,10 @@ interface IMember{
 }
 
 
+/**
+ * @description 구성원 페이지
+ */
+
 
 const Member = () => {
     const [memberData, setMemberData] = useState<IMember[]>([]);

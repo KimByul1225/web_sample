@@ -20,6 +20,9 @@ interface IImageBox{
     image: string;
 }
 
+/**
+ * @description 구성원 Box의 컴포넌트로 모바일 사이즈에서 Slider로 변경
+ */
 
 const MemberSliderSection = ({result}: {result: IMember[]}) => {
     const [modalProps, setModalProps] = useState<IMember>({} as IMember);
