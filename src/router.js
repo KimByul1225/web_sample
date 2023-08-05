@@ -26,14 +26,15 @@ import Login from '@/components/mypage/Login';
 import FindId from '@/components/mypage/FindId';
 import ResetPassword from '@/components/mypage/ResetPassword';
 import Register from '@/components/mypage/Register';
-
 import Etc from '@/containers/Etc';
 import ChartType01 from '@/components/etc/ChartType01';
 import ChartType02 from '@/components/etc/ChartType02';
 import QuickMenu from './components/etc/QuickMenu';
 import ChartType03 from './components/etc/ChartType03';
 
-
+/**
+ * @description Router
+ */
 
 const router = createBrowserRouter([
     {
@@ -126,20 +127,6 @@ const router = createBrowserRouter([
                         element: <ListDetail />,
                     },
                     
-                ]
-            },
-            {
-                path: "list",
-                element: <List />,
-                children: [
-                    {
-                        path: "textType",
-                        element: <TextType />,
-                    },
-                    {
-                        path: "imageType",
-                        element: <ImageType />,
-                    },
                 ]
             },
             {

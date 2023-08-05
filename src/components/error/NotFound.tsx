@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import errorBackGround from "@/resources/images/commons/error_bg.png";
 import iconArrow from "@/resources/icons/commons/icon_error_arrow.png";
 
+/**
+ * @description 에러 발생시 페이지
+ */
+
 const NotFound = () => {
     return (
         <ErrorRow>
