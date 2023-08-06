@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import styled, {css} from 'styled-components';
 import { Link } from 'react-router-dom';
 import Logo from "@/resources/images/commons/logo_black.png";
-
 import {useMediaQuery} from 'react-responsive';
 import MobileHeader from './MobileHeader';
 
 interface IContainer {
     isMouseEnter?: boolean;
 }
+
+/**
+ * @description Header 컴포넌트
+ */
 
 const Header = () => {
     const [mouserEnter, setMouseEnter] = useState(false);

@@ -5,6 +5,10 @@ import logo from "@/resources/images/commons/logo_symbol.png";
 import iconMenu from "@/resources/icons/commons/icon_menu.png";
 import iconMenuClose from "@/resources/icons/commons/icon_mobile_menu_close.png";
 
+/**
+ * @description Mobile용 Header 컴포넌트
+ */
+
 const MobileHeader = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();

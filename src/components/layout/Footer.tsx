@@ -11,6 +11,10 @@ import Icon4 from "@/resources/icons/commons/icon_mail.png";
 import IconHover4 from "@/resources/icons/commons/icon_mail_hover.png";
 import Logo from "@/resources/images/commons/logo_black.png";
 
+/**
+ * @description Footer 컴포넌트
+ */
+
 const Footer = () => {
     return (
         <FooterWrap>

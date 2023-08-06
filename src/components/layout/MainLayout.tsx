@@ -1,6 +1,10 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
+/**
+ * @description MainLayout 컴포넌트
+ */
+
 const MainLayout = ({children}: {children: ReactNode}) => {
     return (
         <MainWrap>
