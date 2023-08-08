@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import lastIcon from "@/resources/icons/commons/icon_pagination_last.png";
 import lastIconOn from "@/resources/icons/commons/icon_pagination_last_on.png";

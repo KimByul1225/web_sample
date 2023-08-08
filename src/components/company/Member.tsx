@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-
 import SubBanner from '../commons/SubBanner';
 import Container from '../layout/Container';
 import Row from '../layout/Row';
@@ -61,6 +59,4 @@ export default Member;
 //     border: 1px solid #000;
 //     background: url(${(props) => props.img}) center no-repeat;
 //     background-size: contain;
-    
-
 // `

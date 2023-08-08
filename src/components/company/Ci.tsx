@@ -228,15 +228,3 @@ const ButtonWrap = styled.div`
 
     }
 `
-
-
-
-const CiTitle2 = styled.h2`
-    
-    @media screen and (max-width: 1200px){
-        
-    }
-    @media screen and (max-width: 768px){
-        
-    }
-`
