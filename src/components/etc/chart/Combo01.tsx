@@ -10,6 +10,7 @@ import {
 	Title,
 	Tooltip,
 	Legend,
+	LineController,
 } from 'chart.js';
 
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -25,6 +26,7 @@ ChartJS.register(
 	Title,
 	Tooltip,
 	Legend,
+	LineController,
 	ChartDataLabels
 );
 
