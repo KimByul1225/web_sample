@@ -4,7 +4,8 @@
 <br />
 <img width="400" src="./readme/logo.png" />
 <br />
-<a display="block" href="#">https://github.com/KimByul1225/web_sample</a>
+<br />
+<a display="block" href="#">https://byul-web-sample.netlify.app</a>
 <br /><br />
 </div>
 <br />
